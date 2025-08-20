@@ -6,5 +6,10 @@ namespace Herramientas_III_Activ_
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
