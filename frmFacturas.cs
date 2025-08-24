@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace Pantallas_Sistema_facturacion
 {
-    public partial class Form2 : Form
+    public partial class frmFacturas : Form
     {
-        public Form2()
+        public frmFacturas()
         {
             InitializeComponent();
+        }
+
+        private void materialLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialLabel5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
