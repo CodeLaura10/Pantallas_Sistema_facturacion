@@ -7,10 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MaterialSkin.Animations;
+using MaterialSkin;
+using MaterialSkin.Controls;
 
 namespace Pantallas_Sistema_facturacion
 {
-    public partial class frmFacturas : Form
+    public partial class frmFacturas : MaterialForm
+
     {
         public frmFacturas()
         {
@@ -23,6 +27,26 @@ namespace Pantallas_Sistema_facturacion
         }
 
         private void materialLabel5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmFacturas_Load(object sender, EventArgs e)
         {
 
         }

@@ -71,8 +71,10 @@ namespace Pantallas_Sistema_facturacion
 //<<<<<<< prueba-categoria
         private void btnClientes_Click(object sender, EventArgs e)
         {
-            FrmClientes frmclientes = new FrmClientes();
-            frmclientes.ShowDialog();
+
+            frmAyuda Frmayuda = new frmAyuda();
+            Frmayuda.ShowDialog();
+
         }
 
         private void btnProductos_Click(object sender, EventArgs e)
@@ -82,7 +84,9 @@ namespace Pantallas_Sistema_facturacion
         }
 
         private void btnCategorias_Click(object sender, EventArgs e)
-        {
+        
+        }
+
             FrmCategorias frmproductos = new FrmCategorias();
             frmproductos.ShowDialog();
         }
@@ -95,38 +99,17 @@ namespace Pantallas_Sistema_facturacion
         private void TabOpcionesMenu_Click(object sender, EventArgs e)
         {
         }
-//=======
+
         private void btnAyuda_Click(object sender, EventArgs e)
-        {
-            // Limpia lo que haya en el panel
-            panelContenedor.Controls.Clear();
-
-            // Instancia el formulario hijo
-            frmAyuda frm = new frmAyuda();
-            frm.TopLevel = false;                       // <- Importante para que sea "control"
-            frm.FormBorderStyle = FormBorderStyle.None; // <- Sin borde
-            frm.Dock = DockStyle.Fill;                  // <- Que ocupe todo el panel
-
-            // Agrega el formulario al panel
-            panelContenedor.Controls.Add(frm);
-            frm.Show();
+        {         
+            frmAyuda Frmayuda = new frmAyuda();
+            Frmayuda.ShowDialog();
         }
 
         private void btnAcerca_Click(object sender, EventArgs e)
         {
-            // Limpia lo que haya en el panel
-            panelContenedor.Controls.Clear();
-
-            // Instancia el formulario hijo
-            frmAcerca frm = new frmAcerca();
-            frm.TopLevel = false;                       // <- Importante para que sea "control"
-            frm.FormBorderStyle = FormBorderStyle.None; // <- Sin borde
-            frm.Dock = DockStyle.Fill;                  // <- Que ocupe todo el panel
-
-            // Agrega el formulario al panel
-            panelContenedor.Controls.Add(frm);
-            frm.Show();
-//>>>>>>> main
+            frmAcerca Frmacerca = new frmAcerca();
+            Frmacerca.ShowDialog();
 
         }
     }
