@@ -46,6 +46,7 @@
             ClientSize = new Size(813, 450);
             Controls.Add(richTextBox1);
             Name = "frmAcerca";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "frmAcerca";
             Load += frmAcerca_Load;
             ResumeLayout(false);
