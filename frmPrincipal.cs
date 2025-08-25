@@ -12,6 +12,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text;
+using MaterialSkin.Properties;
+using MaterialSkin.Animations;
+using Microsoft.Web.WebView2.WinForms;
+
 
 
 
@@ -63,6 +68,7 @@ namespace Pantallas_Sistema_facturacion
             fInformes.ShowDialog();
         }
 
+//<<<<<<< prueba-categoria
         private void btnClientes_Click(object sender, EventArgs e)
         {
             FrmClientes frmclientes = new FrmClientes();
@@ -88,6 +94,38 @@ namespace Pantallas_Sistema_facturacion
 
         private void TabOpcionesMenu_Click(object sender, EventArgs e)
         {
+//=======
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            // Limpia lo que haya en el panel
+            panelContenedor.Controls.Clear();
+
+            // Instancia el formulario hijo
+            frmAyuda frm = new frmAyuda();
+            frm.TopLevel = false;                       // <- Importante para que sea "control"
+            frm.FormBorderStyle = FormBorderStyle.None; // <- Sin borde
+            frm.Dock = DockStyle.Fill;                  // <- Que ocupe todo el panel
+
+            // Agrega el formulario al panel
+            panelContenedor.Controls.Add(frm);
+            frm.Show();
+        }
+
+        private void btnAcerca_Click(object sender, EventArgs e)
+        {
+            // Limpia lo que haya en el panel
+            panelContenedor.Controls.Clear();
+
+            // Instancia el formulario hijo
+            frmAcerca frm = new frmAcerca();
+            frm.TopLevel = false;                       // <- Importante para que sea "control"
+            frm.FormBorderStyle = FormBorderStyle.None; // <- Sin borde
+            frm.Dock = DockStyle.Fill;                  // <- Que ocupe todo el panel
+
+            // Agrega el formulario al panel
+            panelContenedor.Controls.Add(frm);
+            frm.Show();
+//>>>>>>> main
 
         }
     }

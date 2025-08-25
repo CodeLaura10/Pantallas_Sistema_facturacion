@@ -33,6 +33,7 @@
             folderBrowserDialog1 = new FolderBrowserDialog();
             label1 = new Label();
             pnlPrincipal = new Panel();
+            panelContenedor = new Panel();
             panel1 = new Panel();
             TbpMenu = new MaterialSkin.Controls.MaterialTabControl();
             principal = new TabPage();
@@ -94,12 +95,20 @@
             // pnlPrincipal
             // 
             pnlPrincipal.BackColor = SystemColors.ButtonFace;
+            pnlPrincipal.Controls.Add(panelContenedor);
             pnlPrincipal.Controls.Add(panel1);
             pnlPrincipal.Location = new Point(1, 45);
             pnlPrincipal.Margin = new Padding(3, 2, 3, 2);
             pnlPrincipal.Name = "pnlPrincipal";
             pnlPrincipal.Size = new Size(1126, 548);
             pnlPrincipal.TabIndex = 3;
+            // 
+            // panelContenedor
+            // 
+            panelContenedor.Location = new Point(180, 3);
+            panelContenedor.Name = "panelContenedor";
+            panelContenedor.Size = new Size(1107, 723);
+            panelContenedor.TabIndex = 1;
             // 
             // panel1
             // 
@@ -417,6 +426,9 @@
             btnAyuda.TabIndex = 7;
             btnAyuda.Text = "Ayuda";
             btnAyuda.UseVisualStyleBackColor = true;
+
+            btnAyuda.Click += btnAyuda_Click;
+
             // 
             // btnAcerca
             // 
@@ -434,6 +446,7 @@
             btnAcerca.TabIndex = 6;
             btnAcerca.Text = "Acerca de..";
             btnAcerca.UseVisualStyleBackColor = true;
+            btnAcerca.Click += btnAcerca_Click;
             // 
             // pictureBox4
             // 
@@ -466,7 +479,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = SystemColors.ButtonFace;
-            ClientSize = new Size(1311, 788);
+
+
+            ClientSize = new Size(1974, 1372);
+
             Controls.Add(pnlPrincipal);
             Controls.Add(TabOpcionesMenu);
             Controls.Add(label1);
@@ -532,5 +548,6 @@
         private Button btnEmpleados;
         private Button btnAyuda;
         private Button btnAcerca;
+        private Panel panelContenedor;
     }
 }
