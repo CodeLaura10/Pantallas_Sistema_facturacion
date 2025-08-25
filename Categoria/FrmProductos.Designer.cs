@@ -38,9 +38,9 @@
             this.BtnEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.labelproductos = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.BtnBuscar = new MaterialSkin.Controls.MaterialRaisedButton();
+            /* this.BtnBuscar = new MaterialSkin.Controls.MaterialRaisedButton();
             this.BtnNuevo = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.BtnSalir = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.BtnSalir = new MaterialSkin.Controls.MaterialRaisedButton(); */
             this.textBoxcliente = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.DGProductos)).BeginInit();
@@ -130,7 +130,7 @@
             // 
             // BtnBuscar
             // 
-            this.BtnBuscar.AutoSize = true;
+            /* this.BtnBuscar.AutoSize = true;
             this.BtnBuscar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BtnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(21)))), ((int)(((byte)(38)))));
             this.BtnBuscar.Depth = 0;
@@ -142,11 +142,11 @@
             this.BtnBuscar.Size = new System.Drawing.Size(74, 36);
             this.BtnBuscar.TabIndex = 2;
             this.BtnBuscar.Text = "Buscar";
-            this.BtnBuscar.UseVisualStyleBackColor = false;
+            this.BtnBuscar.UseVisualStyleBackColor = false; */
             // 
             // BtnNuevo
             // 
-            this.BtnNuevo.AutoSize = true;
+            /* this.BtnNuevo.AutoSize = true;
             this.BtnNuevo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BtnNuevo.Depth = 0;
             this.BtnNuevo.Icon = null;
@@ -158,11 +158,11 @@
             this.BtnNuevo.TabIndex = 3;
             this.BtnNuevo.Text = "Nuevo Producto";
             this.BtnNuevo.UseVisualStyleBackColor = true;
-            this.BtnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
+            this.BtnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click); */
             // 
             // BtnSalir
             // 
-            this.BtnSalir.AutoSize = true;
+            /* this.BtnSalir.AutoSize = true;
             this.BtnSalir.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BtnSalir.Depth = 0;
             this.BtnSalir.Icon = null;
@@ -174,7 +174,7 @@
             this.BtnSalir.TabIndex = 4;
             this.BtnSalir.Text = "Salir";
             this.BtnSalir.UseVisualStyleBackColor = true;
-            this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
+            this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click); */
             // 
             // textBoxcliente
             // 
@@ -190,9 +190,9 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(21)))), ((int)(((byte)(38)))));
             this.panel2.Controls.Add(this.textBoxcliente);
-            this.panel2.Controls.Add(this.BtnSalir);
+            /* this.panel2.Controls.Add(this.BtnSalir);
             this.panel2.Controls.Add(this.BtnNuevo);
-            this.panel2.Controls.Add(this.BtnBuscar);
+            this.panel2.Controls.Add(this.BtnBuscar); */
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.ForeColor = System.Drawing.SystemColors.Info;
             this.panel2.Location = new System.Drawing.Point(0, 66);
@@ -227,9 +227,9 @@
         private System.Windows.Forms.DataGridView DGProductos;
         private System.Windows.Forms.Label labelproductos;
         private System.Windows.Forms.Panel panel1;
-        private MaterialSkin.Controls.MaterialRaisedButton BtnBuscar;
+        /* private MaterialSkin.Controls.MaterialRaisedButton BtnBuscar;
         private MaterialSkin.Controls.MaterialRaisedButton BtnNuevo;
-        private MaterialSkin.Controls.MaterialRaisedButton BtnSalir;
+        private MaterialSkin.Controls.MaterialRaisedButton BtnSalir; */
         private System.Windows.Forms.TextBox textBoxcliente;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id_Producto;
