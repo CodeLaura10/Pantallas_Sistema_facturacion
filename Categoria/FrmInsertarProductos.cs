@@ -25,7 +25,7 @@ namespace FrmCategoria
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Producto Actualizada");
+            MessageBox.Show("Producto Actualizado");
             this.Close();
         }
 

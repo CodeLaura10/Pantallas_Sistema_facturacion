@@ -68,5 +68,17 @@ namespace FrmCategoria
             Producto.Id_Producto = 0;
             Producto.ShowDialog();
         }
+
+        private void BtnSalir_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BtnNuevoProducto_Click(object sender, EventArgs e)
+        {
+            FrmInsertarProductos frminsertarproducto = new FrmInsertarProductos();
+            frminsertarproducto.Id_Producto = 0;
+            frminsertarproducto.ShowDialog();
+        }
     }
 }
