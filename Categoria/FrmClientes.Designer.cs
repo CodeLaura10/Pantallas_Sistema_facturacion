@@ -1,4 +1,6 @@
-﻿namespace FrmCategoria
+﻿using Pantallas_Sistema_facturacion.Properties;
+
+namespace FrmCategoria
 {
     partial class FrmClientes
     {
@@ -36,9 +38,9 @@
             this.labelcliente = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.textBoxcliente = new System.Windows.Forms.TextBox();
-            this.BtnSalir = new MaterialSkin.Controls.MaterialRaisedButton();
+            /* this.BtnSalir = new MaterialSkin.Controls.MaterialRaisedButton();
             this.BtnNuevo = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.BtnBuscar = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.BtnBuscar = new MaterialSkin.Controls.MaterialRaisedButton(); */
             this.Id_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,7 +72,7 @@
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.HeaderText = "EDITAR";
-            this.dataGridViewImageColumn1.Image = global::FrmCategoria.Properties.Resources.a37f4ed0_67cf_472a_9bb5_b12abbedaaed;
+            this.dataGridViewImageColumn1.Image = Resources.a37f4ed0_67cf_472a_9bb5_b12abbedaaed;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             // 
             // dataGridViewImageColumn2
@@ -104,9 +106,9 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(21)))), ((int)(((byte)(38)))));
             this.panel2.Controls.Add(this.textBoxcliente);
-            this.panel2.Controls.Add(this.BtnSalir);
+            /* this.panel2.Controls.Add(this.BtnSalir);
             this.panel2.Controls.Add(this.BtnNuevo);
-            this.panel2.Controls.Add(this.BtnBuscar);
+            this.panel2.Controls.Add(this.BtnBuscar); */
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.ForeColor = System.Drawing.SystemColors.Info;
             this.panel2.Location = new System.Drawing.Point(0, 66);
@@ -126,7 +128,7 @@
             // 
             // BtnSalir
             // 
-            this.BtnSalir.AutoSize = true;
+            /* this.BtnSalir.AutoSize = true;
             this.BtnSalir.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BtnSalir.Depth = 0;
             this.BtnSalir.Icon = null;
@@ -138,11 +140,11 @@
             this.BtnSalir.TabIndex = 4;
             this.BtnSalir.Text = "Salir";
             this.BtnSalir.UseVisualStyleBackColor = true;
-            this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
+            this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click); */
             // 
             // BtnNuevo
             // 
-            this.BtnNuevo.AutoSize = true;
+            /* this.BtnNuevo.AutoSize = true;
             this.BtnNuevo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BtnNuevo.Depth = 0;
             this.BtnNuevo.Icon = null;
@@ -154,11 +156,11 @@
             this.BtnNuevo.TabIndex = 3;
             this.BtnNuevo.Text = "Nuevo Cliente";
             this.BtnNuevo.UseVisualStyleBackColor = true;
-            this.BtnNuevo.Click += new System.EventHandler(this.materialRaisedButton2_Click);
+            this.BtnNuevo.Click += new System.EventHandler(this.materialRaisedButton2_Click); */
             // 
             // BtnBuscar
             // 
-            this.BtnBuscar.AutoSize = true;
+            /* this.BtnBuscar.AutoSize = true;
             this.BtnBuscar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BtnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(21)))), ((int)(((byte)(38)))));
             this.BtnBuscar.Depth = 0;
@@ -171,7 +173,7 @@
             this.BtnBuscar.TabIndex = 2;
             this.BtnBuscar.Text = "Buscar";
             this.BtnBuscar.UseVisualStyleBackColor = false;
-            this.BtnBuscar.Click += new System.EventHandler(this.materialRaisedButton1_Click);
+            this.BtnBuscar.Click += new System.EventHandler(this.materialRaisedButton1_Click); */
             // 
             // Id_Cliente
             // 
@@ -243,9 +245,9 @@
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private MaterialSkin.Controls.MaterialRaisedButton BtnSalir;
+        /* private MaterialSkin.Controls.MaterialRaisedButton BtnSalir;
         private MaterialSkin.Controls.MaterialRaisedButton BtnNuevo;
-        private MaterialSkin.Controls.MaterialRaisedButton BtnBuscar;
+        private MaterialSkin.Controls.MaterialRaisedButton BtnBuscar; */
         private System.Windows.Forms.Label labelcliente;
         private System.Windows.Forms.TextBox textBoxcliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id_Cliente;
