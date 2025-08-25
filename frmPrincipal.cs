@@ -107,6 +107,7 @@ namespace Pantallas_Sistema_facturacion
         private void btnAcerca_Click(object sender, EventArgs e)
         {
             frmAcerca FrmAcerca= new frmAcerca();
+            FrmAcerca.ShowDialog();
         }
     }
 }
