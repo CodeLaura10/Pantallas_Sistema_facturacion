@@ -39,11 +39,6 @@ public partial class frmPrincipal : MaterialForm
 
     }
 
-    private void btnAyuda_Click(object sender, EventArgs e)
-    {
-        frmAyuda frmAyuda = new frmAyuda();
-        AbrirForm(frmAyuda);
 
-    }
 }
 

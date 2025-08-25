@@ -388,7 +388,7 @@
             btnAyuda.TabIndex = 7;
             btnAyuda.Text = "Ayuda";
             btnAyuda.UseVisualStyleBackColor = true;
-            btnAyuda.Click += btnAyuda_Click;
+ 
             // 
             // btnAcerca
             // 
