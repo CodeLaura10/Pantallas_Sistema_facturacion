@@ -35,7 +35,7 @@
             // 
             richTextBox1.Location = new Point(24, 12);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(746, 405);
+            richTextBox1.Size = new Size(901, 518);
             richTextBox1.TabIndex = 0;
             richTextBox1.Text = "";
             // 
@@ -43,7 +43,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(813, 450);
+            ClientSize = new Size(936, 555);
             Controls.Add(richTextBox1);
             Name = "frmAcerca";
             StartPosition = FormStartPosition.CenterScreen;
