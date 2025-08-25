@@ -92,11 +92,10 @@ namespace Pantallas_Sistema_facturacion
 
         private void TabOpcionesMenu_Click(object sender, EventArgs e)
         {
-
         }
 
         private void btnAyuda_Click(object sender, EventArgs e)
-        {
+        {         
             frmAyuda Frmayuda = new frmAyuda();
             Frmayuda.ShowDialog();
         }
@@ -105,7 +104,6 @@ namespace Pantallas_Sistema_facturacion
         {
             frmAcerca Frmacerca = new frmAcerca();
             Frmacerca.ShowDialog();
-        }
         }
     }
 }

@@ -50,6 +50,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(webView21);
             Name = "frmAyuda";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "frmAyuda";
             Load += frmAyuda_Load;
             ((System.ComponentModel.ISupportInitialize)webView21).EndInit();
