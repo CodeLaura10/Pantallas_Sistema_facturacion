@@ -1,16 +1,17 @@
+using FrmCategoria;
 using MaterialSkin;
+using MaterialSkin.Animations;
 using MaterialSkin.Controls;
+using MaterialSkin.Properties;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Threading.Tasks;
-using System.ComponentModel;
-using System.Windows.Forms;
 using System.Text;
-using MaterialSkin.Properties;
-using MaterialSkin.Animations;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 
 
@@ -23,7 +24,7 @@ namespace Pantallas_Sistema_facturacion
         public frmPrincipal()
         {
             InitializeComponent();
-         
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -44,8 +45,8 @@ namespace Pantallas_Sistema_facturacion
             fFacturas.ShowDialog();
         }
 
-      
-       
+
+
         private void button2_Click(object sender, EventArgs e)
         {
 
@@ -60,6 +61,34 @@ namespace Pantallas_Sistema_facturacion
         {
             frmInformes fInformes = new frmInformes();
             fInformes.ShowDialog();
+        }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            FrmClientes frmclientes = new FrmClientes();
+            frmclientes.ShowDialog();
+        }
+
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            FrmProductos frmproductos = new FrmProductos();
+            frmproductos.ShowDialog();
+        }
+
+        private void btnCategorias_Click(object sender, EventArgs e)
+        {
+            FrmCategorias frmproductos = new FrmCategorias();
+            frmproductos.ShowDialog();
+        }
+
+        private void BtnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void TabOpcionesMenu_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -28,198 +28,188 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.DGProductos = new System.Windows.Forms.DataGridView();
-            this.Id_Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre_Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre_Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BtnEditar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.BtnEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.labelproductos = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            /* this.BtnBuscar = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.BtnNuevo = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.BtnSalir = new MaterialSkin.Controls.MaterialRaisedButton(); */
-            this.textBoxcliente = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.DGProductos)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.SuspendLayout();
+            DGProductos = new DataGridView();
+            Id_Producto = new DataGridViewTextBoxColumn();
+            Nombre_Producto = new DataGridViewTextBoxColumn();
+            Nombre_Categoria = new DataGridViewTextBoxColumn();
+            Precio = new DataGridViewTextBoxColumn();
+            Stock = new DataGridViewTextBoxColumn();
+            BtnEditar = new DataGridViewButtonColumn();
+            BtnEliminar = new DataGridViewButtonColumn();
+            labelproductos = new Label();
+            panel1 = new Panel();
+            textBoxcliente = new TextBox();
+            panel2 = new Panel();
+            BtnNuevoProducto = new Button();
+            BtnBuscar = new Button();
+            BtnSalir = new Button();
+            ((System.ComponentModel.ISupportInitialize)DGProductos).BeginInit();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            SuspendLayout();
             // 
             // DGProductos
             // 
-            this.DGProductos.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.DGProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id_Producto,
-            this.Nombre_Producto,
-            this.Nombre_Categoria,
-            this.Precio,
-            this.Stock,
-            this.BtnEditar,
-            this.BtnEliminar});
-            this.DGProductos.Location = new System.Drawing.Point(37, 140);
-            this.DGProductos.Name = "DGProductos";
-            this.DGProductos.Size = new System.Drawing.Size(737, 262);
-            this.DGProductos.TabIndex = 5;
-            this.DGProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGProductos_CellContentClick);
+            DGProductos.BackgroundColor = SystemColors.ButtonFace;
+            DGProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DGProductos.Columns.AddRange(new DataGridViewColumn[] { Id_Producto, Nombre_Producto, Nombre_Categoria, Precio, Stock, BtnEditar, BtnEliminar });
+            DGProductos.Location = new Point(28, 158);
+            DGProductos.Margin = new Padding(4, 3, 4, 3);
+            DGProductos.Name = "DGProductos";
+            DGProductos.Size = new Size(876, 263);
+            DGProductos.TabIndex = 5;
+            DGProductos.CellContentClick += DGProductos_CellContentClick;
             // 
             // Id_Producto
             // 
-            this.Id_Producto.HeaderText = "ID";
-            this.Id_Producto.Name = "Id_Producto";
-            this.Id_Producto.Width = 30;
+            Id_Producto.HeaderText = "ID";
+            Id_Producto.Name = "Id_Producto";
+            Id_Producto.Width = 30;
             // 
             // Nombre_Producto
             // 
-            this.Nombre_Producto.HeaderText = "PRODUCTO";
-            this.Nombre_Producto.Name = "Nombre_Producto";
-            this.Nombre_Producto.Width = 150;
+            Nombre_Producto.HeaderText = "PRODUCTO";
+            Nombre_Producto.Name = "Nombre_Producto";
+            Nombre_Producto.Width = 230;
             // 
             // Nombre_Categoria
             // 
-            this.Nombre_Categoria.HeaderText = "CATEGORIA";
-            this.Nombre_Categoria.Name = "Nombre_Categoria";
-            this.Nombre_Categoria.Width = 110;
+            Nombre_Categoria.HeaderText = "CATEGORIA";
+            Nombre_Categoria.Name = "Nombre_Categoria";
+            Nombre_Categoria.Width = 190;
             // 
             // Precio
             // 
-            this.Precio.HeaderText = "PRECIO";
-            this.Precio.Name = "Precio";
+            Precio.HeaderText = "PRECIO";
+            Precio.Name = "Precio";
+            Precio.Width = 130;
             // 
             // Stock
             // 
-            this.Stock.HeaderText = "STOCK";
-            this.Stock.Name = "Stock";
+            Stock.HeaderText = "STOCK";
+            Stock.Name = "Stock";
+            Stock.Width = 120;
             // 
             // BtnEditar
             // 
-            this.BtnEditar.HeaderText = "EDITAR";
-            this.BtnEditar.Name = "BtnEditar";
-            this.BtnEditar.Text = "Editar";
-            this.BtnEditar.UseColumnTextForButtonValue = true;
+            BtnEditar.HeaderText = "EDITAR";
+            BtnEditar.Name = "BtnEditar";
+            BtnEditar.Text = "Editar";
+            BtnEditar.UseColumnTextForButtonValue = true;
+            BtnEditar.Width = 65;
             // 
             // BtnEliminar
             // 
-            this.BtnEliminar.HeaderText = "ELIMINAR";
-            this.BtnEliminar.Name = "BtnEliminar";
-            this.BtnEliminar.Text = "Eliminar";
-            this.BtnEliminar.UseColumnTextForButtonValue = true;
+            BtnEliminar.HeaderText = "ELIMINAR";
+            BtnEliminar.Name = "BtnEliminar";
+            BtnEliminar.Text = "Eliminar";
+            BtnEliminar.UseColumnTextForButtonValue = true;
+            BtnEliminar.Width = 65;
             // 
             // labelproductos
             // 
-            this.labelproductos.AutoSize = true;
-            this.labelproductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelproductos.ForeColor = System.Drawing.Color.White;
-            this.labelproductos.Location = new System.Drawing.Point(178, 19);
-            this.labelproductos.Name = "labelproductos";
-            this.labelproductos.Size = new System.Drawing.Size(445, 29);
-            this.labelproductos.TabIndex = 1;
-            this.labelproductos.Text = "ADMINISTRACIÓN DE PRODUCTOS";
+            labelproductos.AutoSize = true;
+            labelproductos.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelproductos.ForeColor = Color.White;
+            labelproductos.Location = new Point(244, 22);
+            labelproductos.Margin = new Padding(4, 0, 4, 0);
+            labelproductos.Name = "labelproductos";
+            labelproductos.Size = new Size(445, 29);
+            labelproductos.TabIndex = 1;
+            labelproductos.Text = "ADMINISTRACIÓN DE PRODUCTOS";
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.labelproductos);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 66);
-            this.panel1.TabIndex = 6;
-            // 
-            // BtnBuscar
-            // 
-            /* this.BtnBuscar.AutoSize = true;
-            this.BtnBuscar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BtnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(21)))), ((int)(((byte)(38)))));
-            this.BtnBuscar.Depth = 0;
-            this.BtnBuscar.Icon = null;
-            this.BtnBuscar.Location = new System.Drawing.Point(494, 5);
-            this.BtnBuscar.MouseState = MaterialSkin.MouseState.HOVER;
-            this.BtnBuscar.Name = "BtnBuscar";
-            this.BtnBuscar.Primary = true;
-            this.BtnBuscar.Size = new System.Drawing.Size(74, 36);
-            this.BtnBuscar.TabIndex = 2;
-            this.BtnBuscar.Text = "Buscar";
-            this.BtnBuscar.UseVisualStyleBackColor = false; */
-            // 
-            // BtnNuevo
-            // 
-            /* this.BtnNuevo.AutoSize = true;
-            this.BtnNuevo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BtnNuevo.Depth = 0;
-            this.BtnNuevo.Icon = null;
-            this.BtnNuevo.Location = new System.Drawing.Point(578, 5);
-            this.BtnNuevo.MouseState = MaterialSkin.MouseState.HOVER;
-            this.BtnNuevo.Name = "BtnNuevo";
-            this.BtnNuevo.Primary = true;
-            this.BtnNuevo.Size = new System.Drawing.Size(141, 36);
-            this.BtnNuevo.TabIndex = 3;
-            this.BtnNuevo.Text = "Nuevo Producto";
-            this.BtnNuevo.UseVisualStyleBackColor = true;
-            this.BtnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click); */
-            // 
-            // BtnSalir
-            // 
-            /* this.BtnSalir.AutoSize = true;
-            this.BtnSalir.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BtnSalir.Depth = 0;
-            this.BtnSalir.Icon = null;
-            this.BtnSalir.Location = new System.Drawing.Point(729, 5);
-            this.BtnSalir.MouseState = MaterialSkin.MouseState.HOVER;
-            this.BtnSalir.Name = "BtnSalir";
-            this.BtnSalir.Primary = true;
-            this.BtnSalir.Size = new System.Drawing.Size(58, 36);
-            this.BtnSalir.TabIndex = 4;
-            this.BtnSalir.Text = "Salir";
-            this.BtnSalir.UseVisualStyleBackColor = true;
-            this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click); */
+            panel1.Controls.Add(labelproductos);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(4, 3, 4, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(933, 76);
+            panel1.TabIndex = 6;
             // 
             // textBoxcliente
             // 
-            this.textBoxcliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(21)))), ((int)(((byte)(38)))));
-            this.textBoxcliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxcliente.ForeColor = System.Drawing.SystemColors.Window;
-            this.textBoxcliente.Location = new System.Drawing.Point(23, 9);
-            this.textBoxcliente.Name = "textBoxcliente";
-            this.textBoxcliente.Size = new System.Drawing.Size(439, 29);
-            this.textBoxcliente.TabIndex = 5;
+            textBoxcliente.BackColor = Color.FromArgb(47, 62, 153);
+            textBoxcliente.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxcliente.ForeColor = SystemColors.Window;
+            textBoxcliente.Location = new Point(27, 12);
+            textBoxcliente.Margin = new Padding(4, 3, 4, 3);
+            textBoxcliente.Name = "textBoxcliente";
+            textBoxcliente.Size = new Size(511, 29);
+            textBoxcliente.TabIndex = 6;
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(21)))), ((int)(((byte)(38)))));
-            this.panel2.Controls.Add(this.textBoxcliente);
-            /* this.panel2.Controls.Add(this.BtnSalir);
-            this.panel2.Controls.Add(this.BtnNuevo);
-            this.panel2.Controls.Add(this.BtnBuscar); */
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.ForeColor = System.Drawing.SystemColors.Info;
-            this.panel2.Location = new System.Drawing.Point(0, 66);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 48);
-            this.panel2.TabIndex = 7;
+            panel2.BackColor = Color.FromArgb(47, 62, 153);
+            panel2.Controls.Add(BtnNuevoProducto);
+            panel2.Controls.Add(BtnBuscar);
+            panel2.Controls.Add(BtnSalir);
+            panel2.Controls.Add(textBoxcliente);
+            panel2.Dock = DockStyle.Top;
+            panel2.ForeColor = SystemColors.Info;
+            panel2.Location = new Point(0, 76);
+            panel2.Margin = new Padding(4, 3, 4, 3);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(933, 55);
+            panel2.TabIndex = 7;
+            // 
+            // BtnNuevoProducto
+            // 
+            BtnNuevoProducto.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtnNuevoProducto.ForeColor = SystemColors.Desktop;
+            BtnNuevoProducto.Location = new Point(687, 7);
+            BtnNuevoProducto.Name = "BtnNuevoProducto";
+            BtnNuevoProducto.Size = new Size(93, 42);
+            BtnNuevoProducto.TabIndex = 8;
+            BtnNuevoProducto.Text = "Nuevo";
+            BtnNuevoProducto.UseVisualStyleBackColor = true;
+            BtnNuevoProducto.Click += BtnNuevoProducto_Click;
+            // 
+            // BtnBuscar
+            // 
+            BtnBuscar.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtnBuscar.ForeColor = SystemColors.Desktop;
+            BtnBuscar.Location = new Point(560, 7);
+            BtnBuscar.Name = "BtnBuscar";
+            BtnBuscar.Size = new Size(93, 42);
+            BtnBuscar.TabIndex = 7;
+            BtnBuscar.Text = "Buscar";
+            BtnBuscar.UseVisualStyleBackColor = true;
+            // 
+            // BtnSalir
+            // 
+            BtnSalir.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtnSalir.ForeColor = SystemColors.Desktop;
+            BtnSalir.Location = new Point(819, 7);
+            BtnSalir.Name = "BtnSalir";
+            BtnSalir.Size = new Size(93, 42);
+            BtnSalir.TabIndex = 6;
+            BtnSalir.Text = "Salir";
+            BtnSalir.UseVisualStyleBackColor = true;
+            BtnSalir.Click += BtnSalir_Click_1;
             // 
             // FrmProductos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(42)))), ((int)(((byte)(87)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.DGProductos);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmProductos";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmProductos";
-            this.Load += new System.EventHandler(this.FrmProductos_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DGProductos)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(63, 81, 181);
+            ClientSize = new Size(933, 450);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
+            Controls.Add(DGProductos);
+            FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "FrmProductos";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "FrmProductos";
+            Load += FrmProductos_Load;
+            ((System.ComponentModel.ISupportInitialize)DGProductos).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            ResumeLayout(false);
 
         }
 
@@ -232,12 +222,15 @@
         private MaterialSkin.Controls.MaterialRaisedButton BtnSalir; */
         private System.Windows.Forms.TextBox textBoxcliente;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id_Producto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre_Producto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre_Categoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Stock;
-        private System.Windows.Forms.DataGridViewButtonColumn BtnEditar;
-        private System.Windows.Forms.DataGridViewButtonColumn BtnEliminar;
+        private Button BtnSalir;
+        private Button BtnBuscar;
+        private Button BtnNuevoProducto;
+        private DataGridViewTextBoxColumn Id_Producto;
+        private DataGridViewTextBoxColumn Nombre_Producto;
+        private DataGridViewTextBoxColumn Nombre_Categoria;
+        private DataGridViewTextBoxColumn Precio;
+        private DataGridViewTextBoxColumn Stock;
+        private DataGridViewButtonColumn BtnEditar;
+        private DataGridViewButtonColumn BtnEliminar;
     }
 }

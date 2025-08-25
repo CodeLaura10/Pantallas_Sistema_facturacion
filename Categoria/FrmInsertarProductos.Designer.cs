@@ -28,286 +28,304 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.BtnCancelar = new System.Windows.Forms.Button();
-            this.BtnGuardar = new System.Windows.Forms.Button();
-            this.LblTituloProducto = new System.Windows.Forms.Label();
-            this.TxtStock = new System.Windows.Forms.TextBox();
-            this.TxtVenta = new System.Windows.Forms.TextBox();
-            this.TxtCompra = new System.Windows.Forms.TextBox();
-            this.TxTId_Producto = new System.Windows.Forms.TextBox();
-            this.TxtReferencia = new System.Windows.Forms.TextBox();
-            this.TxtNombre = new System.Windows.Forms.TextBox();
-            this.LblStock = new System.Windows.Forms.Label();
-            this.LblPrecioVenta = new System.Windows.Forms.Label();
-            this.LblPrecioCompra = new System.Windows.Forms.Label();
-            this.LblNroReferencia = new System.Windows.Forms.Label();
-            this.LblNombreProducto = new System.Windows.Forms.Label();
-            this.TxtDetalle = new System.Windows.Forms.TextBox();
-            this.LblDetalleProducto = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.LblRutaImagen = new System.Windows.Forms.Label();
-            this.ComboxCategoria = new System.Windows.Forms.ComboBox();
-            this.LblCategoria = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+            BtnCancelar = new Button();
+            BtnGuardar = new Button();
+            LblTituloProducto = new Label();
+            TxtStock = new TextBox();
+            TxtVenta = new TextBox();
+            TxtCompra = new TextBox();
+            TxTId_Producto = new TextBox();
+            TxtReferencia = new TextBox();
+            TxtNombre = new TextBox();
+            LblStock = new Label();
+            LblPrecioVenta = new Label();
+            LblPrecioCompra = new Label();
+            LblNroReferencia = new Label();
+            LblNombreProducto = new Label();
+            TxtDetalle = new TextBox();
+            LblDetalleProducto = new Label();
+            textBox1 = new TextBox();
+            LblRutaImagen = new Label();
+            ComboxCategoria = new ComboBox();
+            LblCategoria = new Label();
+            SuspendLayout();
             // 
             // BtnCancelar
             // 
-            this.BtnCancelar.BackColor = System.Drawing.Color.Red;
-            this.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCancelar.ForeColor = System.Drawing.SystemColors.Control;
-            this.BtnCancelar.Location = new System.Drawing.Point(345, 339);
-            this.BtnCancelar.Name = "BtnCancelar";
-            this.BtnCancelar.Size = new System.Drawing.Size(118, 30);
-            this.BtnCancelar.TabIndex = 7;
-            this.BtnCancelar.Text = "Cancelar";
-            this.BtnCancelar.UseVisualStyleBackColor = false;
-            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
+            BtnCancelar.BackColor = Color.Red;
+            BtnCancelar.FlatStyle = FlatStyle.Popup;
+            BtnCancelar.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtnCancelar.ForeColor = SystemColors.Control;
+            BtnCancelar.Location = new Point(384, 391);
+            BtnCancelar.Margin = new Padding(4, 3, 4, 3);
+            BtnCancelar.Name = "BtnCancelar";
+            BtnCancelar.Size = new Size(138, 35);
+            BtnCancelar.TabIndex = 7;
+            BtnCancelar.Text = "Cancelar";
+            BtnCancelar.UseVisualStyleBackColor = false;
+            BtnCancelar.Click += BtnCancelar_Click;
             // 
             // BtnGuardar
             // 
-            this.BtnGuardar.BackColor = System.Drawing.Color.Blue;
-            this.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGuardar.ForeColor = System.Drawing.SystemColors.Control;
-            this.BtnGuardar.Location = new System.Drawing.Point(197, 339);
-            this.BtnGuardar.Name = "BtnGuardar";
-            this.BtnGuardar.Size = new System.Drawing.Size(118, 30);
-            this.BtnGuardar.TabIndex = 8;
-            this.BtnGuardar.Text = "Guardar";
-            this.BtnGuardar.UseVisualStyleBackColor = false;
-            this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
+            BtnGuardar.BackColor = Color.Blue;
+            BtnGuardar.FlatStyle = FlatStyle.Popup;
+            BtnGuardar.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtnGuardar.ForeColor = SystemColors.Control;
+            BtnGuardar.Location = new Point(212, 391);
+            BtnGuardar.Margin = new Padding(4, 3, 4, 3);
+            BtnGuardar.Name = "BtnGuardar";
+            BtnGuardar.Size = new Size(138, 35);
+            BtnGuardar.TabIndex = 8;
+            BtnGuardar.Text = "Guardar";
+            BtnGuardar.UseVisualStyleBackColor = false;
+            BtnGuardar.Click += BtnGuardar_Click;
             // 
             // LblTituloProducto
             // 
-            this.LblTituloProducto.AutoSize = true;
-            this.LblTituloProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTituloProducto.ForeColor = System.Drawing.Color.White;
-            this.LblTituloProducto.Location = new System.Drawing.Point(30, 9);
-            this.LblTituloProducto.Name = "LblTituloProducto";
-            this.LblTituloProducto.Size = new System.Drawing.Size(177, 29);
-            this.LblTituloProducto.TabIndex = 9;
-            this.LblTituloProducto.Text = "Titulo Producto";
-            this.LblTituloProducto.Click += new System.EventHandler(this.LblTitulo_Click);
+            LblTituloProducto.AutoSize = true;
+            LblTituloProducto.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            LblTituloProducto.ForeColor = Color.White;
+            LblTituloProducto.Location = new Point(35, 10);
+            LblTituloProducto.Margin = new Padding(4, 0, 4, 0);
+            LblTituloProducto.Name = "LblTituloProducto";
+            LblTituloProducto.Size = new Size(197, 31);
+            LblTituloProducto.TabIndex = 9;
+            LblTituloProducto.Text = "Titulo Producto";
+            LblTituloProducto.Click += LblTitulo_Click;
             // 
             // TxtStock
             // 
-            this.TxtStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
-            this.TxtStock.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtStock.ForeColor = System.Drawing.SystemColors.Window;
-            this.TxtStock.Location = new System.Drawing.Point(55, 296);
-            this.TxtStock.Name = "TxtStock";
-            this.TxtStock.Size = new System.Drawing.Size(244, 20);
-            this.TxtStock.TabIndex = 31;
+            TxtStock.BackColor = Color.MintCream;
+            TxtStock.BorderStyle = BorderStyle.FixedSingle;
+            TxtStock.ForeColor = SystemColors.ActiveCaptionText;
+            TxtStock.Location = new Point(64, 342);
+            TxtStock.Margin = new Padding(4, 3, 4, 3);
+            TxtStock.Name = "TxtStock";
+            TxtStock.Size = new Size(284, 23);
+            TxtStock.TabIndex = 31;
             // 
             // TxtVenta
             // 
-            this.TxtVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
-            this.TxtVenta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtVenta.ForeColor = System.Drawing.SystemColors.Window;
-            this.TxtVenta.Location = new System.Drawing.Point(55, 244);
-            this.TxtVenta.Name = "TxtVenta";
-            this.TxtVenta.Size = new System.Drawing.Size(244, 20);
-            this.TxtVenta.TabIndex = 30;
+            TxtVenta.BackColor = Color.MintCream;
+            TxtVenta.BorderStyle = BorderStyle.FixedSingle;
+            TxtVenta.ForeColor = SystemColors.ActiveCaptionText;
+            TxtVenta.Location = new Point(64, 282);
+            TxtVenta.Margin = new Padding(4, 3, 4, 3);
+            TxtVenta.Name = "TxtVenta";
+            TxtVenta.Size = new Size(284, 23);
+            TxtVenta.TabIndex = 30;
             // 
             // TxtCompra
             // 
-            this.TxtCompra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
-            this.TxtCompra.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtCompra.ForeColor = System.Drawing.SystemColors.Window;
-            this.TxtCompra.Location = new System.Drawing.Point(55, 192);
-            this.TxtCompra.Name = "TxtCompra";
-            this.TxtCompra.Size = new System.Drawing.Size(244, 20);
-            this.TxtCompra.TabIndex = 29;
+            TxtCompra.BackColor = Color.MintCream;
+            TxtCompra.BorderStyle = BorderStyle.FixedSingle;
+            TxtCompra.ForeColor = SystemColors.ActiveCaptionText;
+            TxtCompra.Location = new Point(64, 222);
+            TxtCompra.Margin = new Padding(4, 3, 4, 3);
+            TxtCompra.Name = "TxtCompra";
+            TxtCompra.Size = new Size(284, 23);
+            TxtCompra.TabIndex = 29;
             // 
             // TxTId_Producto
             // 
-            this.TxTId_Producto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
-            this.TxTId_Producto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxTId_Producto.ForeColor = System.Drawing.SystemColors.Window;
-            this.TxTId_Producto.Location = new System.Drawing.Point(630, 58);
-            this.TxTId_Producto.Name = "TxTId_Producto";
-            this.TxTId_Producto.Size = new System.Drawing.Size(18, 20);
-            this.TxTId_Producto.TabIndex = 28;
+            TxTId_Producto.BackColor = Color.MintCream;
+            TxTId_Producto.BorderStyle = BorderStyle.FixedSingle;
+            TxTId_Producto.ForeColor = SystemColors.ActiveCaptionText;
+            TxTId_Producto.Location = new Point(679, 67);
+            TxTId_Producto.Margin = new Padding(4, 3, 4, 3);
+            TxTId_Producto.Name = "TxTId_Producto";
+            TxTId_Producto.Size = new Size(21, 23);
+            TxTId_Producto.TabIndex = 28;
             // 
             // TxtReferencia
             // 
-            this.TxtReferencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
-            this.TxtReferencia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtReferencia.ForeColor = System.Drawing.SystemColors.Window;
-            this.TxtReferencia.Location = new System.Drawing.Point(33, 140);
-            this.TxtReferencia.Name = "TxtReferencia";
-            this.TxtReferencia.Size = new System.Drawing.Size(266, 20);
-            this.TxtReferencia.TabIndex = 27;
+            TxtReferencia.BackColor = Color.MintCream;
+            TxtReferencia.BorderStyle = BorderStyle.FixedSingle;
+            TxtReferencia.ForeColor = SystemColors.ActiveCaptionText;
+            TxtReferencia.Location = new Point(38, 162);
+            TxtReferencia.Margin = new Padding(4, 3, 4, 3);
+            TxtReferencia.Name = "TxtReferencia";
+            TxtReferencia.Size = new Size(310, 23);
+            TxtReferencia.TabIndex = 27;
             // 
             // TxtNombre
             // 
-            this.TxtNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
-            this.TxtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtNombre.ForeColor = System.Drawing.SystemColors.Window;
-            this.TxtNombre.Location = new System.Drawing.Point(33, 88);
-            this.TxtNombre.Name = "TxtNombre";
-            this.TxtNombre.Size = new System.Drawing.Size(266, 20);
-            this.TxtNombre.TabIndex = 26;
+            TxtNombre.BackColor = Color.MintCream;
+            TxtNombre.BorderStyle = BorderStyle.FixedSingle;
+            TxtNombre.ForeColor = SystemColors.ActiveCaptionText;
+            TxtNombre.Location = new Point(38, 102);
+            TxtNombre.Margin = new Padding(4, 3, 4, 3);
+            TxtNombre.Name = "TxtNombre";
+            TxtNombre.Size = new Size(310, 23);
+            TxtNombre.TabIndex = 26;
             // 
             // LblStock
             // 
-            this.LblStock.AutoSize = true;
-            this.LblStock.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblStock.ForeColor = System.Drawing.Color.White;
-            this.LblStock.Location = new System.Drawing.Point(50, 274);
-            this.LblStock.Name = "LblStock";
-            this.LblStock.Size = new System.Drawing.Size(111, 19);
-            this.LblStock.TabIndex = 25;
-            this.LblStock.Text = "Cantidad Stock";
+            LblStock.AutoSize = true;
+            LblStock.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LblStock.ForeColor = Color.White;
+            LblStock.Location = new Point(58, 316);
+            LblStock.Margin = new Padding(4, 0, 4, 0);
+            LblStock.Name = "LblStock";
+            LblStock.Size = new Size(111, 19);
+            LblStock.TabIndex = 25;
+            LblStock.Text = "Cantidad Stock";
             // 
             // LblPrecioVenta
             // 
-            this.LblPrecioVenta.AutoSize = true;
-            this.LblPrecioVenta.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblPrecioVenta.ForeColor = System.Drawing.Color.White;
-            this.LblPrecioVenta.Location = new System.Drawing.Point(50, 222);
-            this.LblPrecioVenta.Name = "LblPrecioVenta";
-            this.LblPrecioVenta.Size = new System.Drawing.Size(109, 19);
-            this.LblPrecioVenta.TabIndex = 24;
-            this.LblPrecioVenta.Text = "💲 Precio Venta";
+            LblPrecioVenta.AutoSize = true;
+            LblPrecioVenta.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LblPrecioVenta.ForeColor = Color.White;
+            LblPrecioVenta.Location = new Point(58, 256);
+            LblPrecioVenta.Margin = new Padding(4, 0, 4, 0);
+            LblPrecioVenta.Name = "LblPrecioVenta";
+            LblPrecioVenta.Size = new Size(109, 19);
+            LblPrecioVenta.TabIndex = 24;
+            LblPrecioVenta.Text = "💲 Precio Venta";
             // 
             // LblPrecioCompra
             // 
-            this.LblPrecioCompra.AutoSize = true;
-            this.LblPrecioCompra.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblPrecioCompra.ForeColor = System.Drawing.Color.White;
-            this.LblPrecioCompra.Location = new System.Drawing.Point(50, 170);
-            this.LblPrecioCompra.Name = "LblPrecioCompra";
-            this.LblPrecioCompra.Size = new System.Drawing.Size(123, 19);
-            this.LblPrecioCompra.TabIndex = 23;
-            this.LblPrecioCompra.Text = "💲 Precio Compra";
-            this.LblPrecioCompra.Click += new System.EventHandler(this.LblPrecioCompra_Click);
+            LblPrecioCompra.AutoSize = true;
+            LblPrecioCompra.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LblPrecioCompra.ForeColor = Color.White;
+            LblPrecioCompra.Location = new Point(58, 196);
+            LblPrecioCompra.Margin = new Padding(4, 0, 4, 0);
+            LblPrecioCompra.Name = "LblPrecioCompra";
+            LblPrecioCompra.Size = new Size(123, 19);
+            LblPrecioCompra.TabIndex = 23;
+            LblPrecioCompra.Text = "💲 Precio Compra";
+            LblPrecioCompra.Click += LblPrecioCompra_Click;
             // 
             // LblNroReferencia
             // 
-            this.LblNroReferencia.AutoSize = true;
-            this.LblNroReferencia.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblNroReferencia.ForeColor = System.Drawing.Color.White;
-            this.LblNroReferencia.Location = new System.Drawing.Point(29, 118);
-            this.LblNroReferencia.Name = "LblNroReferencia";
-            this.LblNroReferencia.Size = new System.Drawing.Size(117, 19);
-            this.LblNroReferencia.TabIndex = 22;
-            this.LblNroReferencia.Text = "Nro. Referencia";
+            LblNroReferencia.AutoSize = true;
+            LblNroReferencia.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LblNroReferencia.ForeColor = Color.White;
+            LblNroReferencia.Location = new Point(34, 136);
+            LblNroReferencia.Margin = new Padding(4, 0, 4, 0);
+            LblNroReferencia.Name = "LblNroReferencia";
+            LblNroReferencia.Size = new Size(117, 19);
+            LblNroReferencia.TabIndex = 22;
+            LblNroReferencia.Text = "Nro. Referencia";
             // 
             // LblNombreProducto
             // 
-            this.LblNombreProducto.AutoSize = true;
-            this.LblNombreProducto.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblNombreProducto.ForeColor = System.Drawing.Color.White;
-            this.LblNombreProducto.Location = new System.Drawing.Point(29, 66);
-            this.LblNombreProducto.Name = "LblNombreProducto";
-            this.LblNombreProducto.Size = new System.Drawing.Size(126, 19);
-            this.LblNombreProducto.TabIndex = 21;
-            this.LblNombreProducto.Text = "Nombre Producto";
+            LblNombreProducto.AutoSize = true;
+            LblNombreProducto.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LblNombreProducto.ForeColor = Color.White;
+            LblNombreProducto.Location = new Point(34, 76);
+            LblNombreProducto.Margin = new Padding(4, 0, 4, 0);
+            LblNombreProducto.Name = "LblNombreProducto";
+            LblNombreProducto.Size = new Size(126, 19);
+            LblNombreProducto.TabIndex = 21;
+            LblNombreProducto.Text = "Nombre Producto";
             // 
             // TxtDetalle
             // 
-            this.TxtDetalle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
-            this.TxtDetalle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtDetalle.ForeColor = System.Drawing.SystemColors.Window;
-            this.TxtDetalle.Location = new System.Drawing.Point(382, 192);
-            this.TxtDetalle.Multiline = true;
-            this.TxtDetalle.Name = "TxtDetalle";
-            this.TxtDetalle.Size = new System.Drawing.Size(266, 124);
-            this.TxtDetalle.TabIndex = 33;
+            TxtDetalle.BackColor = Color.MintCream;
+            TxtDetalle.BorderStyle = BorderStyle.FixedSingle;
+            TxtDetalle.ForeColor = SystemColors.ActiveCaptionText;
+            TxtDetalle.Location = new Point(390, 222);
+            TxtDetalle.Margin = new Padding(4, 3, 4, 3);
+            TxtDetalle.Multiline = true;
+            TxtDetalle.Name = "TxtDetalle";
+            TxtDetalle.Size = new Size(310, 143);
+            TxtDetalle.TabIndex = 33;
             // 
             // LblDetalleProducto
             // 
-            this.LblDetalleProducto.AutoSize = true;
-            this.LblDetalleProducto.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblDetalleProducto.ForeColor = System.Drawing.Color.White;
-            this.LblDetalleProducto.Location = new System.Drawing.Point(378, 170);
-            this.LblDetalleProducto.Name = "LblDetalleProducto";
-            this.LblDetalleProducto.Size = new System.Drawing.Size(121, 19);
-            this.LblDetalleProducto.TabIndex = 32;
-            this.LblDetalleProducto.Text = "Detalle Producto";
+            LblDetalleProducto.AutoSize = true;
+            LblDetalleProducto.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LblDetalleProducto.ForeColor = Color.White;
+            LblDetalleProducto.Location = new Point(385, 196);
+            LblDetalleProducto.Margin = new Padding(4, 0, 4, 0);
+            LblDetalleProducto.Name = "LblDetalleProducto";
+            LblDetalleProducto.Size = new Size(121, 19);
+            LblDetalleProducto.TabIndex = 32;
+            LblDetalleProducto.Text = "Detalle Producto";
             // 
             // textBox1
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.ForeColor = System.Drawing.SystemColors.Window;
-            this.textBox1.Location = new System.Drawing.Point(382, 140);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(266, 20);
-            this.textBox1.TabIndex = 35;
+            textBox1.BackColor = Color.MintCream;
+            textBox1.BorderStyle = BorderStyle.FixedSingle;
+            textBox1.ForeColor = SystemColors.ActiveCaptionText;
+            textBox1.Location = new Point(390, 162);
+            textBox1.Margin = new Padding(4, 3, 4, 3);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(310, 23);
+            textBox1.TabIndex = 35;
             // 
             // LblRutaImagen
             // 
-            this.LblRutaImagen.AutoSize = true;
-            this.LblRutaImagen.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblRutaImagen.ForeColor = System.Drawing.Color.White;
-            this.LblRutaImagen.Location = new System.Drawing.Point(378, 119);
-            this.LblRutaImagen.Name = "LblRutaImagen";
-            this.LblRutaImagen.Size = new System.Drawing.Size(96, 19);
-            this.LblRutaImagen.TabIndex = 34;
-            this.LblRutaImagen.Text = "Ruta Imagen";
+            LblRutaImagen.AutoSize = true;
+            LblRutaImagen.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LblRutaImagen.ForeColor = Color.White;
+            LblRutaImagen.Location = new Point(385, 137);
+            LblRutaImagen.Margin = new Padding(4, 0, 4, 0);
+            LblRutaImagen.Name = "LblRutaImagen";
+            LblRutaImagen.Size = new Size(96, 19);
+            LblRutaImagen.TabIndex = 34;
+            LblRutaImagen.Text = "Ruta Imagen";
             // 
             // ComboxCategoria
             // 
-            this.ComboxCategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
-            this.ComboxCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ComboxCategoria.ForeColor = System.Drawing.SystemColors.Window;
-            this.ComboxCategoria.FormattingEnabled = true;
-            this.ComboxCategoria.Items.AddRange(new object[] {
-            "Categoria 1",
-            "Categoria 2",
-            "Categoria 3"});
-            this.ComboxCategoria.Location = new System.Drawing.Point(383, 88);
-            this.ComboxCategoria.Name = "ComboxCategoria";
-            this.ComboxCategoria.Size = new System.Drawing.Size(266, 21);
-            this.ComboxCategoria.TabIndex = 36;
+            ComboxCategoria.BackColor = Color.MintCream;
+            ComboxCategoria.FlatStyle = FlatStyle.Flat;
+            ComboxCategoria.ForeColor = SystemColors.ActiveCaptionText;
+            ComboxCategoria.FormattingEnabled = true;
+            ComboxCategoria.Items.AddRange(new object[] { "Categoria 1", "Categoria 2", "Categoria 3" });
+            ComboxCategoria.Location = new Point(391, 102);
+            ComboxCategoria.Margin = new Padding(4, 3, 4, 3);
+            ComboxCategoria.Name = "ComboxCategoria";
+            ComboxCategoria.Size = new Size(310, 23);
+            ComboxCategoria.TabIndex = 36;
             // 
             // LblCategoria
             // 
-            this.LblCategoria.AutoSize = true;
-            this.LblCategoria.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblCategoria.ForeColor = System.Drawing.Color.White;
-            this.LblCategoria.Location = new System.Drawing.Point(378, 66);
-            this.LblCategoria.Name = "LblCategoria";
-            this.LblCategoria.Size = new System.Drawing.Size(75, 19);
-            this.LblCategoria.TabIndex = 37;
-            this.LblCategoria.Text = "Categoria";
+            LblCategoria.AutoSize = true;
+            LblCategoria.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LblCategoria.ForeColor = Color.White;
+            LblCategoria.Location = new Point(385, 76);
+            LblCategoria.Margin = new Padding(4, 0, 4, 0);
+            LblCategoria.Name = "LblCategoria";
+            LblCategoria.Size = new Size(75, 19);
+            LblCategoria.TabIndex = 37;
+            LblCategoria.Text = "Categoria";
             // 
             // FrmInsertarProductos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
-            this.ClientSize = new System.Drawing.Size(660, 380);
-            this.Controls.Add(this.LblCategoria);
-            this.Controls.Add(this.ComboxCategoria);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.LblRutaImagen);
-            this.Controls.Add(this.TxtDetalle);
-            this.Controls.Add(this.LblDetalleProducto);
-            this.Controls.Add(this.TxtStock);
-            this.Controls.Add(this.TxtVenta);
-            this.Controls.Add(this.TxtCompra);
-            this.Controls.Add(this.TxTId_Producto);
-            this.Controls.Add(this.TxtReferencia);
-            this.Controls.Add(this.TxtNombre);
-            this.Controls.Add(this.LblStock);
-            this.Controls.Add(this.LblPrecioVenta);
-            this.Controls.Add(this.LblPrecioCompra);
-            this.Controls.Add(this.LblNroReferencia);
-            this.Controls.Add(this.LblNombreProducto);
-            this.Controls.Add(this.LblTituloProducto);
-            this.Controls.Add(this.BtnGuardar);
-            this.Controls.Add(this.BtnCancelar);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmInsertarProductos";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmInsertarProductos";
-            this.Load += new System.EventHandler(this.FrmInsertarProductos_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(47, 62, 153);
+            ClientSize = new Size(737, 438);
+            Controls.Add(LblCategoria);
+            Controls.Add(ComboxCategoria);
+            Controls.Add(textBox1);
+            Controls.Add(LblRutaImagen);
+            Controls.Add(TxtDetalle);
+            Controls.Add(LblDetalleProducto);
+            Controls.Add(TxtStock);
+            Controls.Add(TxtVenta);
+            Controls.Add(TxtCompra);
+            Controls.Add(TxTId_Producto);
+            Controls.Add(TxtReferencia);
+            Controls.Add(TxtNombre);
+            Controls.Add(LblStock);
+            Controls.Add(LblPrecioVenta);
+            Controls.Add(LblPrecioCompra);
+            Controls.Add(LblNroReferencia);
+            Controls.Add(LblNombreProducto);
+            Controls.Add(LblTituloProducto);
+            Controls.Add(BtnGuardar);
+            Controls.Add(BtnCancelar);
+            FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "FrmInsertarProductos";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "FrmInsertarProductos";
+            Load += FrmInsertarProductos_Load;
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

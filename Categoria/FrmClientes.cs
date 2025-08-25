@@ -104,5 +104,17 @@ namespace FrmCategoria
         {
             this.Close();
         }
+
+        private void BtnSalir_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BtnNuevoCliente_Click(object sender, EventArgs e)
+        {
+            FrmInsertarClientes frminsertarclientes = new FrmInsertarClientes();
+            frminsertarclientes.Id_Cliente = 0;
+            frminsertarclientes.ShowDialog();
+        }
     }
 }
