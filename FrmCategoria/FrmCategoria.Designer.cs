@@ -1,4 +1,7 @@
-﻿namespace FrmCategoria
+﻿using MaterialSkin;
+using MaterialSkin.Controls;
+
+namespace FrmCategoria
 {
     partial class FrmCategoria
     {
