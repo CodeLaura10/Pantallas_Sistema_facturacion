@@ -34,7 +34,9 @@ namespace Pantallas_Sistema_facturacion
         private void Facturacion_Click(object sender, EventArgs e)
         {
 
+
         }
+
 
         private void btnFacturacion_Click(object sender, EventArgs e)
         {

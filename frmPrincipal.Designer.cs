@@ -94,9 +94,9 @@
             // 
             pnlPrincipal.BackColor = SystemColors.ButtonFace;
             pnlPrincipal.Controls.Add(panel1);
-            pnlPrincipal.Location = new Point(-1, 61);
+            pnlPrincipal.Location = new Point(1, 60);
             pnlPrincipal.Name = "pnlPrincipal";
-            pnlPrincipal.Size = new Size(1519, 729);
+            pnlPrincipal.Size = new Size(1287, 730);
             pnlPrincipal.TabIndex = 3;
             // 
             // panel1
@@ -105,7 +105,7 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(178, 729);
+            panel1.Size = new Size(178, 730);
             panel1.TabIndex = 0;
             // 
             // TbpMenu
@@ -122,7 +122,7 @@
             TbpMenu.Multiline = true;
             TbpMenu.Name = "TbpMenu";
             TbpMenu.SelectedIndex = 0;
-            TbpMenu.Size = new Size(178, 729);
+            TbpMenu.Size = new Size(178, 730);
             TbpMenu.TabIndex = 0;
             // 
             // principal
@@ -134,7 +134,7 @@
             principal.Location = new Point(4, 79);
             principal.Name = "principal";
             principal.Padding = new Padding(3);
-            principal.Size = new Size(170, 646);
+            principal.Size = new Size(170, 647);
             principal.TabIndex = 0;
             principal.Text = "PRINCIPAL";
             // 
@@ -174,7 +174,7 @@
             tablas.Location = new Point(4, 79);
             tablas.Name = "tablas";
             tablas.Padding = new Padding(3);
-            tablas.Size = new Size(170, 646);
+            tablas.Size = new Size(170, 647);
             tablas.TabIndex = 1;
             tablas.Text = "TABLAS";
             // 
@@ -244,7 +244,7 @@
             facturacion.Controls.Add(pictureBox5);
             facturacion.Location = new Point(4, 79);
             facturacion.Name = "facturacion";
-            facturacion.Size = new Size(170, 646);
+            facturacion.Size = new Size(170, 647);
             facturacion.TabIndex = 2;
             facturacion.Text = "FACTURACIÓN";
             // 
@@ -301,7 +301,7 @@
             seguridad.Controls.Add(pictureBox3);
             seguridad.Location = new Point(4, 79);
             seguridad.Name = "seguridad";
-            seguridad.Size = new Size(170, 646);
+            seguridad.Size = new Size(170, 647);
             seguridad.TabIndex = 3;
             seguridad.Text = "SEGURIDAD";
             // 
@@ -371,7 +371,7 @@
             ayuda.Controls.Add(pictureBox4);
             ayuda.Location = new Point(4, 79);
             ayuda.Name = "ayuda";
-            ayuda.Size = new Size(170, 646);
+            ayuda.Size = new Size(170, 647);
             ayuda.TabIndex = 4;
             ayuda.Text = "AYUDA";
             // 
@@ -386,10 +386,11 @@
             btnAyuda.ImageAlign = ContentAlignment.MiddleLeft;
             btnAyuda.Location = new Point(0, 215);
             btnAyuda.Name = "btnAyuda";
-            btnAyuda.Size = new Size(185, 72);
+            btnAyuda.Size = new Size(167, 72);
             btnAyuda.TabIndex = 7;
             btnAyuda.Text = "Ayuda";
             btnAyuda.UseVisualStyleBackColor = true;
+ 
             // 
             // btnAcerca
             // 
@@ -402,7 +403,7 @@
             btnAcerca.ImageAlign = ContentAlignment.MiddleLeft;
             btnAcerca.Location = new Point(-4, 306);
             btnAcerca.Name = "btnAcerca";
-            btnAcerca.Size = new Size(212, 84);
+            btnAcerca.Size = new Size(174, 84);
             btnAcerca.TabIndex = 6;
             btnAcerca.Text = "Acerca de..";
             btnAcerca.UseVisualStyleBackColor = true;
@@ -435,7 +436,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = SystemColors.ButtonFace;
+
             ClientSize = new Size(1884, 1380);
+
             Controls.Add(pnlPrincipal);
             Controls.Add(TabOpcionesMenu);
             Controls.Add(label1);
