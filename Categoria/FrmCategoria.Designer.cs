@@ -125,7 +125,7 @@ namespace FrmCategoria
             labelcategoria.AutoSize = true;
             labelcategoria.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelcategoria.ForeColor = Color.White;
-            labelcategoria.Location = new Point(243, 22);
+            labelcategoria.Location = new Point(245, 22);
             labelcategoria.Margin = new Padding(4, 0, 4, 0);
             labelcategoria.Name = "labelcategoria";
             labelcategoria.Size = new Size(447, 29);
