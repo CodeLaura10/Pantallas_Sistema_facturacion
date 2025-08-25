@@ -33,5 +33,10 @@ namespace Pantallas_Sistema_facturacion
         {
             this.Close();
         }
+
+        private void frmInformes_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
