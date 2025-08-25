@@ -82,8 +82,7 @@ namespace Pantallas_Sistema_facturacion
             frmproductos.ShowDialog();
         }
 
-        private void btnCategorias_Click(object sender, EventArgs e)
-        {
+        private void btnCategorias_Click(object sender, EventArgs e) { 
             FrmCategorias frmCategorias = new FrmCategorias();
             frmCategorias.ShowDialog();
         }
@@ -99,15 +98,34 @@ namespace Pantallas_Sistema_facturacion
 
         private void btnAyuda_Click(object sender, EventArgs e)
         {
-            frmAyuda FrmAyuda = new frmAyuda();
-            FrmAyuda.ShowDialog();
+            // Limpia lo que haya en el panel
+            panelContenedor.Controls.Clear();
 
+            // Instancia el formulario hijo
+            frmAyuda frm = new frmAyuda();
+            frm.TopLevel = false;                       // <- Importante para que sea "control"
+            frm.FormBorderStyle = FormBorderStyle.None; // <- Sin borde
+            frm.Dock = DockStyle.Fill;                  // <- Que ocupe todo el panel
+
+            // Agrega el formulario al panel
+            panelContenedor.Controls.Add(frm);
+            frm.Show();
         }
 
         private void btnAcerca_Click(object sender, EventArgs e)
         {
-            frmAcerca FrmAcerca= new frmAcerca();
-            FrmAcerca.ShowDialog();
+            // Limpia lo que haya en el panel
+            panelContenedor.Controls.Clear();
+
+            // Instancia el formulario hijo
+            frmAcerca frm = new frmAcerca();
+            frm.TopLevel = false;                       // <- Importante para que sea "control"
+            frm.FormBorderStyle = FormBorderStyle.None; // <- Sin borde
+            frm.Dock = DockStyle.Fill;                  // <- Que ocupe todo el panel
+
+            // Agrega el formulario al panel
+            panelContenedor.Controls.Add(frm);
+            frm.Show();
 
         }
     }
