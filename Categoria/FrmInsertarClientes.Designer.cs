@@ -28,203 +28,218 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.BtnCancelar = new System.Windows.Forms.Button();
-            this.BtnGuardar = new System.Windows.Forms.Button();
-            this.LblTituloCliente = new System.Windows.Forms.Label();
-            this.LblNombreCLiente = new System.Windows.Forms.Label();
-            this.LblDocumentoId = new System.Windows.Forms.Label();
-            this.LblDirección = new System.Windows.Forms.Label();
-            this.LblTelefono = new System.Windows.Forms.Label();
-            this.LblEmail = new System.Windows.Forms.Label();
-            this.TxtNombre = new System.Windows.Forms.TextBox();
-            this.TxtDocumento = new System.Windows.Forms.TextBox();
-            this.TxTId_Cliente = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.SuspendLayout();
+            BtnCancelar = new Button();
+            BtnGuardar = new Button();
+            LblTituloCliente = new Label();
+            LblNombreCLiente = new Label();
+            LblDocumentoId = new Label();
+            LblDirección = new Label();
+            LblTelefono = new Label();
+            LblEmail = new Label();
+            TxtNombre = new TextBox();
+            TxtDocumento = new TextBox();
+            TxTId_Cliente = new TextBox();
+            textBox1 = new TextBox();
+            textBox2 = new TextBox();
+            textBox3 = new TextBox();
+            SuspendLayout();
             // 
             // BtnCancelar
             // 
-            this.BtnCancelar.BackColor = System.Drawing.Color.Red;
-            this.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCancelar.ForeColor = System.Drawing.SystemColors.Control;
-            this.BtnCancelar.Location = new System.Drawing.Point(181, 339);
-            this.BtnCancelar.Name = "BtnCancelar";
-            this.BtnCancelar.Size = new System.Drawing.Size(118, 30);
-            this.BtnCancelar.TabIndex = 7;
-            this.BtnCancelar.Text = "Cancelar";
-            this.BtnCancelar.UseVisualStyleBackColor = false;
-            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
+            BtnCancelar.BackColor = Color.Red;
+            BtnCancelar.FlatStyle = FlatStyle.Popup;
+            BtnCancelar.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtnCancelar.ForeColor = SystemColors.Control;
+            BtnCancelar.Location = new Point(211, 391);
+            BtnCancelar.Margin = new Padding(4, 3, 4, 3);
+            BtnCancelar.Name = "BtnCancelar";
+            BtnCancelar.Size = new Size(138, 35);
+            BtnCancelar.TabIndex = 7;
+            BtnCancelar.Text = "Cancelar";
+            BtnCancelar.UseVisualStyleBackColor = false;
+            BtnCancelar.Click += BtnCancelar_Click;
             // 
             // BtnGuardar
             // 
-            this.BtnGuardar.BackColor = System.Drawing.Color.Blue;
-            this.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGuardar.ForeColor = System.Drawing.SystemColors.Control;
-            this.BtnGuardar.Location = new System.Drawing.Point(33, 339);
-            this.BtnGuardar.Name = "BtnGuardar";
-            this.BtnGuardar.Size = new System.Drawing.Size(118, 30);
-            this.BtnGuardar.TabIndex = 8;
-            this.BtnGuardar.Text = "Guardar";
-            this.BtnGuardar.UseVisualStyleBackColor = false;
-            this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
+            BtnGuardar.BackColor = Color.Blue;
+            BtnGuardar.FlatStyle = FlatStyle.Popup;
+            BtnGuardar.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtnGuardar.ForeColor = SystemColors.Control;
+            BtnGuardar.Location = new Point(38, 391);
+            BtnGuardar.Margin = new Padding(4, 3, 4, 3);
+            BtnGuardar.Name = "BtnGuardar";
+            BtnGuardar.Size = new Size(138, 35);
+            BtnGuardar.TabIndex = 8;
+            BtnGuardar.Text = "Guardar";
+            BtnGuardar.UseVisualStyleBackColor = false;
+            BtnGuardar.Click += BtnGuardar_Click;
             // 
             // LblTituloCliente
             // 
-            this.LblTituloCliente.AutoSize = true;
-            this.LblTituloCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTituloCliente.ForeColor = System.Drawing.Color.White;
-            this.LblTituloCliente.Location = new System.Drawing.Point(30, 9);
-            this.LblTituloCliente.Name = "LblTituloCliente";
-            this.LblTituloCliente.Size = new System.Drawing.Size(156, 29);
-            this.LblTituloCliente.TabIndex = 9;
-            this.LblTituloCliente.Text = "Titulo Cliente";
+            LblTituloCliente.AutoSize = true;
+            LblTituloCliente.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            LblTituloCliente.ForeColor = Color.White;
+            LblTituloCliente.Location = new Point(35, 10);
+            LblTituloCliente.Margin = new Padding(4, 0, 4, 0);
+            LblTituloCliente.Name = "LblTituloCliente";
+            LblTituloCliente.Size = new Size(173, 31);
+            LblTituloCliente.TabIndex = 9;
+            LblTituloCliente.Text = "Titulo Cliente";
             // 
             // LblNombreCLiente
             // 
-            this.LblNombreCLiente.AutoSize = true;
-            this.LblNombreCLiente.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblNombreCLiente.ForeColor = System.Drawing.Color.White;
-            this.LblNombreCLiente.Location = new System.Drawing.Point(29, 66);
-            this.LblNombreCLiente.Name = "LblNombreCLiente";
-            this.LblNombreCLiente.Size = new System.Drawing.Size(115, 19);
-            this.LblNombreCLiente.TabIndex = 10;
-            this.LblNombreCLiente.Text = "Nombre Cliente";
+            LblNombreCLiente.AutoSize = true;
+            LblNombreCLiente.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LblNombreCLiente.ForeColor = Color.White;
+            LblNombreCLiente.Location = new Point(34, 76);
+            LblNombreCLiente.Margin = new Padding(4, 0, 4, 0);
+            LblNombreCLiente.Name = "LblNombreCLiente";
+            LblNombreCLiente.Size = new Size(115, 19);
+            LblNombreCLiente.TabIndex = 10;
+            LblNombreCLiente.Text = "Nombre Cliente";
             // 
             // LblDocumentoId
             // 
-            this.LblDocumentoId.AutoSize = true;
-            this.LblDocumentoId.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblDocumentoId.ForeColor = System.Drawing.Color.White;
-            this.LblDocumentoId.Location = new System.Drawing.Point(29, 118);
-            this.LblDocumentoId.Name = "LblDocumentoId";
-            this.LblDocumentoId.Size = new System.Drawing.Size(103, 19);
-            this.LblDocumentoId.TabIndex = 11;
-            this.LblDocumentoId.Text = "Documento Id";
+            LblDocumentoId.AutoSize = true;
+            LblDocumentoId.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LblDocumentoId.ForeColor = Color.White;
+            LblDocumentoId.Location = new Point(34, 136);
+            LblDocumentoId.Margin = new Padding(4, 0, 4, 0);
+            LblDocumentoId.Name = "LblDocumentoId";
+            LblDocumentoId.Size = new Size(103, 19);
+            LblDocumentoId.TabIndex = 11;
+            LblDocumentoId.Text = "Documento Id";
             // 
             // LblDirección
             // 
-            this.LblDirección.AutoSize = true;
-            this.LblDirección.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblDirección.ForeColor = System.Drawing.Color.White;
-            this.LblDirección.Location = new System.Drawing.Point(50, 170);
-            this.LblDirección.Name = "LblDirección";
-            this.LblDirección.Size = new System.Drawing.Size(88, 19);
-            this.LblDirección.TabIndex = 12;
-            this.LblDirección.Text = "📍 Dirección";
+            LblDirección.AutoSize = true;
+            LblDirección.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LblDirección.ForeColor = Color.White;
+            LblDirección.Location = new Point(58, 196);
+            LblDirección.Margin = new Padding(4, 0, 4, 0);
+            LblDirección.Name = "LblDirección";
+            LblDirección.Size = new Size(88, 19);
+            LblDirección.TabIndex = 12;
+            LblDirección.Text = "📍 Dirección";
             // 
             // LblTelefono
             // 
-            this.LblTelefono.AutoSize = true;
-            this.LblTelefono.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTelefono.ForeColor = System.Drawing.Color.White;
-            this.LblTelefono.Location = new System.Drawing.Point(50, 222);
-            this.LblTelefono.Name = "LblTelefono";
-            this.LblTelefono.Size = new System.Drawing.Size(83, 19);
-            this.LblTelefono.TabIndex = 13;
-            this.LblTelefono.Text = "📱 Telefono";
+            LblTelefono.AutoSize = true;
+            LblTelefono.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LblTelefono.ForeColor = Color.White;
+            LblTelefono.Location = new Point(58, 256);
+            LblTelefono.Margin = new Padding(4, 0, 4, 0);
+            LblTelefono.Name = "LblTelefono";
+            LblTelefono.Size = new Size(83, 19);
+            LblTelefono.TabIndex = 13;
+            LblTelefono.Text = "📱 Telefono";
             // 
             // LblEmail
             // 
-            this.LblEmail.AutoSize = true;
-            this.LblEmail.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblEmail.ForeColor = System.Drawing.Color.White;
-            this.LblEmail.Location = new System.Drawing.Point(50, 274);
-            this.LblEmail.Name = "LblEmail";
-            this.LblEmail.Size = new System.Drawing.Size(68, 19);
-            this.LblEmail.TabIndex = 14;
-            this.LblEmail.Text = "📧 Email";
+            LblEmail.AutoSize = true;
+            LblEmail.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LblEmail.ForeColor = Color.White;
+            LblEmail.Location = new Point(58, 316);
+            LblEmail.Margin = new Padding(4, 0, 4, 0);
+            LblEmail.Name = "LblEmail";
+            LblEmail.Size = new Size(68, 19);
+            LblEmail.TabIndex = 14;
+            LblEmail.Text = "📧 Email";
             // 
             // TxtNombre
             // 
-            this.TxtNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
-            this.TxtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtNombre.ForeColor = System.Drawing.SystemColors.Window;
-            this.TxtNombre.Location = new System.Drawing.Point(33, 88);
-            this.TxtNombre.Name = "TxtNombre";
-            this.TxtNombre.Size = new System.Drawing.Size(266, 20);
-            this.TxtNombre.TabIndex = 15;
+            TxtNombre.BackColor = Color.MintCream;
+            TxtNombre.BorderStyle = BorderStyle.FixedSingle;
+            TxtNombre.ForeColor = SystemColors.ActiveCaptionText;
+            TxtNombre.Location = new Point(38, 102);
+            TxtNombre.Margin = new Padding(4, 3, 4, 3);
+            TxtNombre.Name = "TxtNombre";
+            TxtNombre.Size = new Size(310, 23);
+            TxtNombre.TabIndex = 15;
             // 
             // TxtDocumento
             // 
-            this.TxtDocumento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
-            this.TxtDocumento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtDocumento.ForeColor = System.Drawing.SystemColors.Window;
-            this.TxtDocumento.Location = new System.Drawing.Point(33, 140);
-            this.TxtDocumento.Name = "TxtDocumento";
-            this.TxtDocumento.Size = new System.Drawing.Size(266, 20);
-            this.TxtDocumento.TabIndex = 16;
+            TxtDocumento.BackColor = Color.MintCream;
+            TxtDocumento.BorderStyle = BorderStyle.FixedSingle;
+            TxtDocumento.ForeColor = SystemColors.ActiveCaptionText;
+            TxtDocumento.Location = new Point(38, 162);
+            TxtDocumento.Margin = new Padding(4, 3, 4, 3);
+            TxtDocumento.Name = "TxtDocumento";
+            TxtDocumento.Size = new Size(310, 23);
+            TxtDocumento.TabIndex = 16;
             // 
             // TxTId_Cliente
             // 
-            this.TxTId_Cliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
-            this.TxTId_Cliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxTId_Cliente.ForeColor = System.Drawing.SystemColors.Window;
-            this.TxTId_Cliente.Location = new System.Drawing.Point(301, 56);
-            this.TxTId_Cliente.Name = "TxTId_Cliente";
-            this.TxTId_Cliente.Size = new System.Drawing.Size(18, 20);
-            this.TxTId_Cliente.TabIndex = 17;
+            TxTId_Cliente.BackColor = Color.MintCream;
+            TxTId_Cliente.BorderStyle = BorderStyle.FixedSingle;
+            TxTId_Cliente.ForeColor = SystemColors.ActiveCaptionText;
+            TxTId_Cliente.Location = new Point(351, 65);
+            TxTId_Cliente.Margin = new Padding(4, 3, 4, 3);
+            TxTId_Cliente.Name = "TxTId_Cliente";
+            TxTId_Cliente.Size = new Size(21, 23);
+            TxTId_Cliente.TabIndex = 17;
             // 
             // textBox1
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.ForeColor = System.Drawing.SystemColors.Window;
-            this.textBox1.Location = new System.Drawing.Point(55, 192);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(244, 20);
-            this.textBox1.TabIndex = 18;
+            textBox1.BackColor = Color.MintCream;
+            textBox1.BorderStyle = BorderStyle.FixedSingle;
+            textBox1.ForeColor = SystemColors.ActiveCaptionText;
+            textBox1.Location = new Point(64, 222);
+            textBox1.Margin = new Padding(4, 3, 4, 3);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(284, 23);
+            textBox1.TabIndex = 18;
             // 
             // textBox2
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.ForeColor = System.Drawing.SystemColors.Window;
-            this.textBox2.Location = new System.Drawing.Point(55, 244);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(244, 20);
-            this.textBox2.TabIndex = 19;
+            textBox2.BackColor = Color.MintCream;
+            textBox2.BorderStyle = BorderStyle.FixedSingle;
+            textBox2.ForeColor = SystemColors.ActiveCaptionText;
+            textBox2.Location = new Point(64, 282);
+            textBox2.Margin = new Padding(4, 3, 4, 3);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(284, 23);
+            textBox2.TabIndex = 19;
             // 
             // textBox3
             // 
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox3.ForeColor = System.Drawing.SystemColors.Window;
-            this.textBox3.Location = new System.Drawing.Point(55, 296);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(244, 20);
-            this.textBox3.TabIndex = 20;
+            textBox3.BackColor = Color.MintCream;
+            textBox3.BorderStyle = BorderStyle.FixedSingle;
+            textBox3.ForeColor = SystemColors.ActiveCaptionText;
+            textBox3.Location = new Point(64, 342);
+            textBox3.Margin = new Padding(4, 3, 4, 3);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(284, 23);
+            textBox3.TabIndex = 20;
             // 
             // FrmInsertarClientes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
-            this.ClientSize = new System.Drawing.Size(330, 380);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.TxTId_Cliente);
-            this.Controls.Add(this.TxtDocumento);
-            this.Controls.Add(this.TxtNombre);
-            this.Controls.Add(this.LblEmail);
-            this.Controls.Add(this.LblTelefono);
-            this.Controls.Add(this.LblDirección);
-            this.Controls.Add(this.LblDocumentoId);
-            this.Controls.Add(this.LblNombreCLiente);
-            this.Controls.Add(this.LblTituloCliente);
-            this.Controls.Add(this.BtnGuardar);
-            this.Controls.Add(this.BtnCancelar);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmInsertarClientes";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmInsertarClientes";
-            this.Load += new System.EventHandler(this.FrmInsertarClientes_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(47, 62, 153);
+            ClientSize = new Size(385, 438);
+            Controls.Add(textBox3);
+            Controls.Add(textBox2);
+            Controls.Add(textBox1);
+            Controls.Add(TxTId_Cliente);
+            Controls.Add(TxtDocumento);
+            Controls.Add(TxtNombre);
+            Controls.Add(LblEmail);
+            Controls.Add(LblTelefono);
+            Controls.Add(LblDirección);
+            Controls.Add(LblDocumentoId);
+            Controls.Add(LblNombreCLiente);
+            Controls.Add(LblTituloCliente);
+            Controls.Add(BtnGuardar);
+            Controls.Add(BtnCancelar);
+            FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "FrmInsertarClientes";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "FrmInsertarClientes";
+            Load += FrmInsertarClientes_Load;
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

@@ -1,12 +1,16 @@
+using FrmCategoria;
 using MaterialSkin;
+using MaterialSkin.Animations;
 using MaterialSkin.Controls;
+using MaterialSkin.Properties;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel;
 using System.Windows.Forms;
 using System.Text;
 using MaterialSkin.Properties;
@@ -64,6 +68,33 @@ namespace Pantallas_Sistema_facturacion
             fInformes.ShowDialog();
         }
 
+//<<<<<<< prueba-categoria
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            FrmClientes frmclientes = new FrmClientes();
+            frmclientes.ShowDialog();
+        }
+
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            FrmProductos frmproductos = new FrmProductos();
+            frmproductos.ShowDialog();
+        }
+
+        private void btnCategorias_Click(object sender, EventArgs e)
+        {
+            FrmCategorias frmproductos = new FrmCategorias();
+            frmproductos.ShowDialog();
+        }
+
+        private void BtnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void TabOpcionesMenu_Click(object sender, EventArgs e)
+        {
+//=======
         private void btnAyuda_Click(object sender, EventArgs e)
         {
             // Limpia lo que haya en el panel
@@ -94,6 +125,7 @@ namespace Pantallas_Sistema_facturacion
             // Agrega el formulario al panel
             panelContenedor.Controls.Add(frm);
             frm.Show();
+//>>>>>>> main
 
         }
     }
