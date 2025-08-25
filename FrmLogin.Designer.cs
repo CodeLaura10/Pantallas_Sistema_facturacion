@@ -182,7 +182,6 @@
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FrmLogin";
-            Opacity = 0.85D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmLogin";
             panel1.ResumeLayout(false);
