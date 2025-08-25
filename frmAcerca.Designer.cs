@@ -43,7 +43,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(937, 555);
+            ClientSize = new Size(936, 555);
             Controls.Add(richTextBox1);
             Name = "frmAcerca";
             StartPosition = FormStartPosition.CenterScreen;
