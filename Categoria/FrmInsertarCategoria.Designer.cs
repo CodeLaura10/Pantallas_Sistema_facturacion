@@ -137,7 +137,7 @@
             TxTId_Categoria.BackColor = Color.MintCream;
             TxTId_Categoria.BorderStyle = BorderStyle.FixedSingle;
             TxTId_Categoria.ForeColor = SystemColors.ActiveCaptionText;
-            TxTId_Categoria.Location = new Point(351, 65);
+            TxTId_Categoria.Location = new Point(350, 65);
             TxTId_Categoria.Margin = new Padding(4, 3, 4, 3);
             TxTId_Categoria.Name = "TxTId_Categoria";
             TxTId_Categoria.Size = new Size(21, 23);
