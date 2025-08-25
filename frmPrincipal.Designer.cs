@@ -141,7 +141,7 @@
             // BtnSalir
             // 
             BtnSalir.FlatAppearance.BorderSize = 0;
-            BtnSalir.FlatAppearance.MouseDownBackColor = Color.FromArgb(45, 45, 45);
+            BtnSalir.FlatAppearance.MouseDownBackColor = Color.Black;
             BtnSalir.FlatStyle = FlatStyle.Flat;
             BtnSalir.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnSalir.ForeColor = SystemColors.ButtonFace;
@@ -263,6 +263,7 @@
             btnInformes.TabIndex = 7;
             btnInformes.Text = "Informes";
             btnInformes.UseVisualStyleBackColor = true;
+            btnInformes.Click += btnInformes_Click;
             // 
             // btnFacturacion
             // 
@@ -273,12 +274,13 @@
             btnFacturacion.ForeColor = SystemColors.ButtonFace;
             btnFacturacion.Image = (Image)resources.GetObject("btnFacturacion.Image");
             btnFacturacion.ImageAlign = ContentAlignment.MiddleLeft;
-            btnFacturacion.Location = new Point(-1, 208);
+            btnFacturacion.Location = new Point(0, 188);
             btnFacturacion.Name = "btnFacturacion";
             btnFacturacion.Size = new Size(211, 65);
             btnFacturacion.TabIndex = 6;
             btnFacturacion.Text = "Facturas";
             btnFacturacion.UseVisualStyleBackColor = true;
+            btnFacturacion.Click += btnFacturacion_Click;
             // 
             // pictureBox5
             // 
@@ -434,7 +436,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = SystemColors.ButtonFace;
-            ClientSize = new Size(1308, 826);
+
+            ClientSize = new Size(1884, 1380);
+
             Controls.Add(pnlPrincipal);
             Controls.Add(TabOpcionesMenu);
             Controls.Add(label1);

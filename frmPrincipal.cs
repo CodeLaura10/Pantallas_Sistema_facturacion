@@ -16,29 +16,50 @@ using MaterialSkin.Animations;
 
 
 
-namespace Pantallas_Sistema_facturacion;
-public partial class frmPrincipal : MaterialForm
-
-
+namespace Pantallas_Sistema_facturacion
 {
-    public frmPrincipal()
+    public partial class frmPrincipal : MaterialForm
     {
-        InitializeComponent();
-        var materialSkinManager = MaterialSkinManager.Instance;
-        materialSkinManager.AddFormToManage(this);
-        materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+        public frmPrincipal()
+        {
+            InitializeComponent();
+         
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Facturacion_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+
+        private void btnFacturacion_Click(object sender, EventArgs e)
+        {
+            frmFacturas fFacturas = new frmFacturas();
+            fFacturas.ShowDialog();
+        }
+
+      
+       
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Informes_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnInformes_Click(object sender, EventArgs e)
+        {
+            frmInformes fInformes = new frmInformes();
+            fInformes.ShowDialog();
+        }
     }
-
-    private void button1_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void Facturacion_Click(object sender, EventArgs e)
-    {
-
-    }
-
-
 }
-
