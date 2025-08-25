@@ -94,6 +94,7 @@ namespace Pantallas_Sistema_facturacion
 
         private void TabOpcionesMenu_Click(object sender, EventArgs e)
         {
+        }
 //=======
         private void btnAyuda_Click(object sender, EventArgs e)
         {
