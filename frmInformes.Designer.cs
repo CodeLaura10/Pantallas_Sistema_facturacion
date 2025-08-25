@@ -215,7 +215,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1049, 651);
+            ClientSize = new Size(1046, 651);
             Controls.Add(panel1);
             Controls.Add(ordenar);
             DrawerAutoHide = false;
