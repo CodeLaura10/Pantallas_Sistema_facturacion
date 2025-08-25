@@ -31,211 +31,198 @@ namespace FrmCategoria
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmClientes));
-            this.DGClientes = new System.Windows.Forms.DataGridView();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.labelcliente = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.textBoxcliente = new System.Windows.Forms.TextBox();
-            /* this.BtnSalir = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.BtnNuevo = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.BtnBuscar = new MaterialSkin.Controls.MaterialRaisedButton(); */
-            this.Id_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BtnEditar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.BtnEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.DGClientes)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.SuspendLayout();
+            DGClientes = new DataGridView();
+            dataGridViewImageColumn1 = new DataGridViewImageColumn();
+            dataGridViewImageColumn2 = new DataGridViewImageColumn();
+            panel1 = new Panel();
+            labelcliente = new Label();
+            panel2 = new Panel();
+            BtnNuevoCliente = new Button();
+            BtnBuscar = new Button();
+            BtnSalir = new Button();
+            textBoxcliente = new TextBox();
+            Id_Cliente = new DataGridViewTextBoxColumn();
+            Nombre_Cliente = new DataGridViewTextBoxColumn();
+            Documento = new DataGridViewTextBoxColumn();
+            Telefono = new DataGridViewTextBoxColumn();
+            BtnEditar = new DataGridViewButtonColumn();
+            BtnEliminar = new DataGridViewButtonColumn();
+            ((System.ComponentModel.ISupportInitialize)DGClientes).BeginInit();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            SuspendLayout();
             // 
             // DGClientes
             // 
-            this.DGClientes.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.DGClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id_Cliente,
-            this.Nombre_Cliente,
-            this.Documento,
-            this.Telefono,
-            this.BtnEditar,
-            this.BtnEliminar});
-            this.DGClientes.Location = new System.Drawing.Point(37, 140);
-            this.DGClientes.Name = "DGClientes";
-            this.DGClientes.Size = new System.Drawing.Size(737, 262);
-            this.DGClientes.TabIndex = 2;
-            this.DGClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            DGClientes.BackgroundColor = SystemColors.ButtonFace;
+            DGClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DGClientes.Columns.AddRange(new DataGridViewColumn[] { Id_Cliente, Nombre_Cliente, Documento, Telefono, BtnEditar, BtnEliminar });
+            DGClientes.Location = new Point(28, 158);
+            DGClientes.Margin = new Padding(4, 3, 4, 3);
+            DGClientes.Name = "DGClientes";
+            DGClientes.Size = new Size(876, 263);
+            DGClientes.TabIndex = 2;
+            DGClientes.CellContentClick += dataGridView1_CellContentClick;
             // 
             // dataGridViewImageColumn1
             // 
-            this.dataGridViewImageColumn1.HeaderText = "EDITAR";
-            this.dataGridViewImageColumn1.Image = Resources.a37f4ed0_67cf_472a_9bb5_b12abbedaaed;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            dataGridViewImageColumn1.HeaderText = "EDITAR";
+            dataGridViewImageColumn1.Image = Resources.a37f4ed0_67cf_472a_9bb5_b12abbedaaed;
+            dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             // 
             // dataGridViewImageColumn2
             // 
-            this.dataGridViewImageColumn2.HeaderText = "BORRAR";
-            this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            dataGridViewImageColumn2.HeaderText = "BORRAR";
+            dataGridViewImageColumn2.Image = (Image)resources.GetObject("dataGridViewImageColumn2.Image");
+            dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.labelcliente);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 66);
-            this.panel1.TabIndex = 3;
+            panel1.BackColor = Color.FromArgb(63, 81, 181);
+            panel1.Controls.Add(labelcliente);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(4, 3, 4, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(933, 76);
+            panel1.TabIndex = 3;
             // 
             // labelcliente
             // 
-            this.labelcliente.AutoSize = true;
-            this.labelcliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelcliente.ForeColor = System.Drawing.Color.White;
-            this.labelcliente.Location = new System.Drawing.Point(196, 19);
-            this.labelcliente.Name = "labelcliente";
-            this.labelcliente.Size = new System.Drawing.Size(408, 29);
-            this.labelcliente.TabIndex = 1;
-            this.labelcliente.Text = "ADMINISTRACIÓN DE CLIENTES";
-            this.labelcliente.Click += new System.EventHandler(this.labelcliente_Click);
+            labelcliente.AutoSize = true;
+            labelcliente.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelcliente.ForeColor = Color.White;
+            labelcliente.Location = new Point(262, 22);
+            labelcliente.Margin = new Padding(4, 0, 4, 0);
+            labelcliente.Name = "labelcliente";
+            labelcliente.Size = new Size(408, 29);
+            labelcliente.TabIndex = 1;
+            labelcliente.Text = "ADMINISTRACIÓN DE CLIENTES";
+            labelcliente.Click += labelcliente_Click;
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(21)))), ((int)(((byte)(38)))));
-            this.panel2.Controls.Add(this.textBoxcliente);
-            /* this.panel2.Controls.Add(this.BtnSalir);
-            this.panel2.Controls.Add(this.BtnNuevo);
-            this.panel2.Controls.Add(this.BtnBuscar); */
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.ForeColor = System.Drawing.SystemColors.Info;
-            this.panel2.Location = new System.Drawing.Point(0, 66);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 48);
-            this.panel2.TabIndex = 4;
+            panel2.BackColor = Color.FromArgb(47, 62, 153);
+            panel2.Controls.Add(BtnNuevoCliente);
+            panel2.Controls.Add(BtnBuscar);
+            panel2.Controls.Add(BtnSalir);
+            panel2.Controls.Add(textBoxcliente);
+            panel2.Dock = DockStyle.Top;
+            panel2.ForeColor = SystemColors.Info;
+            panel2.Location = new Point(0, 76);
+            panel2.Margin = new Padding(4, 3, 4, 3);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(933, 55);
+            panel2.TabIndex = 4;
             // 
-            // textBoxcliente
+            // BtnNuevoCliente
             // 
-            this.textBoxcliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(21)))), ((int)(((byte)(38)))));
-            this.textBoxcliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxcliente.ForeColor = System.Drawing.SystemColors.Window;
-            this.textBoxcliente.Location = new System.Drawing.Point(23, 9);
-            this.textBoxcliente.Name = "textBoxcliente";
-            this.textBoxcliente.Size = new System.Drawing.Size(439, 29);
-            this.textBoxcliente.TabIndex = 5;
-            // 
-            // BtnSalir
-            // 
-            /* this.BtnSalir.AutoSize = true;
-            this.BtnSalir.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BtnSalir.Depth = 0;
-            this.BtnSalir.Icon = null;
-            this.BtnSalir.Location = new System.Drawing.Point(730, 5);
-            this.BtnSalir.MouseState = MaterialSkin.MouseState.HOVER;
-            this.BtnSalir.Name = "BtnSalir";
-            this.BtnSalir.Primary = true;
-            this.BtnSalir.Size = new System.Drawing.Size(58, 36);
-            this.BtnSalir.TabIndex = 4;
-            this.BtnSalir.Text = "Salir";
-            this.BtnSalir.UseVisualStyleBackColor = true;
-            this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click); */
-            // 
-            // BtnNuevo
-            // 
-            /* this.BtnNuevo.AutoSize = true;
-            this.BtnNuevo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BtnNuevo.Depth = 0;
-            this.BtnNuevo.Icon = null;
-            this.BtnNuevo.Location = new System.Drawing.Point(587, 5);
-            this.BtnNuevo.MouseState = MaterialSkin.MouseState.HOVER;
-            this.BtnNuevo.Name = "BtnNuevo";
-            this.BtnNuevo.Primary = true;
-            this.BtnNuevo.Size = new System.Drawing.Size(123, 36);
-            this.BtnNuevo.TabIndex = 3;
-            this.BtnNuevo.Text = "Nuevo Cliente";
-            this.BtnNuevo.UseVisualStyleBackColor = true;
-            this.BtnNuevo.Click += new System.EventHandler(this.materialRaisedButton2_Click); */
+            BtnNuevoCliente.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtnNuevoCliente.ForeColor = SystemColors.Desktop;
+            BtnNuevoCliente.Location = new Point(687, 7);
+            BtnNuevoCliente.Name = "BtnNuevoCliente";
+            BtnNuevoCliente.Size = new Size(93, 42);
+            BtnNuevoCliente.TabIndex = 9;
+            BtnNuevoCliente.Text = "Nuevo";
+            BtnNuevoCliente.UseVisualStyleBackColor = true;
+            BtnNuevoCliente.Click += BtnNuevoCliente_Click;
             // 
             // BtnBuscar
             // 
-            /* this.BtnBuscar.AutoSize = true;
-            this.BtnBuscar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BtnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(21)))), ((int)(((byte)(38)))));
-            this.BtnBuscar.Depth = 0;
-            this.BtnBuscar.Icon = null;
-            this.BtnBuscar.Location = new System.Drawing.Point(494, 5);
-            this.BtnBuscar.MouseState = MaterialSkin.MouseState.HOVER;
-            this.BtnBuscar.Name = "BtnBuscar";
-            this.BtnBuscar.Primary = true;
-            this.BtnBuscar.Size = new System.Drawing.Size(74, 36);
-            this.BtnBuscar.TabIndex = 2;
-            this.BtnBuscar.Text = "Buscar";
-            this.BtnBuscar.UseVisualStyleBackColor = false;
-            this.BtnBuscar.Click += new System.EventHandler(this.materialRaisedButton1_Click); */
+            BtnBuscar.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtnBuscar.ForeColor = SystemColors.Desktop;
+            BtnBuscar.Location = new Point(560, 7);
+            BtnBuscar.Name = "BtnBuscar";
+            BtnBuscar.Size = new Size(93, 42);
+            BtnBuscar.TabIndex = 8;
+            BtnBuscar.Text = "Buscar";
+            BtnBuscar.UseVisualStyleBackColor = true;
+            // 
+            // BtnSalir
+            // 
+            BtnSalir.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtnSalir.ForeColor = SystemColors.Desktop;
+            BtnSalir.Location = new Point(819, 7);
+            BtnSalir.Name = "BtnSalir";
+            BtnSalir.Size = new Size(93, 42);
+            BtnSalir.TabIndex = 7;
+            BtnSalir.Text = "Salir";
+            BtnSalir.UseVisualStyleBackColor = true;
+            BtnSalir.Click += BtnSalir_Click_1;
+            // 
+            // textBoxcliente
+            // 
+            textBoxcliente.BackColor = Color.FromArgb(47, 62, 153);
+            textBoxcliente.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxcliente.ForeColor = SystemColors.Window;
+            textBoxcliente.Location = new Point(27, 12);
+            textBoxcliente.Margin = new Padding(4, 3, 4, 3);
+            textBoxcliente.Name = "textBoxcliente";
+            textBoxcliente.Size = new Size(511, 29);
+            textBoxcliente.TabIndex = 5;
             // 
             // Id_Cliente
             // 
-            this.Id_Cliente.HeaderText = "ID";
-            this.Id_Cliente.MaxInputLength = 10000;
-            this.Id_Cliente.Name = "Id_Cliente";
-            this.Id_Cliente.Width = 30;
+            Id_Cliente.HeaderText = "ID";
+            Id_Cliente.MaxInputLength = 10000;
+            Id_Cliente.Name = "Id_Cliente";
+            Id_Cliente.Width = 30;
             // 
             // Nombre_Cliente
             // 
-            this.Nombre_Cliente.HeaderText = "CLIENTE";
-            this.Nombre_Cliente.Name = "Nombre_Cliente";
-            this.Nombre_Cliente.Width = 250;
+            Nombre_Cliente.HeaderText = "CLIENTE";
+            Nombre_Cliente.Name = "Nombre_Cliente";
+            Nombre_Cliente.Width = 320;
             // 
             // Documento
             // 
-            this.Documento.HeaderText = "DOCUMENTO";
-            this.Documento.Name = "Documento";
-            this.Documento.Width = 150;
+            Documento.HeaderText = "DOCUMENTO";
+            Documento.Name = "Documento";
+            Documento.Width = 200;
             // 
             // Telefono
             // 
-            this.Telefono.HeaderText = "TELEFONO";
-            this.Telefono.Name = "Telefono";
-            this.Telefono.Width = 130;
+            Telefono.HeaderText = "TELEFONO";
+            Telefono.Name = "Telefono";
+            Telefono.Width = 150;
             // 
             // BtnEditar
             // 
-            this.BtnEditar.HeaderText = "EDITAR";
-            this.BtnEditar.Name = "BtnEditar";
-            this.BtnEditar.Text = "Editar";
-            this.BtnEditar.UseColumnTextForButtonValue = true;
-            this.BtnEditar.Width = 65;
+            BtnEditar.HeaderText = "EDITAR";
+            BtnEditar.Name = "BtnEditar";
+            BtnEditar.Text = "Editar";
+            BtnEditar.UseColumnTextForButtonValue = true;
+            BtnEditar.Width = 65;
             // 
             // BtnEliminar
             // 
-            this.BtnEliminar.HeaderText = "ELIMINAR";
-            this.BtnEliminar.Name = "BtnEliminar";
-            this.BtnEliminar.Text = "Eliminar";
-            this.BtnEliminar.UseColumnTextForButtonValue = true;
-            this.BtnEliminar.Width = 65;
+            BtnEliminar.HeaderText = "ELIMINAR";
+            BtnEliminar.Name = "BtnEliminar";
+            BtnEliminar.Text = "Eliminar";
+            BtnEliminar.UseColumnTextForButtonValue = true;
+            BtnEliminar.Width = 65;
             // 
             // FrmClientes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(42)))), ((int)(((byte)(87)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.DGClientes);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmClientes";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmClientes";
-            this.Load += new System.EventHandler(this.FrmClientes_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DGClientes)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(63, 81, 181);
+            ClientSize = new Size(933, 450);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
+            Controls.Add(DGClientes);
+            FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "FrmClientes";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "FrmClientes";
+            Load += FrmClientes_Load;
+            ((System.ComponentModel.ISupportInitialize)DGClientes).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            ResumeLayout(false);
 
         }
 
@@ -250,11 +237,14 @@ namespace FrmCategoria
         private MaterialSkin.Controls.MaterialRaisedButton BtnBuscar; */
         private System.Windows.Forms.Label labelcliente;
         private System.Windows.Forms.TextBox textBoxcliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id_Cliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre_Cliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Documento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
-        private System.Windows.Forms.DataGridViewButtonColumn BtnEditar;
-        private System.Windows.Forms.DataGridViewButtonColumn BtnEliminar;
+        private Button BtnSalir;
+        private Button BtnBuscar;
+        private Button BtnNuevoCliente;
+        private DataGridViewTextBoxColumn Id_Cliente;
+        private DataGridViewTextBoxColumn Nombre_Cliente;
+        private DataGridViewTextBoxColumn Documento;
+        private DataGridViewTextBoxColumn Telefono;
+        private DataGridViewButtonColumn BtnEditar;
+        private DataGridViewButtonColumn BtnEliminar;
     }
 }

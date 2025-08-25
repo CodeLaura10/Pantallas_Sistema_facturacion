@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace FrmCategoria
 {
-    public partial class FrmCategoria : Form
+    public partial class FrmCategorias : Form
     {
-        public FrmCategoria()
+        public FrmCategorias()
         {
             InitializeComponent();
         }
@@ -76,7 +76,17 @@ namespace FrmCategoria
             }
         }
 
+        private void BtnSalir_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
+        private void BtnNuevaCaegoria_Click(object sender, EventArgs e)
+        {
+            FrmInsertarCategoria frminsertarcategoria = new FrmInsertarCategoria();
+            frminsertarcategoria.Id_Categoria = 0;
+            frminsertarcategoria.ShowDialog();
+        }
     }
 }
 
