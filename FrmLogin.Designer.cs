@@ -187,7 +187,6 @@
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
             Name = "FrmLogin";
-            Opacity = 0.85D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmLogin";
             panel1.ResumeLayout(false);

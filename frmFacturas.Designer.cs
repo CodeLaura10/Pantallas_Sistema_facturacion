@@ -30,14 +30,27 @@
         {
             titulofacturas = new MaterialSkin.Controls.MaterialLabel();
             nroFactura = new MaterialSkin.Controls.MaterialLabel();
-            cleinte = new MaterialSkin.Controls.MaterialLabel();
-            empleado = new MaterialSkin.Controls.MaterialLabel();
-            totalIva = new MaterialSkin.Controls.MaterialLabel();
-            Tfactura = new MaterialSkin.Controls.MaterialLabel();
-            fRegistro = new MaterialSkin.Controls.MaterialLabel();
-            estadoF = new MaterialSkin.Controls.MaterialLabel();
-            materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
-            materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
+            panel1 = new Panel();
+            comboBox3 = new ComboBox();
+            dateTimePicker1 = new DateTimePicker();
+            comboBox2 = new ComboBox();
+            comboBox1 = new ComboBox();
+            textBox1 = new TextBox();
+            eFactura = new Label();
+            fRegistro = new Label();
+            tIVA = new Label();
+            descuento = new Label();
+            empleado = new Label();
+            cliente = new Label();
+            tFactura = new Label();
+            nFactura = new Label();
+            btnActualizar = new Button();
+            panel2 = new Panel();
+            btnSalir = new Button();
+            label1 = new Label();
+            panel3 = new Panel();
+            panel1.SuspendLayout();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // titulofacturas
@@ -48,9 +61,8 @@
             titulofacturas.Location = new Point(278, 57);
             titulofacturas.MouseState = MaterialSkin.MouseState.HOVER;
             titulofacturas.Name = "titulofacturas";
-            titulofacturas.Size = new Size(214, 19);
+            titulofacturas.Size = new Size(1, 0);
             titulofacturas.TabIndex = 0;
-            titulofacturas.Text = "ADMINISTRACIÓN FACTURAS";
             titulofacturas.Click += materialLabel1_Click;
             // 
             // nroFactura
@@ -61,125 +73,228 @@
             nroFactura.Location = new Point(64, 110);
             nroFactura.MouseState = MaterialSkin.MouseState.HOVER;
             nroFactura.Name = "nroFactura";
-            nroFactura.Size = new Size(84, 19);
+            nroFactura.Size = new Size(1, 0);
             nroFactura.TabIndex = 1;
-            nroFactura.Text = "Nro Factura";
             // 
-            // cleinte
+            // panel1
             // 
-            cleinte.AutoSize = true;
-            cleinte.Depth = 0;
-            cleinte.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            cleinte.Location = new Point(64, 163);
-            cleinte.MouseState = MaterialSkin.MouseState.HOVER;
-            cleinte.Name = "cleinte";
-            cleinte.Size = new Size(49, 19);
-            cleinte.TabIndex = 2;
-            cleinte.Text = "Cliente";
+            panel1.BackColor = SystemColors.ButtonFace;
+            panel1.Controls.Add(comboBox3);
+            panel1.Controls.Add(dateTimePicker1);
+            panel1.Controls.Add(comboBox2);
+            panel1.Controls.Add(comboBox1);
+            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(eFactura);
+            panel1.Controls.Add(fRegistro);
+            panel1.Controls.Add(tIVA);
+            panel1.Controls.Add(descuento);
+            panel1.Controls.Add(empleado);
+            panel1.Controls.Add(cliente);
+            panel1.Controls.Add(tFactura);
+            panel1.Controls.Add(nFactura);
+            panel1.Location = new Point(76, 26);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(714, 279);
+            panel1.TabIndex = 3;
             // 
-            // empleado
+            // comboBox3
             // 
-            empleado.AutoSize = true;
-            empleado.Depth = 0;
-            empleado.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            empleado.Location = new Point(64, 217);
-            empleado.MouseState = MaterialSkin.MouseState.HOVER;
-            empleado.Name = "empleado";
-            empleado.Size = new Size(72, 19);
-            empleado.TabIndex = 3;
-            empleado.Text = "Empleado";
+            comboBox3.Font = new Font("Arial", 10.8F);
+            comboBox3.FormattingEnabled = true;
+            comboBox3.Location = new Point(516, 176);
+            comboBox3.Name = "comboBox3";
+            comboBox3.Size = new Size(131, 29);
+            comboBox3.TabIndex = 13;
             // 
-            // totalIva
+            // dateTimePicker1
             // 
-            totalIva.AutoSize = true;
-            totalIva.Depth = 0;
-            totalIva.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            totalIva.Location = new Point(64, 284);
-            totalIva.MouseState = MaterialSkin.MouseState.HOVER;
-            totalIva.Name = "totalIva";
-            totalIva.Size = new Size(66, 19);
-            totalIva.TabIndex = 4;
-            totalIva.Text = "Total IVA";
+            dateTimePicker1.Font = new Font("Arial", 10.8F);
+            dateTimePicker1.Location = new Point(517, 57);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(130, 28);
+            dateTimePicker1.TabIndex = 12;
             // 
-            // Tfactura
+            // comboBox2
             // 
-            Tfactura.AutoSize = true;
-            Tfactura.Depth = 0;
-            Tfactura.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            Tfactura.Location = new Point(64, 352);
-            Tfactura.MouseState = MaterialSkin.MouseState.HOVER;
-            Tfactura.Name = "Tfactura";
-            Tfactura.Size = new Size(96, 19);
-            Tfactura.TabIndex = 5;
-            Tfactura.Text = "Total Factura";
-            Tfactura.Click += materialLabel5_Click;
+            comboBox2.Font = new Font("Arial", 10.8F);
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(132, 99);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(236, 29);
+            comboBox2.TabIndex = 11;
+            // 
+            // comboBox1
+            // 
+            comboBox1.Font = new Font("Arial", 10.8F);
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(132, 60);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(236, 29);
+            comboBox1.TabIndex = 10;
+            // 
+            // textBox1
+            // 
+            textBox1.Font = new Font("Arial", 10.8F);
+            textBox1.Location = new Point(132, 23);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(125, 28);
+            textBox1.TabIndex = 9;
+            // 
+            // eFactura
+            // 
+            eFactura.AutoSize = true;
+            eFactura.Font = new Font("Arial", 10.8F, FontStyle.Underline);
+            eFactura.Location = new Point(510, 140);
+            eFactura.Name = "eFactura";
+            eFactura.Size = new Size(137, 21);
+            eFactura.TabIndex = 7;
+            eFactura.Text = "Estado Factura ";
             // 
             // fRegistro
             // 
             fRegistro.AutoSize = true;
-            fRegistro.Depth = 0;
-            fRegistro.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            fRegistro.Location = new Point(650, 163);
-            fRegistro.MouseState = MaterialSkin.MouseState.HOVER;
+            fRegistro.Font = new Font("Arial", 10.8F, FontStyle.Underline);
+            fRegistro.Location = new Point(517, 26);
             fRegistro.Name = "fRegistro";
-            fRegistro.Size = new Size(110, 19);
+            fRegistro.Size = new Size(132, 21);
             fRegistro.TabIndex = 6;
-            fRegistro.Text = "Fecha Registro ";
+            fRegistro.Text = "Fecha Registro";
             // 
-            // estadoF
+            // tIVA
             // 
-            estadoF.AutoSize = true;
-            estadoF.Depth = 0;
-            estadoF.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            estadoF.Location = new Point(650, 236);
-            estadoF.MouseState = MaterialSkin.MouseState.HOVER;
-            estadoF.Name = "estadoF";
-            estadoF.Size = new Size(108, 19);
-            estadoF.TabIndex = 7;
-            estadoF.Text = "Estado Factura";
+            tIVA.AutoSize = true;
+            tIVA.Font = new Font("Arial", 10.8F, FontStyle.Underline);
+            tIVA.Location = new Point(25, 179);
+            tIVA.Name = "tIVA";
+            tIVA.Size = new Size(79, 21);
+            tIVA.TabIndex = 5;
+            tIVA.Text = "Total IVA";
             // 
-            // materialLabel8
+            // descuento
             // 
-            materialLabel8.AutoSize = true;
-            materialLabel8.Depth = 0;
-            materialLabel8.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel8.Location = new Point(627, 304);
-            materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
-            materialLabel8.Name = "materialLabel8";
-            materialLabel8.Size = new Size(107, 19);
-            materialLabel8.TabIndex = 8;
-            materialLabel8.Text = "materialLabel8";
+            descuento.AutoSize = true;
+            descuento.Font = new Font("Arial", 10.8F, FontStyle.Underline);
+            descuento.Location = new Point(25, 140);
+            descuento.Name = "descuento";
+            descuento.Size = new Size(87, 21);
+            descuento.TabIndex = 4;
+            descuento.Text = "Desuento";
             // 
-            // materialLabel9
+            // empleado
             // 
-            materialLabel9.AutoSize = true;
-            materialLabel9.Depth = 0;
-            materialLabel9.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel9.Location = new Point(586, 384);
-            materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
-            materialLabel9.Name = "materialLabel9";
-            materialLabel9.Size = new Size(107, 19);
-            materialLabel9.TabIndex = 9;
-            materialLabel9.Text = "materialLabel9";
+            empleado.AutoSize = true;
+            empleado.Font = new Font("Arial", 10.8F, FontStyle.Underline);
+            empleado.Location = new Point(25, 107);
+            empleado.Name = "empleado";
+            empleado.Size = new Size(90, 21);
+            empleado.TabIndex = 3;
+            empleado.Text = "Empleado";
+            empleado.Click += label4_Click;
+            // 
+            // cliente
+            // 
+            cliente.AutoSize = true;
+            cliente.Font = new Font("Arial", 10.8F, FontStyle.Underline);
+            cliente.Location = new Point(25, 68);
+            cliente.Name = "cliente";
+            cliente.Size = new Size(66, 21);
+            cliente.TabIndex = 2;
+            cliente.Text = "Cliente";
+            cliente.Click += label3_Click;
+            // 
+            // tFactura
+            // 
+            tFactura.AutoSize = true;
+            tFactura.Font = new Font("Arial", 10.8F, FontStyle.Underline);
+            tFactura.Location = new Point(25, 216);
+            tFactura.Name = "tFactura";
+            tFactura.Size = new Size(115, 21);
+            tFactura.TabIndex = 1;
+            tFactura.Text = "Total Factura";
+            // 
+            // nFactura
+            // 
+            nFactura.AutoSize = true;
+            nFactura.Font = new Font("Arial", 10.8F, FontStyle.Underline);
+            nFactura.Location = new Point(25, 30);
+            nFactura.Name = "nFactura";
+            nFactura.Size = new Size(105, 21);
+            nFactura.TabIndex = 0;
+            nFactura.Text = "Nro Factura";
+            // 
+            // btnActualizar
+            // 
+            btnActualizar.BackColor = SystemColors.ButtonFace;
+            btnActualizar.Font = new Font("Arial Black", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnActualizar.Location = new Point(828, 229);
+            btnActualizar.Name = "btnActualizar";
+            btnActualizar.Size = new Size(168, 46);
+            btnActualizar.TabIndex = 4;
+            btnActualizar.Text = "ACTUALIZAR";
+            btnActualizar.UseVisualStyleBackColor = false;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = SystemColors.ButtonFace;
+            panel2.Location = new Point(76, 363);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(714, 190);
+            panel2.TabIndex = 5;
+            panel2.Paint += panel2_Paint;
+            // 
+            // btnSalir
+            // 
+            btnSalir.BackColor = SystemColors.ButtonFace;
+            btnSalir.Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSalir.Location = new Point(828, 434);
+            btnSalir.Name = "btnSalir";
+            btnSalir.Size = new Size(168, 47);
+            btnSalir.TabIndex = 6;
+            btnSalir.Text = "SALIR";
+            btnSalir.UseVisualStyleBackColor = false;
+            btnSalir.Click += btnSalir_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = SystemColors.ButtonFace;
+            label1.Font = new Font("Arial", 10.8F);
+            label1.Location = new Point(76, 326);
+            label1.Name = "label1";
+            label1.Size = new Size(177, 21);
+            label1.TabIndex = 7;
+            label1.Text = "DETALLE FACTURA";
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.FromArgb(63, 81, 181);
+            panel3.Controls.Add(panel2);
+            panel3.Controls.Add(btnSalir);
+            panel3.Controls.Add(label1);
+            panel3.Controls.Add(btnActualizar);
+            panel3.Controls.Add(panel1);
+            panel3.Location = new Point(-4, 60);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1075, 635);
+            panel3.TabIndex = 8;
             // 
             // frmFacturas
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ControlLight;
-            ClientSize = new Size(832, 603);
-            Controls.Add(materialLabel9);
-            Controls.Add(materialLabel8);
-            Controls.Add(estadoF);
-            Controls.Add(fRegistro);
-            Controls.Add(Tfactura);
-            Controls.Add(totalIva);
-            Controls.Add(empleado);
-            Controls.Add(cleinte);
+            BackColor = Color.WhiteSmoke;
+            ClientSize = new Size(1067, 692);
             Controls.Add(nroFactura);
             Controls.Add(titulofacturas);
+            Controls.Add(panel3);
             Name = "frmFacturas";
-            Text = "frmFacturas";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "                                                ADMINISTRACIÓN FACTURAS";
+            Load += frmFacturas_Load;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -188,13 +303,24 @@
 
         private MaterialSkin.Controls.MaterialLabel titulofacturas;
         private MaterialSkin.Controls.MaterialLabel nroFactura;
-        private MaterialSkin.Controls.MaterialLabel cleinte;
-        private MaterialSkin.Controls.MaterialLabel empleado;
-        private MaterialSkin.Controls.MaterialLabel totalIva;
-        private MaterialSkin.Controls.MaterialLabel Tfactura;
-        private MaterialSkin.Controls.MaterialLabel fRegistro;
-        private MaterialSkin.Controls.MaterialLabel estadoF;
-        private MaterialSkin.Controls.MaterialLabel materialLabel8;
-        private MaterialSkin.Controls.MaterialLabel materialLabel9;
+        private Panel panel1;
+        private Button btnActualizar;
+        private Panel panel2;
+        private Button btnSalir;
+        private Label eFactura;
+        private Label fRegistro;
+        private Label tIVA;
+        private Label descuento;
+        private Label empleado;
+        private Label cliente;
+        private Label tFactura;
+        private Label nFactura;
+        private ComboBox comboBox2;
+        private ComboBox comboBox1;
+        private TextBox textBox1;
+        private ComboBox comboBox3;
+        private DateTimePicker dateTimePicker1;
+        private Label label1;
+        private Panel panel3;
     }
 }

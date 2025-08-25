@@ -83,8 +83,8 @@ namespace Pantallas_Sistema_facturacion
             frmproductos.ShowDialog();
         }
 
-        private void btnCategorias_Click(object sender, EventArgs e)
-        {
+        private void btnCategorias_Click(object sender, EventArgs e) { 
+
             FrmCategorias frmCategorias = new FrmCategorias();
             frmCategorias.ShowDialog();
         }
@@ -101,15 +101,12 @@ namespace Pantallas_Sistema_facturacion
         private void btnAyuda_Click(object sender, EventArgs e)
         {
             frmAyuda FrmAyuda = new frmAyuda();
-            FrmAyuda.ShowDialog();
-
+            FrmAyuda.ShowDialog();   
         }
 
         private void btnAcerca_Click(object sender, EventArgs e)
         {
             frmAcerca FrmAcerca= new frmAcerca();
-            FrmAcerca.ShowDialog();
-
         }
     }
 }
