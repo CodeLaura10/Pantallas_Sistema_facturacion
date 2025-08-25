@@ -39,7 +39,7 @@
             webView21.DefaultBackgroundColor = Color.White;
             webView21.Location = new Point(12, 0);
             webView21.Name = "webView21";
-            webView21.Size = new Size(1107, 723);
+            webView21.Size = new Size(1094, 723);
             webView21.TabIndex = 0;
             webView21.ZoomFactor = 1D;
             // 

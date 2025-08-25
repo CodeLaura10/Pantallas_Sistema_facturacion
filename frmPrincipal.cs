@@ -71,8 +71,10 @@ namespace Pantallas_Sistema_facturacion
 //<<<<<<< prueba-categoria
         private void btnClientes_Click(object sender, EventArgs e)
         {
-            FrmClientes frmclientes = new FrmClientes();
-            frmclientes.ShowDialog();
+
+            frmAyuda Frmayuda = new frmAyuda();
+            Frmayuda.ShowDialog();
+
         }
 
         private void btnProductos_Click(object sender, EventArgs e)
@@ -82,7 +84,9 @@ namespace Pantallas_Sistema_facturacion
         }
 
         private void btnCategorias_Click(object sender, EventArgs e)
-        {
+        
+        }
+
             FrmCategorias frmproductos = new FrmCategorias();
             frmproductos.ShowDialog();
         }
@@ -106,6 +110,7 @@ namespace Pantallas_Sistema_facturacion
         {
             frmAcerca Frmacerca = new frmAcerca();
             Frmacerca.ShowDialog();
+
         }
     }
 }
