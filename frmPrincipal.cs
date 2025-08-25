@@ -16,6 +16,7 @@ using System.Text;
 using MaterialSkin.Properties;
 using MaterialSkin.Animations;
 using Microsoft.Web.WebView2.WinForms;
+using Pantallas_Sistema_facturacion;
 
 
 
@@ -68,12 +69,11 @@ namespace Pantallas_Sistema_facturacion
             fInformes.ShowDialog();
         }
 
-//<<<<<<< prueba-categoria
         private void btnClientes_Click(object sender, EventArgs e)
         {
 
-            frmAyuda Frmayuda = new frmAyuda();
-            Frmayuda.ShowDialog();
+            FrmClientes frmClientes = new FrmClientes();
+            frmClientes.ShowDialog();
 
         }
 
@@ -84,11 +84,9 @@ namespace Pantallas_Sistema_facturacion
         }
 
         private void btnCategorias_Click(object sender, EventArgs e)
-        
-        }
-
-            FrmCategorias frmproductos = new FrmCategorias();
-            frmproductos.ShowDialog();
+        {
+            FrmCategorias frmCategorias = new FrmCategorias();
+            frmCategorias.ShowDialog();
         }
 
         private void BtnSalir_Click(object sender, EventArgs e)
@@ -101,15 +99,16 @@ namespace Pantallas_Sistema_facturacion
         }
 
         private void btnAyuda_Click(object sender, EventArgs e)
-        {         
-            frmAyuda Frmayuda = new frmAyuda();
-            Frmayuda.ShowDialog();
+        {
+            frmAyuda FrmAyuda = new frmAyuda();
+            FrmAyuda.ShowDialog();
+
         }
 
         private void btnAcerca_Click(object sender, EventArgs e)
         {
-            frmAcerca Frmacerca = new frmAcerca();
-            Frmacerca.ShowDialog();
+            frmAcerca FrmAcerca= new frmAcerca();
+            FrmAcerca.ShowDialog();
 
         }
     }
