@@ -50,5 +50,10 @@ namespace Pantallas_Sistema_facturacion
         {
 
         }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
