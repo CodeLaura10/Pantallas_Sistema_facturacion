@@ -390,7 +390,6 @@
             btnAyuda.TabIndex = 7;
             btnAyuda.Text = "Ayuda";
             btnAyuda.UseVisualStyleBackColor = true;
- 
             // 
             // btnAcerca
             // 
@@ -436,9 +435,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = SystemColors.ButtonFace;
-
-            ClientSize = new Size(1884, 1380);
-
+            ClientSize = new Size(1067, 692);
             Controls.Add(pnlPrincipal);
             Controls.Add(TabOpcionesMenu);
             Controls.Add(label1);
