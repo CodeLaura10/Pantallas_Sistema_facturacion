@@ -45,7 +45,7 @@ namespace Pantallas_Sistema_facturacion
             "Facilitar la organización de la información contable y mejorar la eficiencia " +
             "en la toma de decisiones empresariales mediante un sistema ágil, seguro y fácil de usar.\n\n" +
 
-            "© 2025 Grupo7. Todos los derechos reservados.";
+            "© 2025 Grupo7. Todos los derechos reservados";
 
         }
     }
