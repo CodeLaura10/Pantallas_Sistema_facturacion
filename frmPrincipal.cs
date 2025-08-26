@@ -22,6 +22,7 @@ using Pantallas_Sistema_facturacion;
 
 
 
+
 namespace Pantallas_Sistema_facturacion
 {
     public partial class frmPrincipal : MaterialForm
@@ -29,7 +30,7 @@ namespace Pantallas_Sistema_facturacion
         public frmPrincipal()
         {
             InitializeComponent();
-         
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -50,8 +51,8 @@ namespace Pantallas_Sistema_facturacion
             fFacturas.ShowDialog();
         }
 
-      
-       
+
+
         private void button2_Click(object sender, EventArgs e)
         {
 

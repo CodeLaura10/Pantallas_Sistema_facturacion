@@ -478,6 +478,10 @@
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = SystemColors.ButtonFace;
             ClientSize = new Size(1311, 788);
+
+
+
+
             Controls.Add(pnlPrincipal);
             Controls.Add(TabOpcionesMenu);
             Controls.Add(label1);
