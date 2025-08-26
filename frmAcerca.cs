@@ -19,34 +19,67 @@ namespace Pantallas_Sistema_facturacion
 
         private void frmAcerca_Load(object sender, EventArgs e)
         {
+            // Limpiar texto
+            richTextBox1.Clear();
 
-            // Desactivar edición en el RichTextBox
-            richTextBox1.ReadOnly = true;
-            richTextBox1.BorderStyle = BorderStyle.None;
+            // ----------- TÍTULO -----------
+            richTextBox1.SelectionFont = new Font("Segoe UI", 14, FontStyle.Bold);
+            richTextBox1.SelectionColor = Color.DarkGreen;
+            richTextBox1.AppendText("📌 Sistema de Facturación\n\n");
 
-            // Texto de información
-            richTextBox1.Text =
-                         "📌 Sistema de Facturación\n\n" +
-            "Versión: 12.1.0\n" +
-            "Desarrollado por: Grupo 7\n" +
-            "Fecha: Agosto 2025\n\n" +
+            // ----------- VERSIÓN -----------
+            richTextBox1.SelectionFont = new Font("Segoe UI", 11, FontStyle.Bold);
+            richTextBox1.SelectionColor = Color.Black;
+            richTextBox1.AppendText("Versión: ");
+            richTextBox1.SelectionFont = new Font("Segoe UI", 11, FontStyle.Regular);
+            richTextBox1.SelectionColor = Color.DarkBlue;
+            richTextBox1.AppendText("8.25.1\n");
 
-            "ℹ️ Descripción:\n" +
-            "Este sistema de facturación ha sido diseñado para apoyar a las pequeñas y medianas empresas " +
-            "en la gestión de sus procesos contables y administrativos. \n\n" +
+            // ----------- FECHA -----------
+            richTextBox1.SelectionFont = new Font("Segoe UI", 11, FontStyle.Bold);
+            richTextBox1.SelectionColor = Color.Black;
+            richTextBox1.AppendText("Fecha: ");
+            richTextBox1.SelectionFont = new Font("Segoe UI", 11, FontStyle.Italic);
+            richTextBox1.SelectionColor = Color.DarkRed;
+            richTextBox1.AppendText("Agosto 2025\n\n");
 
-            "🔹 Funcionalidades principales:\n" +
-            " - Registro y control de clientes.\n" +
-            " - Creación y administración de facturas.\n" +
-            " - Generación de reportes e informes financieros.\n" +
-            " - Módulo de ayuda en línea para soporte al usuario.\n\n" +
+            // ----------- AUTOR -----------
+            richTextBox1.SelectionFont = new Font("Segoe UI", 11, FontStyle.Bold);
+            richTextBox1.SelectionColor = Color.Black;
+            richTextBox1.AppendText("Autor: ");
+            richTextBox1.SelectionFont = new Font("Segoe UI", 11, FontStyle.Regular);
+            richTextBox1.SelectionColor = Color.DarkBlue;
+            richTextBox1.AppendText("Grupo 7\n\n");
 
-            "👨‍💻 Objetivo:\n" +
-            "Facilitar la organización de la información contable y mejorar la eficiencia " +
-            "en la toma de decisiones empresariales mediante un sistema ágil, seguro y fácil de usar.\n\n" +
+            // ----------- DESCRIPCIÓN GENERAL -----------
+            richTextBox1.SelectionFont = new Font("Segoe UI", 10, FontStyle.Regular);
+            richTextBox1.SelectionColor = Color.Black;
+            richTextBox1.AppendText(
+                "Este sistema de facturación ha sido desarrollado para optimizar la gestión administrativa " +
+                "de pequeñas y medianas empresas. Su objetivo principal es simplificar el manejo de ventas, " +
+                "clientes y reportes financieros de manera rápida, segura y organizada.\n\n"
+            );
 
-            "© 2025 Grupo7. Todos los derechos reservados.";
+            // ----------- FUNCIONES PRINCIPALES -----------
+            richTextBox1.SelectionFont = new Font("Segoe UI", 11, FontStyle.Bold | FontStyle.Underline);
+            richTextBox1.SelectionColor = Color.DarkSlateBlue;
+            richTextBox1.AppendText("Funciones principales:\n\n");
 
+            richTextBox1.SelectionFont = new Font("Segoe UI", 10, FontStyle.Regular);
+            richTextBox1.SelectionColor = Color.Black;
+            richTextBox1.AppendText("✔️ Registro de clientes y gestión de información.\n");
+            richTextBox1.AppendText("✔️ Creación, edición y control de facturas.\n");
+            richTextBox1.AppendText("✔️ Generación de reportes de ventas e informes estadísticos.\n");
+            richTextBox1.AppendText("✔️ Panel de ayuda integrado con soporte en línea.\n");
+            richTextBox1.AppendText("✔️ Interfaz amigable con diseño moderno.\n\n");
+
+            // ----------- AGRADECIMIENTO FINAL -----------
+            richTextBox1.SelectionFont = new Font("Segoe UI", 10, FontStyle.Italic);
+            richTextBox1.SelectionColor = Color.Gray;
+            richTextBox1.AppendText("Gracias por utilizar nuestro sistema. 🚀");
+
+            picLogo.Image = Image.FromFile(@"C:\JUAN DAVID\PASCUAL BRAVO\SEMESTRES\SEMESTRE 4\HERRAMIENTAS DE PROGRAMACION III"); // Ruta de tu logo
+            picLogo.SizeMode = PictureBoxSizeMode.Zoom;
         }
     }
 }

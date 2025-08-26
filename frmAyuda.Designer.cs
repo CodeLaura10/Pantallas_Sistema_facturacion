@@ -37,9 +37,10 @@
             webView21.AllowExternalDrop = true;
             webView21.CreationProperties = null;
             webView21.DefaultBackgroundColor = Color.White;
-            webView21.Location = new Point(12, 0);
+            webView21.Dock = DockStyle.Fill;
+            webView21.Location = new Point(0, 0);
             webView21.Name = "webView21";
-            webView21.Size = new Size(1172, 723);
+            webView21.Size = new Size(1185, 752);
             webView21.TabIndex = 0;
             webView21.ZoomFactor = 1D;
             // 
@@ -47,6 +48,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(63, 81, 181);
             ClientSize = new Size(1185, 752);
             Controls.Add(webView21);
             Name = "frmAyuda";
