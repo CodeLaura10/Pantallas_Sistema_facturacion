@@ -78,8 +78,7 @@ namespace Pantallas_Sistema_facturacion
             richTextBox1.SelectionColor = Color.Gray;
             richTextBox1.AppendText("Gracias por utilizar nuestro sistema. 🚀");
 
-            picLogo.Image = Image.FromFile(@"C:\JUAN DAVID\PASCUAL BRAVO\SEMESTRES\SEMESTRE 4\HERRAMIENTAS DE PROGRAMACION III"); // Ruta de tu logo
-            picLogo.SizeMode = PictureBoxSizeMode.Zoom;
+           
         }
     }
 }
