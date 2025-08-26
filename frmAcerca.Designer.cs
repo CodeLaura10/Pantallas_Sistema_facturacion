@@ -33,9 +33,10 @@
             // 
             // richTextBox1
             // 
-            richTextBox1.Location = new Point(24, 12);
+            richTextBox1.BackColor = Color.DarkGray;
+            richTextBox1.Location = new Point(12, 12);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(901, 518);
+            richTextBox1.Size = new Size(912, 747);
             richTextBox1.TabIndex = 0;
             richTextBox1.Text = "";
             // 
@@ -43,7 +44,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(936, 555);
+            BackColor = Color.White;
+            ClientSize = new Size(936, 771);
             Controls.Add(richTextBox1);
             Name = "frmAcerca";
             StartPosition = FormStartPosition.CenterScreen;
@@ -54,6 +56,6 @@
 
         #endregion
 
-        private RichTextBox richTextBox1;
+        internal RichTextBox richTextBox1;
     }
 }
