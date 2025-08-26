@@ -96,8 +96,9 @@
             pnlPrincipal.Controls.Add(panel1);
             pnlPrincipal.Location = new Point(1, 60);
             pnlPrincipal.Name = "pnlPrincipal";
-            pnlPrincipal.Size = new Size(1287, 730);
+            pnlPrincipal.Size = new Size(1193, 693);
             pnlPrincipal.TabIndex = 3;
+            pnlPrincipal.Paint += pnlPrincipal_Paint;
             // 
             // panel1
             // 
@@ -105,7 +106,7 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(178, 730);
+            panel1.Size = new Size(217, 693);
             panel1.TabIndex = 0;
             // 
             // TbpMenu
@@ -117,12 +118,13 @@
             TbpMenu.Controls.Add(ayuda);
             TbpMenu.Depth = 0;
             TbpMenu.Dock = DockStyle.Fill;
+            TbpMenu.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             TbpMenu.Location = new Point(0, 0);
             TbpMenu.MouseState = MaterialSkin.MouseState.HOVER;
             TbpMenu.Multiline = true;
             TbpMenu.Name = "TbpMenu";
             TbpMenu.SelectedIndex = 0;
-            TbpMenu.Size = new Size(178, 730);
+            TbpMenu.Size = new Size(217, 693);
             TbpMenu.TabIndex = 0;
             // 
             // principal
@@ -134,7 +136,7 @@
             principal.Location = new Point(4, 79);
             principal.Name = "principal";
             principal.Padding = new Padding(3);
-            principal.Size = new Size(170, 647);
+            principal.Size = new Size(209, 610);
             principal.TabIndex = 0;
             principal.Text = "PRINCIPAL";
             // 
@@ -174,7 +176,7 @@
             tablas.Location = new Point(4, 79);
             tablas.Name = "tablas";
             tablas.Padding = new Padding(3);
-            tablas.Size = new Size(170, 647);
+            tablas.Size = new Size(209, 610);
             tablas.TabIndex = 1;
             tablas.Text = "TABLAS";
             // 
@@ -244,7 +246,7 @@
             facturacion.Controls.Add(pictureBox5);
             facturacion.Location = new Point(4, 79);
             facturacion.Name = "facturacion";
-            facturacion.Size = new Size(170, 647);
+            facturacion.Size = new Size(209, 610);
             facturacion.TabIndex = 2;
             facturacion.Text = "FACTURACIÓN";
             // 
@@ -301,38 +303,40 @@
             seguridad.Controls.Add(pictureBox3);
             seguridad.Location = new Point(4, 79);
             seguridad.Name = "seguridad";
-            seguridad.Size = new Size(170, 647);
+            seguridad.Size = new Size(209, 610);
             seguridad.TabIndex = 3;
             seguridad.Text = "SEGURIDAD";
+            seguridad.Click += seguridad_Click;
             // 
             // btnSeguridad
             // 
             btnSeguridad.FlatAppearance.BorderSize = 0;
             btnSeguridad.FlatAppearance.MouseDownBackColor = Color.FromArgb(45, 45, 45);
             btnSeguridad.FlatStyle = FlatStyle.Flat;
-            btnSeguridad.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSeguridad.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSeguridad.ForeColor = SystemColors.ButtonFace;
             btnSeguridad.Image = (Image)resources.GetObject("btnSeguridad.Image");
             btnSeguridad.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSeguridad.Location = new Point(-1, 376);
+            btnSeguridad.Location = new Point(17, 343);
             btnSeguridad.Name = "btnSeguridad";
             btnSeguridad.Size = new Size(211, 63);
             btnSeguridad.TabIndex = 8;
             btnSeguridad.Text = "Seguridad";
             btnSeguridad.UseVisualStyleBackColor = true;
+            btnSeguridad.Click += btnSeguridad_Click;
             // 
             // btnRoles
             // 
             btnRoles.FlatAppearance.BorderSize = 0;
             btnRoles.FlatAppearance.MouseDownBackColor = Color.FromArgb(45, 45, 45);
             btnRoles.FlatStyle = FlatStyle.Flat;
-            btnRoles.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRoles.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRoles.ForeColor = SystemColors.ButtonFace;
             btnRoles.Image = (Image)resources.GetObject("btnRoles.Image");
             btnRoles.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRoles.Location = new Point(-1, 273);
+            btnRoles.Location = new Point(17, 261);
             btnRoles.Name = "btnRoles";
-            btnRoles.Size = new Size(170, 73);
+            btnRoles.Size = new Size(163, 73);
             btnRoles.TabIndex = 7;
             btnRoles.Text = "Roles";
             btnRoles.UseVisualStyleBackColor = true;
@@ -342,13 +346,13 @@
             btnEmpleados.FlatAppearance.BorderSize = 0;
             btnEmpleados.FlatAppearance.MouseDownBackColor = Color.FromArgb(45, 45, 45);
             btnEmpleados.FlatStyle = FlatStyle.Flat;
-            btnEmpleados.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEmpleados.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEmpleados.ForeColor = SystemColors.ButtonFace;
             btnEmpleados.Image = (Image)resources.GetObject("btnEmpleados.Image");
             btnEmpleados.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEmpleados.Location = new Point(-1, 179);
+            btnEmpleados.Location = new Point(17, 188);
             btnEmpleados.Name = "btnEmpleados";
-            btnEmpleados.Size = new Size(211, 63);
+            btnEmpleados.Size = new Size(220, 63);
             btnEmpleados.TabIndex = 6;
             btnEmpleados.Text = "Empleados";
             btnEmpleados.UseVisualStyleBackColor = true;
@@ -356,10 +360,10 @@
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(20, 0);
+            pictureBox3.Location = new Point(52, 45);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(128, 128);
-            pictureBox3.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox3.Size = new Size(113, 112);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 1;
             pictureBox3.TabStop = false;
             // 
@@ -371,7 +375,7 @@
             ayuda.Controls.Add(pictureBox4);
             ayuda.Location = new Point(4, 79);
             ayuda.Name = "ayuda";
-            ayuda.Size = new Size(170, 647);
+            ayuda.Size = new Size(209, 610);
             ayuda.TabIndex = 4;
             ayuda.Text = "AYUDA";
             // 
@@ -390,7 +394,6 @@
             btnAyuda.TabIndex = 7;
             btnAyuda.Text = "Ayuda";
             btnAyuda.UseVisualStyleBackColor = true;
- 
             // 
             // btnAcerca
             // 
@@ -436,9 +439,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = SystemColors.ButtonFace;
-
-            ClientSize = new Size(1884, 1380);
-
+            ClientSize = new Size(1942, 796);
             Controls.Add(pnlPrincipal);
             Controls.Add(TabOpcionesMenu);
             Controls.Add(label1);
@@ -461,7 +462,6 @@
             facturacion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             seguridad.ResumeLayout(false);
-            seguridad.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ayuda.ResumeLayout(false);
             ayuda.PerformLayout();

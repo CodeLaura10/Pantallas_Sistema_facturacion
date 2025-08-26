@@ -23,7 +23,7 @@ namespace Pantallas_Sistema_facturacion
         public frmPrincipal()
         {
             InitializeComponent();
-         
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -44,8 +44,8 @@ namespace Pantallas_Sistema_facturacion
             fFacturas.ShowDialog();
         }
 
-      
-       
+
+
         private void button2_Click(object sender, EventArgs e)
         {
 
@@ -60,6 +60,21 @@ namespace Pantallas_Sistema_facturacion
         {
             frmInformes fInformes = new frmInformes();
             fInformes.ShowDialog();
+        }
+
+        private void btnSeguridad_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void seguridad_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlPrincipal_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
