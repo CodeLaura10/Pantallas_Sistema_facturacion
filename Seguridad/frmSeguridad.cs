@@ -185,16 +185,24 @@ namespace Pantallas_Sistema_facturacion.Seguridad
 
             if (!ValidarCampos()) return;
 
-            UsuariosStore.Upsert(_empleadoActual.Id,
-                                 txtSegUsuario.Text.Trim(),
-                                 txtSegClave.Text.Trim());
+            var ok = UsuariosStore.Upsert(_empleadoActual.Id,
+                                          txtSegUsuario.Text.Trim(),
+                                          txtSegClave.Text.Trim(),
+                                          out var error);
+
+            if (!ok)
+            {
+                MessageBox.Show(error, "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtSegUsuario.Focus();
+                return;
+            }
 
             MessageBox.Show("Credenciales actualizadas.", "OK",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            // limpia todo después de actualizar
-            LimpiarUI();
+            LimpiarUI(); // como ya dejaste
         }
+
 
     }
 }
