@@ -33,9 +33,10 @@
             folderBrowserDialog1 = new FolderBrowserDialog();
             label1 = new Label();
             pnlPrincipal = new Panel();
-            // Instanciar ambos paneles
-            this.panelContenedor = new System.Windows.Forms.Panel();   // viene de main
-            this.pnlEmpleados    = new System.Windows.Forms.Panel();   // tu panel de Seguridad
+
+            // Instanciar ambos paneles contenedores
+            panelContenedor = new Panel(); // panel general (main)
+            pnlEmpleados = new Panel(); // contenedor de Seguridad (embebidos)
 
             panel1 = new Panel();
             TbpMenu = new MaterialSkin.Controls.MaterialTabControl();
@@ -98,54 +99,40 @@
             // pnlPrincipal
             // 
             pnlPrincipal.BackColor = SystemColors.ButtonFace;
-            // Agregar ambos paneles y usar las medidas de main
-            this.pnlPrincipal.Controls.Add(this.panelContenedor);
-            this.pnlPrincipal.Controls.Add(this.pnlEmpleados);
-            this.pnlPrincipal.Controls.Add(this.panel1);
-            this.pnlPrincipal.Location = new System.Drawing.Point(1, 45);
-            this.pnlPrincipal.Margin   = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pnlPrincipal.Name     = "pnlPrincipal";
-            this.pnlPrincipal.Size     = new System.Drawing.Size(1126, 548);
 
-            // Configuración de cada contenedor
-            this.panelContenedor.Dock  = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedor.Name  = "panelContenedor";
-            this.panelContenedor.Visible = true;   // visible por defecto
-
-            this.pnlEmpleados.Dock     = System.Windows.Forms.DockStyle.Fill;
-            this.pnlEmpleados.Name     = "pnlEmpleados";
-            this.pnlEmpleados.Visible  = false;    // oculto por defecto (solo Seguridad)
-
+            // Orden: primero panel lateral, luego panelContenedor (Fill), luego pnlEmpleados (Fill y oculto)
+            pnlPrincipal.Controls.Add(panelContenedor);
+            pnlPrincipal.Controls.Add(pnlEmpleados);
+            pnlPrincipal.Controls.Add(panel1);
+            pnlPrincipal.Location = new Point(1, 45);
+            pnlPrincipal.Margin = new Padding(3, 2, 3, 2);
+            pnlPrincipal.Name = "pnlPrincipal";
+            pnlPrincipal.Size = new Size(1126, 548);
             pnlPrincipal.TabIndex = 3;
             pnlPrincipal.Paint += pnlPrincipal_Paint;
-            // 
-            // pnlEmpleados
-            // 
-            pnlEmpleados.Location = new Point(214, 3);
-            pnlEmpleados.Name = "pnlEmpleados";
-            pnlEmpleados.Size = new Size(992, 686);
-            pnlEmpleados.TabIndex = 1;
-            // 
-            // panelContenedor
-            // 
-            panelContenedor.Location = new Point(180, 3);
-            panelContenedor.Name = "panelContenedor";
-            panelContenedor.Size = new Size(1107, 723);
-            panelContenedor.TabIndex = 1;
-            // 
-            // panel1
-            // 
+
+            // panel1 (lateral)
             panel1.Controls.Add(TbpMenu);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(156, 548);
-
+            panel1.Size = new Size(156, 548);
             panel1.TabIndex = 0;
-            // 
+
+            // panelContenedor (principal)
+            panelContenedor.Dock = DockStyle.Fill;
+            panelContenedor.Name = "panelContenedor";
+            panelContenedor.TabIndex = 1;
+            panelContenedor.Visible = true;
+
+            // pnlEmpleados (contenedor Seguridad)
+            pnlEmpleados.Dock = DockStyle.Fill;
+            pnlEmpleados.Name = "pnlEmpleados";
+            pnlEmpleados.TabIndex = 2;
+            pnlEmpleados.Visible = false;
+
             // TbpMenu
-            // 
             TbpMenu.Controls.Add(principal);
             TbpMenu.Controls.Add(tablas);
             TbpMenu.Controls.Add(facturacion);
@@ -160,12 +147,10 @@
             TbpMenu.Multiline = true;
             TbpMenu.Name = "TbpMenu";
             TbpMenu.SelectedIndex = 0;
-            this.TbpMenu.Size = new System.Drawing.Size(156, 548);
-
+            TbpMenu.Size = new Size(156, 548);
             TbpMenu.TabIndex = 0;
-            // 
+
             // principal
-            // 
             principal.BackColor = Color.CornflowerBlue;
             principal.Controls.Add(BtnSalir);
             principal.Controls.Add(pictureBox6);
@@ -173,12 +158,12 @@
             principal.Location = new Point(4, 64);
             principal.Margin = new Padding(3, 2, 3, 2);
             principal.Name = "principal";
-            this.ayuda.Size = new System.Drawing.Size(148, 480);
+            principal.Padding = new Padding(3, 2, 3, 2);
+            principal.Size = new Size(148, 480);
             principal.TabIndex = 0;
             principal.Text = "PRINCIPAL";
-            // 
+
             // BtnSalir
-            // 
             BtnSalir.FlatAppearance.BorderSize = 0;
             BtnSalir.FlatAppearance.MouseDownBackColor = Color.Black;
             BtnSalir.FlatStyle = FlatStyle.Flat;
@@ -194,9 +179,8 @@
             BtnSalir.Text = "Salir";
             BtnSalir.UseVisualStyleBackColor = true;
             BtnSalir.Click += BtnSalir_Click;
-            // 
+
             // pictureBox6
-            // 
             pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
             pictureBox6.Location = new Point(16, 4);
             pictureBox6.Margin = new Padding(3, 2, 3, 2);
@@ -205,9 +189,8 @@
             pictureBox6.SizeMode = PictureBoxSizeMode.AutoSize;
             pictureBox6.TabIndex = 2;
             pictureBox6.TabStop = false;
-            // 
+
             // tablas
-            // 
             tablas.BackColor = Color.CornflowerBlue;
             tablas.Controls.Add(btnCategorias);
             tablas.Controls.Add(btnProductos);
@@ -216,13 +199,12 @@
             tablas.Location = new Point(4, 64);
             tablas.Margin = new Padding(3, 2, 3, 2);
             tablas.Name = "tablas";
-            this.principal.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.principal.Size    = new System.Drawing.Size(148, 480);
+            tablas.Padding = new Padding(3, 2, 3, 2);
+            tablas.Size = new Size(148, 480);
             tablas.TabIndex = 1;
             tablas.Text = "TABLAS";
-            // 
+
             // btnCategorias
-            // 
             btnCategorias.FlatAppearance.BorderSize = 0;
             btnCategorias.FlatAppearance.MouseDownBackColor = Color.FromArgb(45, 45, 45);
             btnCategorias.FlatStyle = FlatStyle.Flat;
@@ -238,9 +220,8 @@
             btnCategorias.Text = "Categorias";
             btnCategorias.UseVisualStyleBackColor = true;
             btnCategorias.Click += btnCategorias_Click;
-            // 
+
             // btnProductos
-            // 
             btnProductos.FlatAppearance.BorderSize = 0;
             btnProductos.FlatAppearance.MouseDownBackColor = Color.FromArgb(45, 45, 45);
             btnProductos.FlatStyle = FlatStyle.Flat;
@@ -256,9 +237,8 @@
             btnProductos.Text = "Productos";
             btnProductos.UseVisualStyleBackColor = true;
             btnProductos.Click += btnProductos_Click;
-            // 
+
             // btnClientes
-            // 
             btnClientes.FlatAppearance.BorderSize = 0;
             btnClientes.FlatAppearance.MouseDownBackColor = Color.FromArgb(45, 45, 45);
             btnClientes.FlatStyle = FlatStyle.Flat;
@@ -274,9 +254,8 @@
             btnClientes.Text = "Clientes";
             btnClientes.UseVisualStyleBackColor = true;
             btnClientes.Click += btnClientes_Click;
-            // 
+
             // pictureBox2
-            // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(19, 0);
             pictureBox2.Margin = new Padding(3, 2, 3, 2);
@@ -285,9 +264,8 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.AutoSize;
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
-            // 
+
             // facturacion
-            // 
             facturacion.BackColor = Color.CornflowerBlue;
             facturacion.Controls.Add(btnInformes);
             facturacion.Controls.Add(btnFacturacion);
@@ -295,14 +273,12 @@
             facturacion.Location = new Point(4, 64);
             facturacion.Margin = new Padding(3, 2, 3, 2);
             facturacion.Name = "facturacion";
-            this.tablas.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tablas.Size    = new System.Drawing.Size(148, 480);
-
+            facturacion.Padding = new Padding(3, 2, 3, 2);
+            facturacion.Size = new Size(148, 480);
             facturacion.TabIndex = 2;
             facturacion.Text = "FACTURACIÓN";
-            // 
+
             // btnInformes
-            // 
             btnInformes.FlatAppearance.BorderSize = 0;
             btnInformes.FlatAppearance.MouseDownBackColor = Color.FromArgb(45, 45, 45);
             btnInformes.FlatStyle = FlatStyle.Flat;
@@ -318,9 +294,8 @@
             btnInformes.Text = "Informes";
             btnInformes.UseVisualStyleBackColor = true;
             btnInformes.Click += btnInformes_Click;
-            // 
+
             // btnFacturacion
-            // 
             btnFacturacion.FlatAppearance.BorderSize = 0;
             btnFacturacion.FlatAppearance.MouseDownBackColor = Color.FromArgb(45, 45, 45);
             btnFacturacion.FlatStyle = FlatStyle.Flat;
@@ -336,9 +311,8 @@
             btnFacturacion.Text = "Facturas";
             btnFacturacion.UseVisualStyleBackColor = true;
             btnFacturacion.Click += btnFacturacion_Click;
-            // 
+
             // pictureBox5
-            // 
             pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
             pictureBox5.Location = new Point(17, 0);
             pictureBox5.Margin = new Padding(3, 2, 3, 2);
@@ -347,9 +321,8 @@
             pictureBox5.SizeMode = PictureBoxSizeMode.AutoSize;
             pictureBox5.TabIndex = 1;
             pictureBox5.TabStop = false;
-            // 
+
             // seguridad
-            // 
             seguridad.BackColor = Color.CornflowerBlue;
             seguridad.Controls.Add(btnSeguridad);
             seguridad.Controls.Add(btnRoles);
@@ -358,13 +331,12 @@
             seguridad.Location = new Point(4, 64);
             seguridad.Margin = new Padding(3, 2, 3, 2);
             seguridad.Name = "seguridad";
-            this.facturacion.Size = new System.Drawing.Size(148, 480);
+            seguridad.Size = new Size(148, 480);
             seguridad.TabIndex = 3;
             seguridad.Text = "SEGURIDAD";
             seguridad.Click += seguridad_Click;
-            // 
+
             // btnSeguridad
-            // 
             btnSeguridad.FlatAppearance.BorderSize = 0;
             btnSeguridad.FlatAppearance.MouseDownBackColor = Color.FromArgb(45, 45, 45);
             btnSeguridad.FlatStyle = FlatStyle.Flat;
@@ -372,16 +344,16 @@
             btnSeguridad.ForeColor = SystemColors.ButtonFace;
             btnSeguridad.Image = (Image)resources.GetObject("btnSeguridad.Image");
             btnSeguridad.ImageAlign = ContentAlignment.MiddleLeft;
-            this.seguridad.Size = new System.Drawing.Size(148, 480);
+            btnSeguridad.Location = new Point(-1, 282);
+            btnSeguridad.Margin = new Padding(3, 2, 3, 2);
             btnSeguridad.Name = "btnSeguridad";
             btnSeguridad.Size = new Size(185, 47);
             btnSeguridad.TabIndex = 8;
             btnSeguridad.Text = "Seguridad";
             btnSeguridad.UseVisualStyleBackColor = true;
             btnSeguridad.Click += btnSeguridad_Click;
-            // 
+
             // btnRoles
-            // 
             btnRoles.FlatAppearance.BorderSize = 0;
             btnRoles.FlatAppearance.MouseDownBackColor = Color.FromArgb(45, 45, 45);
             btnRoles.FlatStyle = FlatStyle.Flat;
@@ -389,17 +361,16 @@
             btnRoles.ForeColor = SystemColors.ButtonFace;
             btnRoles.Image = (Image)resources.GetObject("btnRoles.Image");
             btnRoles.ImageAlign = ContentAlignment.MiddleLeft;
-            this.btnRoles.Location = new System.Drawing.Point(-1, 205);
-            this.btnRoles.Margin   = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnRoles.Name     = "btnRoles";
-            this.btnRoles.Size     = new System.Drawing.Size(149, 55);
+            btnRoles.Location = new Point(-1, 205);
+            btnRoles.Margin = new Padding(3, 2, 3, 2);
+            btnRoles.Name = "btnRoles";
+            btnRoles.Size = new Size(149, 55);
             btnRoles.TabIndex = 7;
             btnRoles.Text = "Roles";
             btnRoles.UseVisualStyleBackColor = true;
             btnRoles.Click += btnRoles_Click_1;
-            // 
+
             // btnEmpleados
-            // 
             btnEmpleados.FlatAppearance.BorderSize = 0;
             btnEmpleados.FlatAppearance.MouseDownBackColor = Color.FromArgb(45, 45, 45);
             btnEmpleados.FlatStyle = FlatStyle.Flat;
@@ -407,28 +378,26 @@
             btnEmpleados.ForeColor = SystemColors.ButtonFace;
             btnEmpleados.Image = (Image)resources.GetObject("btnEmpleados.Image");
             btnEmpleados.ImageAlign = ContentAlignment.MiddleLeft;
-            this.btnEmpleados.Location = new System.Drawing.Point(-1, 134);
-            this.btnEmpleados.Margin   = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnEmpleados.Name     = "btnEmpleados";
-            this.btnEmpleados.Size     = new System.Drawing.Size(185, 47);
+            btnEmpleados.Location = new Point(-1, 134);
+            btnEmpleados.Margin = new Padding(3, 2, 3, 2);
+            btnEmpleados.Name = "btnEmpleados";
+            btnEmpleados.Size = new Size(185, 47);
             btnEmpleados.TabIndex = 6;
             btnEmpleados.Text = "Empleados";
             btnEmpleados.UseVisualStyleBackColor = true;
             btnEmpleados.Click += btnEmpleados_Click;
-            // 
+
             // pictureBox3
-            // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            this.pictureBox3.Location = new System.Drawing.Point(18, 0);
-            this.pictureBox3.Margin   = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            pictureBox3.Location = new Point(18, 0);
+            pictureBox3.Margin = new Padding(3, 2, 3, 2);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(113, 112);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 1;
             pictureBox3.TabStop = false;
-            // 
+
             // ayuda
-            // 
             ayuda.BackColor = Color.CornflowerBlue;
             ayuda.Controls.Add(btnAyuda);
             ayuda.Controls.Add(btnAcerca);
@@ -436,12 +405,11 @@
             ayuda.Location = new Point(4, 64);
             ayuda.Margin = new Padding(3, 2, 3, 2);
             ayuda.Name = "ayuda";
-            this.ayuda.Size = new System.Drawing.Size(148, 480);
+            ayuda.Size = new Size(148, 480);
             ayuda.TabIndex = 4;
             ayuda.Text = "AYUDA";
-            // 
+
             // btnAyuda
-            // 
             btnAyuda.FlatAppearance.BorderSize = 0;
             btnAyuda.FlatAppearance.MouseDownBackColor = Color.FromArgb(45, 45, 45);
             btnAyuda.FlatStyle = FlatStyle.Flat;
@@ -456,10 +424,9 @@
             btnAyuda.TabIndex = 7;
             btnAyuda.Text = "Ayuda";
             btnAyuda.UseVisualStyleBackColor = true;
-            this.btnAyuda.Click += new System.EventHandler(this.btnAyuda_Click);
-            // 
+            btnAyuda.Click += btnAyuda_Click;
+
             // btnAcerca
-            // 
             btnAcerca.FlatAppearance.BorderSize = 0;
             btnAcerca.FlatAppearance.MouseDownBackColor = Color.FromArgb(45, 45, 45);
             btnAcerca.FlatStyle = FlatStyle.Flat;
@@ -475,9 +442,8 @@
             btnAcerca.Text = "Acerca de..";
             btnAcerca.UseVisualStyleBackColor = true;
             btnAcerca.Click += btnAcerca_Click;
-            // 
+
             // pictureBox4
-            // 
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
             pictureBox4.Location = new Point(18, 2);
             pictureBox4.Margin = new Padding(3, 2, 3, 2);
@@ -486,9 +452,8 @@
             pictureBox4.SizeMode = PictureBoxSizeMode.AutoSize;
             pictureBox4.TabIndex = 1;
             pictureBox4.TabStop = false;
-            // 
+
             // TabOpcionesMenu
-            // 
             TabOpcionesMenu.BaseTabControl = TbpMenu;
             TabOpcionesMenu.CharacterCasing = MaterialSkin.Controls.MaterialTabSelector.CustomCharacterCasing.Normal;
             TabOpcionesMenu.Depth = 0;
@@ -500,14 +465,13 @@
             TabOpcionesMenu.Size = new Size(798, 30);
             TabOpcionesMenu.TabIndex = 4;
             TabOpcionesMenu.Click += TabOpcionesMenu_Click;
-            // 
+
             // frmPrincipal
-            // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(1311, 788);
+            ClientSize = new Size(1311, 788);
             Controls.Add(pnlPrincipal);
             Controls.Add(TabOpcionesMenu);
             Controls.Add(label1);
@@ -519,7 +483,7 @@
             RightToLeft = RightToLeft.No;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "SISTEMA DE FACTURACIÓN";
-            Load += button1_Click;
+            Load += frmPrincipal_Load; // <-- corregido (antes estaba button1_Click)
             pnlPrincipal.ResumeLayout(false);
             panel1.ResumeLayout(false);
             TbpMenu.ResumeLayout(false);
@@ -570,10 +534,11 @@
         private Button btnSeguridad;
         private Button btnRoles;
         private Button btnEmpleados;
-        private Panel panelContenedor;
         private Button btnAcerca;
-        private System.Windows.Forms.Panel panelContenedor; // de main
-        private System.Windows.Forms.Panel pnlEmpleados;    // tu panel Seguridad
-        private System.Windows.Forms.Button btnAyuda;       // de main
+        private Button btnAyuda;
+
+        // Contenedores
+        private Panel panelContenedor; // único
+        private Panel pnlEmpleados;    // único
     }
 }

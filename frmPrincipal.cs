@@ -2,18 +2,19 @@ using System;
 using System.Windows.Forms;
 using MaterialSkin.Controls;
 using Pantallas_Sistema_facturacion.Seguridad; // frmEmpleados/frmRoles/frmSeguridad
-using FrmCategoria; // si usas FrmCategorias
+using FrmCategoria; // FrmCategorias, etc.
 
 namespace Pantallas_Sistema_facturacion
 {
     public partial class frmPrincipal : MaterialForm
     {
-        private Form _formActualSeguridad = null; // último form embebido en pnlEmpleados
+        // Último form embebido en el panel de Seguridad
+        private Form _formActualSeguridad = null;
 
         public frmPrincipal()
         {
             InitializeComponent();
-            this.Load += frmPrincipal_Load; // cablea el evento Load
+            this.Load += frmPrincipal_Load; // estado inicial
         }
 
         // Estado inicial: Seguridad oculta, panel general visible
@@ -39,6 +40,7 @@ namespace Pantallas_Sistema_facturacion
                     try { _formActualSeguridad.Close(); _formActualSeguridad.Dispose(); } catch { }
                     _formActualSeguridad = null;
                 }
+
                 pnlEmpleados.Controls.Clear();
                 pnlEmpleados.Visible = false;
 
@@ -74,7 +76,6 @@ namespace Pantallas_Sistema_facturacion
         // -------------------------
         //      HANDLERS VARIOS
         // -------------------------
-
         private void button1_Click(object sender, EventArgs e) { }
         private void button2_Click(object sender, EventArgs e) { }
         private void Facturacion_Click(object sender, EventArgs e) { }
