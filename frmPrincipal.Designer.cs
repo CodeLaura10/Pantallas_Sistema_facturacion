@@ -33,6 +33,7 @@
             folderBrowserDialog1 = new FolderBrowserDialog();
             label1 = new Label();
             pnlPrincipal = new Panel();
+            pnlEmpleados = new Panel();
             panel1 = new Panel();
             TbpMenu = new MaterialSkin.Controls.MaterialTabControl();
             principal = new TabPage();
@@ -93,12 +94,20 @@
             // pnlPrincipal
             // 
             pnlPrincipal.BackColor = SystemColors.ButtonFace;
+            pnlPrincipal.Controls.Add(pnlEmpleados);
             pnlPrincipal.Controls.Add(panel1);
-            pnlPrincipal.Location = new Point(1, 60);
+            pnlPrincipal.Location = new Point(1, 61);
             pnlPrincipal.Name = "pnlPrincipal";
-            pnlPrincipal.Size = new Size(1193, 693);
+            pnlPrincipal.Size = new Size(1206, 692);
             pnlPrincipal.TabIndex = 3;
             pnlPrincipal.Paint += pnlPrincipal_Paint;
+            // 
+            // pnlEmpleados
+            // 
+            pnlEmpleados.Location = new Point(214, 3);
+            pnlEmpleados.Name = "pnlEmpleados";
+            pnlEmpleados.Size = new Size(992, 686);
+            pnlEmpleados.TabIndex = 1;
             // 
             // panel1
             // 
@@ -106,7 +115,7 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(217, 693);
+            panel1.Size = new Size(217, 692);
             panel1.TabIndex = 0;
             // 
             // TbpMenu
@@ -124,7 +133,7 @@
             TbpMenu.Multiline = true;
             TbpMenu.Name = "TbpMenu";
             TbpMenu.SelectedIndex = 0;
-            TbpMenu.Size = new Size(217, 693);
+            TbpMenu.Size = new Size(217, 692);
             TbpMenu.TabIndex = 0;
             // 
             // principal
@@ -136,7 +145,7 @@
             principal.Location = new Point(4, 79);
             principal.Name = "principal";
             principal.Padding = new Padding(3);
-            principal.Size = new Size(209, 610);
+            principal.Size = new Size(209, 609);
             principal.TabIndex = 0;
             principal.Text = "PRINCIPAL";
             // 
@@ -176,7 +185,7 @@
             tablas.Location = new Point(4, 79);
             tablas.Name = "tablas";
             tablas.Padding = new Padding(3);
-            tablas.Size = new Size(209, 610);
+            tablas.Size = new Size(209, 609);
             tablas.TabIndex = 1;
             tablas.Text = "TABLAS";
             // 
@@ -246,7 +255,7 @@
             facturacion.Controls.Add(pictureBox5);
             facturacion.Location = new Point(4, 79);
             facturacion.Name = "facturacion";
-            facturacion.Size = new Size(209, 610);
+            facturacion.Size = new Size(209, 609);
             facturacion.TabIndex = 2;
             facturacion.Text = "FACTURACIÓN";
             // 
@@ -303,7 +312,7 @@
             seguridad.Controls.Add(pictureBox3);
             seguridad.Location = new Point(4, 79);
             seguridad.Name = "seguridad";
-            seguridad.Size = new Size(209, 610);
+            seguridad.Size = new Size(209, 609);
             seguridad.TabIndex = 3;
             seguridad.Text = "SEGURIDAD";
             seguridad.Click += seguridad_Click;
@@ -340,6 +349,7 @@
             btnRoles.TabIndex = 7;
             btnRoles.Text = "Roles";
             btnRoles.UseVisualStyleBackColor = true;
+            btnRoles.Click += btnRoles_Click_1;
             // 
             // btnEmpleados
             // 
@@ -356,6 +366,7 @@
             btnEmpleados.TabIndex = 6;
             btnEmpleados.Text = "Empleados";
             btnEmpleados.UseVisualStyleBackColor = true;
+            btnEmpleados.Click += btnEmpleados_Click;
             // 
             // pictureBox3
             // 
@@ -375,7 +386,7 @@
             ayuda.Controls.Add(pictureBox4);
             ayuda.Location = new Point(4, 79);
             ayuda.Name = "ayuda";
-            ayuda.Size = new Size(209, 610);
+            ayuda.Size = new Size(209, 609);
             ayuda.TabIndex = 4;
             ayuda.Text = "AYUDA";
             // 
@@ -439,7 +450,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = SystemColors.ButtonFace;
-            ClientSize = new Size(1942, 796);
+            ClientSize = new Size(1249, 846);
             Controls.Add(pnlPrincipal);
             Controls.Add(TabOpcionesMenu);
             Controls.Add(label1);
@@ -501,5 +512,6 @@
         private Button btnEmpleados;
         private Button btnAyuda;
         private Button btnAcerca;
+        private Panel pnlEmpleados;
     }
 }
