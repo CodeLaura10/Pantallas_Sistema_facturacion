@@ -91,7 +91,7 @@ namespace Pantallas_Sistema_facturacion
 
         private void btnSeguridad_Click(object sender, EventArgs e)
         {
-
+            AbrirEnPanel(new frmSeguridad(), pnlEmpleados);
         }
 
         private void seguridad_Click(object sender, EventArgs e)
