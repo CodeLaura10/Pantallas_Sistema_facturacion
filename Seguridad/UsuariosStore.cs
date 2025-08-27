@@ -4,24 +4,24 @@ using System.Linq;
 
 namespace Pantallas_Sistema_facturacion.Seguridad
 {
-    public class Usuario
+    // Modelo de credenciales (renombrado para evitar choque con otra clase 'Usuario')
+    public class CredencialUsuario
     {
         public int EmpleadoId { get; set; }
-        public string Username { get; set; } = "";
-        public string Password { get; set; } = ""; // Solo práctica (en producción: hash)
+        public string Username { get; set; } = ""; // En producción: usar hash y reglas de unicidad en BD
+        public string Password { get; set; } = ""; // En producción: NUNCA guardar texto plano
     }
 
     public static class UsuariosStore
     {
-        // Índice por empleado
-        private static readonly Dictionary<int, Usuario> _porEmpleado = new();
+        // Índice por empleado (EmpleadoId -> credencial)
+        private static readonly Dictionary<int, CredencialUsuario> _porEmpleado = new();
 
-        // Índice por username (ignore case)
+        // Índice por username (ignore case) -> EmpleadoId
         private static readonly Dictionary<string, int> _porUsername =
             new(StringComparer.OrdinalIgnoreCase);
 
-        // Crea o actualiza credenciales de un empleado.
-        // Garantiza que el username sea único en todo el sistema.
+        // Crea o actualiza credenciales garantizando que 'username' sea único
         public static bool Upsert(int empleadoId, string username, string password, out string error)
         {
             error = "";
@@ -33,21 +33,20 @@ namespace Pantallas_Sistema_facturacion.Seguridad
 
             username = username.Trim();
 
-            // Si el username ya existe y pertenece a otro empleado → error
+            // Si el username ya existe y pertenece a otro empleado -> error
             if (_porUsername.TryGetValue(username, out var otroEmpId) && otroEmpId != empleadoId)
             {
                 error = "Ese usuario ya está en uso.";
                 return false;
             }
 
-            // Si el empleado ya tenía usuario, liberar el username anterior si cambió
+            // Si ya tenía credencial, liberar el username anterior si cambió
             if (_porEmpleado.TryGetValue(empleadoId, out var existente))
             {
-                if (!string.Equals(existente.Username, username, StringComparison.OrdinalIgnoreCase))
+                if (!string.Equals(existente.Username, username, StringComparison.OrdinalIgnoreCase) &&
+                    !string.IsNullOrWhiteSpace(existente.Username))
                 {
-                    // quita el índice del anterior, si existía
-                    if (!string.IsNullOrWhiteSpace(existente.Username))
-                        _porUsername.Remove(existente.Username);
+                    _porUsername.Remove(existente.Username);
                 }
 
                 existente.Username = username;
@@ -55,35 +54,36 @@ namespace Pantallas_Sistema_facturacion.Seguridad
             }
             else
             {
-                var nuevo = new Usuario
+                _porEmpleado[empleadoId] = new CredencialUsuario
                 {
                     EmpleadoId = empleadoId,
                     Username = username,
                     Password = password
                 };
-                _porEmpleado[empleadoId] = nuevo;
             }
 
-            // Apunta el índice por username al empleado
+            // Reindexa el username hacia este EmpleadoId
             _porUsername[username] = empleadoId;
             return true;
         }
 
-        public static Usuario? GetByEmpleadoId(int empleadoId)
+        // Obtiene por EmpleadoId (o null si no existe)
+        public static CredencialUsuario? GetByEmpleadoId(int empleadoId)
         {
             _porEmpleado.TryGetValue(empleadoId, out var u);
             return u;
         }
 
-        public static Usuario? GetByUsername(string username)
+        // Obtiene por Username (o null si no existe)
+        public static CredencialUsuario? GetByUsername(string username)
         {
             if (string.IsNullOrWhiteSpace(username)) return null;
             if (!_porUsername.TryGetValue(username.Trim(), out var empId)) return null;
             return GetByEmpleadoId(empId);
         }
 
-        // Valida credenciales. Devuelve el Usuario válido en 'user' si coincide.
-        public static bool ValidateCredentials(string username, string password, out Usuario? user)
+        // Valida usuario/clave (solo para práctica)
+        public static bool ValidateCredentials(string username, string password, out CredencialUsuario? user)
         {
             user = null;
             if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
@@ -99,12 +99,12 @@ namespace Pantallas_Sistema_facturacion.Seguridad
             return true;
         }
 
-        // Crea un admin por defecto si no existe (útil para primera ejecución)
+        // Crea un admin por defecto si no existe (útil en primera ejecución / pruebas)
         public static void EnsureDefaultAdmin()
         {
             if (_porUsername.ContainsKey("admin")) return;
 
-            // Busca algún empleado para asociar el admin. Si no hay, crea uno básico.
+            // Usa un empleado existente o crea uno de ejemplo
             Empleado empRef = EmpleadoStore.Empleados.FirstOrDefault();
             if (empRef == null)
             {
@@ -112,10 +112,9 @@ namespace Pantallas_Sistema_facturacion.Seguridad
                 empRef = EmpleadoStore.Empleados.Last();
             }
 
-            // Admin de prueba: admin / 123  (solo para práctica)
             Upsert(empRef.Id, "admin", "123", out _);
         }
     }
 }
-``
+
 

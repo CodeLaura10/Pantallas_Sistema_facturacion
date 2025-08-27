@@ -7,24 +7,27 @@ namespace Pantallas_Sistema_facturacion.Seguridad
 {
     public partial class frmSeguridad : Form
     {
-        // Empleado actual seleccionado (null si aún no hay)
+        // Empleado actual seleccionado (null si no hay)
         private Empleado? _empleadoActual;
 
-        // Guarda lo último persistido para detectar cambios
+        // Valores originales para detectar cambios
         private string _usernameOriginal = "";
         private string _passwordOriginal = "";
+
+        // Flag para silenciar TextChanged cuando limpiamos por código
+        private bool _silencioUI = false;
 
         public frmSeguridad()
         {
             InitializeComponent();
 
-            // Carga inicial: limpia y configura eventos
+            // Al cargar, arranca limpio
             this.Load += (_, __) => LimpiarUI();
 
-            // Autocompletar para nombres de empleados (TextBox estándar)
+            // Autocompletar de empleados (TextBox estándar)
             ConfigurarAutoComplete();
 
-            // Enter en el nombre del empleado → cargar
+            // Enter en el buscador -> cargar empleado
             txtSegEmpleado.KeyDown += (s, e) =>
             {
                 if (e.KeyCode == Keys.Enter)
@@ -34,61 +37,72 @@ namespace Pantallas_Sistema_facturacion.Seguridad
                 }
             };
 
-            // Clicks de botones
-            btnSegActualizar.Click += (_, __) => Guardar();
-            btnSegCancelar.Click += (_, __) => LimpiarUI();
+            // Botones
+            btnSegActualizar.Click += (_, __) => Guardar();   // guarda y limpia
+            btnSegCancelar.Click += (_, __) => LimpiarUI();  // limpia
 
-            // Detecta cambios para habilitar/inhabilitar botones
+            // Cambios de texto -> habilitar/inhabilitar botones si hay diferencias
             txtSegUsuario.TextChanged += (_, __) => EvaluarCambios();
             txtSegClave.TextChanged += (_, __) => EvaluarCambios();
+
+            // Validación temprana de tecleo (opcional, mejora UX)
+            txtSegUsuario.KeyPress += Usuario_SinEspacios_KeyPress;
+            txtSegClave.KeyPress += Clave_SoloAlfanum_KeyPress;
         }
 
-        // Llena la fuente de autocompletado con nombres de empleados
+        // Autocompleta con nombres únicos de la lista en memoria
         private void ConfigurarAutoComplete()
         {
             var src = new AutoCompleteStringCollection();
-            var nombres = EmpleadoStore.Empleados.Select(e => e.Nombre).Distinct().OrderBy(n => n).ToArray();
+            var nombres = EmpleadoStore.Empleados
+                                       .Select(e => e.Nombre)
+                                       .Distinct()
+                                       .OrderBy(n => n)
+                                       .ToArray();
             src.AddRange(nombres);
             txtSegEmpleado.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             txtSegEmpleado.AutoCompleteSource = AutoCompleteSource.CustomSource;
             txtSegEmpleado.AutoCompleteCustomSource = src;
         }
 
-        private bool _silencioUI = false;
-
-        // Limpia campos y estado; deshabilita edición hasta seleccionar un empleado
+        // Deja la UI lista para una nueva operación
         private void LimpiarUI()
         {
-            _silencioUI = true;            
+            _silencioUI = true;
+
             txtSegEmpleado.Text = "";
             txtSegUsuario.Text = "";
             txtSegClave.Text = "";
+
             txtSegUsuario.ReadOnly = true;
             txtSegClave.ReadOnly = true;
+
             _empleadoActual = null;
             _usernameOriginal = "";
             _passwordOriginal = "";
-            SetBotones(habilitar: false);
+
+            SetBotones(false);
+
             _silencioUI = false;
 
-            txtSegEmpleado.Focus();   
+            txtSegEmpleado.Focus();
         }
 
-
-        // Activa/desactiva Actualizar/Cancelar
+        // Habilita o deshabilita Actualizar/Cancelar
         private void SetBotones(bool habilitar)
         {
             btnSegActualizar.Enabled = habilitar;
             btnSegCancelar.Enabled = habilitar;
         }
 
-        // Carga un empleado por nombre (primera coincidencia, ignore case)
+        // Carga al empleado por nombre (primera coincidencia, ignore case)
         private void CargarEmpleadoDesdeUI()
         {
             var nombre = (txtSegEmpleado.Text ?? "").Trim();
             if (string.IsNullOrWhiteSpace(nombre))
             {
-                MessageBox.Show("Ingresa el nombre del empleado.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Ingresa el nombre del empleado.", "Atención",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -97,15 +111,18 @@ namespace Pantallas_Sistema_facturacion.Seguridad
 
             if (emp == null)
             {
-                MessageBox.Show("Empleado no encontrado.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Empleado no encontrado.", "Atención",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
             _empleadoActual = emp;
 
             var u = UsuariosStore.GetByEmpleadoId(emp.Id);
+            _silencioUI = true; // evita parpadeo de botones al asignar textos
             txtSegUsuario.Text = u?.Username ?? "";
-            txtSegClave.Text = u?.Password ?? ""; // Solo para práctica
+            txtSegClave.Text = u?.Password ?? ""; // solo práctica
+            _silencioUI = false;
 
             _usernameOriginal = txtSegUsuario.Text;
             _passwordOriginal = txtSegClave.Text;
@@ -113,11 +130,11 @@ namespace Pantallas_Sistema_facturacion.Seguridad
             txtSegUsuario.ReadOnly = false;
             txtSegClave.ReadOnly = false;
 
-            SetBotones(habilitar: false); // no hay cambios aún
+            SetBotones(false); // aún no hay cambios
             txtSegUsuario.Focus();
         }
 
-        // Habilita botones cuando hay diferencias con lo guardado
+        // Habilita botones si hay diferencias con lo guardado
         private void EvaluarCambios()
         {
             if (_silencioUI || _empleadoActual == null)
@@ -132,39 +149,41 @@ namespace Pantallas_Sistema_facturacion.Seguridad
             SetBotones(habilitar: hayCambios);
         }
 
-        // Valida reglas: usuario requerido; contraseña ≥ 6 y alfanumérica
+        // Validación de negocio: usuario requerido, sin espacios; clave >= 6, alfanumérica
         private bool ValidarCampos()
         {
             var user = (txtSegUsuario.Text ?? "").Trim();
             var pass = (txtSegClave.Text ?? "").Trim();
 
-            // Usuario requerido y sin espacios
             if (string.IsNullOrWhiteSpace(user))
             {
-                MessageBox.Show("El usuario es requerido.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("El usuario es requerido.", "Validación",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtSegUsuario.Clear();
                 txtSegUsuario.Focus();
                 return false;
             }
             if (user.Contains(" "))
             {
-                MessageBox.Show("El usuario no debe tener espacios.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("El usuario no debe tener espacios.", "Validación",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtSegUsuario.Clear();
                 txtSegUsuario.Focus();
                 return false;
             }
 
-            // Contraseña: mínimo 6, solo alfanumérica
             if (pass.Length < 6)
             {
-                MessageBox.Show("La contraseña debe tener al menos 6 caracteres.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("La contraseña debe tener al menos 6 caracteres.", "Validación",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtSegClave.Clear();
                 txtSegClave.Focus();
                 return false;
             }
             if (!Regex.IsMatch(pass, @"^[a-zA-Z0-9]+$"))
             {
-                MessageBox.Show("La contraseña debe ser alfanumérica (sin símbolos ni espacios).", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("La contraseña debe ser alfanumérica (sin símbolos ni espacios).", "Validación",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtSegClave.Clear();
                 txtSegClave.Focus();
                 return false;
@@ -173,7 +192,7 @@ namespace Pantallas_Sistema_facturacion.Seguridad
             return true;
         }
 
-        // Guarda cambios en el store y actualiza estado original
+        // Guarda en el store (garantiza username único) y limpia la UI
         private void Guardar()
         {
             if (_empleadoActual == null)
@@ -192,7 +211,8 @@ namespace Pantallas_Sistema_facturacion.Seguridad
 
             if (!ok)
             {
-                MessageBox.Show(error, "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(error, "Validación",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtSegUsuario.Focus();
                 return;
             }
@@ -200,10 +220,22 @@ namespace Pantallas_Sistema_facturacion.Seguridad
             MessageBox.Show("Credenciales actualizadas.", "OK",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            LimpiarUI(); // como ya dejaste
+            LimpiarUI(); // dejar listo para la siguiente asignación
         }
 
+        // Bloquea espacios en el usuario (opcional)
+        private void Usuario_SinEspacios_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsWhiteSpace(e.KeyChar)) e.Handled = true;
+        }
 
+        // Solo alfanuméricos en la clave (opcional)
+        private void Clave_SoloAlfanum_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetterOrDigit(e.KeyChar))
+                e.Handled = true;
+        }
     }
 }
+
 
