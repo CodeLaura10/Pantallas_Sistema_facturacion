@@ -1,113 +1,161 @@
-using FrmCategoria;
-using MaterialSkin;
-using MaterialSkin.Animations;
-using MaterialSkin.Controls;
-using MaterialSkin.Properties;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Text;
-using MaterialSkin.Properties;
-using MaterialSkin.Animations;
-using Microsoft.Web.WebView2.WinForms;
-using Pantallas_Sistema_facturacion;
-
-
-
-
-
+using MaterialSkin.Controls;
+using Pantallas_Sistema_facturacion.Seguridad; // frmEmpleados/frmRoles/frmSeguridad
+using FrmCategoria; // FrmCategorias, etc.
 
 namespace Pantallas_Sistema_facturacion
 {
     public partial class frmPrincipal : MaterialForm
     {
+        // Último form embebido en el panel de Seguridad
+        private Form _formActualSeguridad = null;
+
         public frmPrincipal()
         {
             InitializeComponent();
-
+            this.Load += frmPrincipal_Load; // estado inicial
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        // Estado inicial: Seguridad oculta, panel general visible
+        private void frmPrincipal_Load(object sender, EventArgs e)
         {
-
+            if (pnlEmpleados != null) pnlEmpleados.Visible = false;
+            if (panelContenedor != null) { panelContenedor.Visible = true; panelContenedor.BringToFront(); }
         }
 
-        private void Facturacion_Click(object sender, EventArgs e)
+        // Muestra/oculta el panel de Seguridad y limpia su contenido al ocultar
+        private void ToggleSeguridad(bool mostrar)
         {
+            if (mostrar)
+            {
+                if (panelContenedor != null) panelContenedor.Visible = false;
+                pnlEmpleados.Visible = true;
+                pnlEmpleados.BringToFront();
+            }
+            else
+            {
+                if (_formActualSeguridad != null)
+                {
+                    try { _formActualSeguridad.Close(); _formActualSeguridad.Dispose(); } catch { }
+                    _formActualSeguridad = null;
+                }
 
+                pnlEmpleados.Controls.Clear();
+                pnlEmpleados.Visible = false;
 
+                if (panelContenedor != null)
+                {
+                    panelContenedor.Visible = true;
+                    panelContenedor.BringToFront();
+                }
+            }
         }
 
+        // Embebe un formulario dentro de un panel (para Seguridad)
+        private void AbrirEnPanel(Form frm, Panel contenedor)
+        {
+            if (_formActualSeguridad != null)
+            {
+                try { _formActualSeguridad.Close(); _formActualSeguridad.Dispose(); } catch { }
+                _formActualSeguridad = null;
+            }
+
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+
+            contenedor.Controls.Clear();
+            contenedor.Controls.Add(frm);
+            contenedor.Tag = frm;
+
+            _formActualSeguridad = frm;
+            frm.Show(); // importante: no usar ShowDialog aquí
+        }
+
+        // -------------------------
+        //      HANDLERS VARIOS
+        // -------------------------
+        private void button1_Click(object sender, EventArgs e) { }
+        private void button2_Click(object sender, EventArgs e) { }
+        private void Facturacion_Click(object sender, EventArgs e) { }
+        private void Informes_Click(object sender, EventArgs e) { }
+        private void TabOpcionesMenu_Click(object sender, EventArgs e) { }
+        private void seguridad_Click(object sender, EventArgs e) { }
+        private void pnlPrincipal_Paint(object sender, PaintEventArgs e) { }
 
         private void btnFacturacion_Click(object sender, EventArgs e)
         {
-            frmFacturas fFacturas = new frmFacturas();
+            ToggleSeguridad(false);
+            var fFacturas = new frmFacturas();
             fFacturas.ShowDialog();
-        }
-
-
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Informes_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnInformes_Click(object sender, EventArgs e)
         {
-            frmInformes fInformes = new frmInformes();
+            ToggleSeguridad(false);
+            var fInformes = new frmInformes();
             fInformes.ShowDialog();
         }
 
+        // --- SEGURIDAD (embebido en pnlEmpleados) ---
+        private void btnSeguridad_Click(object sender, EventArgs e)
+        {
+            ToggleSeguridad(true);
+            AbrirEnPanel(new frmSeguridad(), pnlEmpleados); // por defecto, Credenciales
+        }
+
+        private void btnEmpleados_Click(object sender, EventArgs e)
+        {
+            ToggleSeguridad(true);
+            AbrirEnPanel(new frmEmpleados(), pnlEmpleados);
+        }
+
+        private void btnRoles_Click_1(object sender, EventArgs e)
+        {
+            ToggleSeguridad(true);
+            AbrirEnPanel(new frmRoles(), pnlEmpleados);
+        }
+
+        // --- MÓDULOS GENERALES (comportamiento original) ---
         private void btnClientes_Click(object sender, EventArgs e)
         {
-
-            FrmClientes frmClientes = new FrmClientes();
+            ToggleSeguridad(false);
+            var frmClientes = new FrmClientes();
             frmClientes.ShowDialog();
-
         }
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
-            FrmProductos frmproductos = new FrmProductos();
-            frmproductos.ShowDialog();
+            ToggleSeguridad(false);
+            var frmProductos = new FrmProductos();
+            frmProductos.ShowDialog();
         }
 
-        private void btnCategorias_Click(object sender, EventArgs e) { 
-            FrmCategorias frmCategorias = new FrmCategorias();
+        private void btnCategorias_Click(object sender, EventArgs e)
+        {
+            ToggleSeguridad(false);
+            var frmCategorias = new FrmCategorias();
             frmCategorias.ShowDialog();
+        }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            ToggleSeguridad(false);
+            var frmAyuda = new frmAyuda();
+            frmAyuda.ShowDialog();
+        }
+
+        private void btnAcerca_Click(object sender, EventArgs e)
+        {
+            ToggleSeguridad(false);
+            var frmAcerca = new frmAcerca();
+            frmAcerca.ShowDialog();
         }
 
         private void BtnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void TabOpcionesMenu_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void btnAyuda_Click(object sender, EventArgs e)
-        {
-            frmAyuda FrmAyuda = new frmAyuda();
-            FrmAyuda.ShowDialog();
-
-        }
-
-        private void btnAcerca_Click(object sender, EventArgs e)
-        {
-            frmAcerca FrmAcerca = new frmAcerca();
-            FrmAcerca.ShowDialog();
         }
     }
 }
