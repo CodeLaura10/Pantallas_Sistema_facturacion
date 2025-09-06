@@ -8,7 +8,7 @@ namespace Pantallas_Sistema_facturacion.Seguridad
     public class CredencialUsuario
     {
         public int EmpleadoId { get; set; }
-        public string Username { get; set; } = ""; // En producción: usar hash y reglas de unicidad en BD
+        public string Username { get; set; } = ""; // En producción: usar hash y reglas deunicidad en BD
         public string Password { get; set; } = ""; // En producción: NUNCA guardar texto plano
     }
 
@@ -108,10 +108,15 @@ namespace Pantallas_Sistema_facturacion.Seguridad
             Empleado empRef = EmpleadoStore.Empleados.FirstOrDefault();
             if (empRef == null)
             {
-                EmpleadoStore.Add("Administrador del sistema", "999999999", "0000000");
+                EmpleadoStore.Add("Administrador del sistema", "999999999", "0000000", "", "", null, null);
                 empRef = EmpleadoStore.Empleados.Last();
             }
 
+            // Línea original:
+            // EmpleadoStore.Add("Administrador del sistema", "999999999", "0000000", "", "", null, null);
+
+            // Línea corregida: se agrega el argumento requerido "correo" (por ejemplo, vacío "")
+            EmpleadoStore.Add("Administrador del sistema", "999999999", "0000000", "", "", null, null);
             Upsert(empRef.Id, "admin", "123", out _);
         }
     }

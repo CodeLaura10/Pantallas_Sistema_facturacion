@@ -5,12 +5,13 @@
     <TargetFramework>net8.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
+	<UseWPF>false</UseWPF>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="MaterialSkin.2" Version="2.3.1" />
-    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.3477-prerelease" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.3405.78" />
   </ItemGroup>
 
   <ItemGroup>

@@ -14,183 +14,183 @@
 
         private void InitializeComponent()
         {
-            this.lblTitulo = new MaterialSkin.Controls.MaterialLabel();
-            this.lblNombreRol = new MaterialSkin.Controls.MaterialLabel();
-            this.pnlRolNombre = new System.Windows.Forms.Panel();
-            this.txtRolNombre = new System.Windows.Forms.TextBox();
-            this.pnlUnderlineRolNombre = new System.Windows.Forms.Panel();
-            this.lblDescripcion = new MaterialSkin.Controls.MaterialLabel();
-            this.txtRolDescripcion = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
-            this.btnRolActualizar = new MaterialSkin.Controls.MaterialButton();
-            this.btnRolCancelar = new MaterialSkin.Controls.MaterialButton();
-            this.pnlRolNombre.SuspendLayout();
-            this.SuspendLayout();
+            lblTitulo = new MaterialSkin.Controls.MaterialLabel();
+            lblNombreRol = new MaterialSkin.Controls.MaterialLabel();
+            pnlRolNombre = new Panel();
+            txtRolNombre = new TextBox();
+            pnlUnderlineRolNombre = new Panel();
+            lblDescripcion = new MaterialSkin.Controls.MaterialLabel();
+            txtRolDescripcion = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
+            btnRolActualizar = new MaterialSkin.Controls.MaterialButton();
+            btnRolCancelar = new MaterialSkin.Controls.MaterialButton();
+            materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            pnlRolNombre.SuspendLayout();
+            SuspendLayout();
             // 
             // lblTitulo
             // 
-            // Título de la sección
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Depth = 0;
-            this.lblTitulo.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblTitulo.Location = new System.Drawing.Point(355, 49);
-            this.lblTitulo.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(207, 19);
-            this.lblTitulo.TabIndex = 0;
-            this.lblTitulo.Text = "ROLES DE LOS EMPLEADOS";
+            lblTitulo.AutoSize = true;
+            lblTitulo.Depth = 0;
+            lblTitulo.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            lblTitulo.Location = new Point(530, 52);
+            lblTitulo.MouseState = MaterialSkin.MouseState.HOVER;
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(205, 19);
+            lblTitulo.TabIndex = 0;
+            lblTitulo.Text = "ROLES DE LOS EMPLEADOS";
             // 
             // lblNombreRol
             // 
-            // Etiqueta para el nombre del rol
-            this.lblNombreRol.AutoSize = true;
-            this.lblNombreRol.Depth = 0;
-            this.lblNombreRol.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblNombreRol.Location = new System.Drawing.Point(271, 116);
-            this.lblNombreRol.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblNombreRol.Name = "lblNombreRol";
-            this.lblNombreRol.Size = new System.Drawing.Size(101, 14);
-            this.lblNombreRol.TabIndex = 1;
-            this.lblNombreRol.Text = "Nombre del rol";
+            lblNombreRol.AutoSize = true;
+            lblNombreRol.Depth = 0;
+            lblNombreRol.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            lblNombreRol.Location = new Point(325, 115);
+            lblNombreRol.MouseState = MaterialSkin.MouseState.HOVER;
+            lblNombreRol.Name = "lblNombreRol";
+            lblNombreRol.Size = new Size(104, 19);
+            lblNombreRol.TabIndex = 1;
+            lblNombreRol.Text = "Nombre del rol";
             // 
             // pnlRolNombre
             // 
-            // Contenedor visual para imitar un MaterialTextBox (underline)
-            this.pnlRolNombre.BackColor = System.Drawing.Color.Transparent;
-            this.pnlRolNombre.Controls.Add(this.txtRolNombre);
-            this.pnlRolNombre.Controls.Add(this.pnlUnderlineRolNombre);
-            this.pnlRolNombre.Location = new System.Drawing.Point(271, 135);
-            this.pnlRolNombre.Name = "pnlRolNombre";
-            this.pnlRolNombre.Padding = new System.Windows.Forms.Padding(8, 8, 8, 0); // margen interno
-            this.pnlRolNombre.Size = new System.Drawing.Size(435, 42);
-            this.pnlRolNombre.TabIndex = 2;
+            pnlRolNombre.BackColor = Color.Transparent;
+            pnlRolNombre.Controls.Add(txtRolNombre);
+            pnlRolNombre.Controls.Add(pnlUnderlineRolNombre);
+            pnlRolNombre.Location = new Point(325, 134);
+            pnlRolNombre.Name = "pnlRolNombre";
+            pnlRolNombre.Padding = new Padding(8, 8, 8, 0);
+            pnlRolNombre.Size = new Size(435, 42);
+            pnlRolNombre.TabIndex = 2;
             // 
             // txtRolNombre
             // 
-            // TextBox estándar sin borde para permitir autocompletar, simulando Material
-            this.txtRolNombre.BackColor = System.Drawing.Color.White;
-            this.txtRolNombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtRolNombre.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.txtRolNombre.ForeColor = System.Drawing.Color.Black;
-            this.txtRolNombre.Location = new System.Drawing.Point(10, 12);
-            this.txtRolNombre.Name = "txtRolNombre";
-            this.txtRolNombre.Size = new System.Drawing.Size(415, 23);
-            this.txtRolNombre.TabIndex = 0;
-            this.txtRolNombre.Text = ""; // vacío; el code-behind maneja autocompletar
+            txtRolNombre.BackColor = Color.White;
+            txtRolNombre.BorderStyle = BorderStyle.None;
+            txtRolNombre.Font = new Font("Segoe UI", 10.2F);
+            txtRolNombre.ForeColor = Color.Black;
+            txtRolNombre.Location = new Point(10, 12);
+            txtRolNombre.Name = "txtRolNombre";
+            txtRolNombre.Size = new Size(415, 23);
+            txtRolNombre.TabIndex = 0;
             // 
             // pnlUnderlineRolNombre
             // 
-            // Línea inferior para el efecto "underline" tipo Material
-            this.pnlUnderlineRolNombre.BackColor = System.Drawing.Color.Silver;
-            this.pnlUnderlineRolNombre.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlUnderlineRolNombre.Location = new System.Drawing.Point(8, 40);
-            this.pnlUnderlineRolNombre.Name = "pnlUnderlineRolNombre";
-            this.pnlUnderlineRolNombre.Size = new System.Drawing.Size(419, 2);
-            this.pnlUnderlineRolNombre.TabIndex = 0;
+            pnlUnderlineRolNombre.BackColor = Color.Silver;
+            pnlUnderlineRolNombre.Dock = DockStyle.Bottom;
+            pnlUnderlineRolNombre.Location = new Point(8, 40);
+            pnlUnderlineRolNombre.Name = "pnlUnderlineRolNombre";
+            pnlUnderlineRolNombre.Size = new Size(419, 2);
+            pnlUnderlineRolNombre.TabIndex = 0;
             // 
             // lblDescripcion
             // 
-            // Etiqueta para la descripción del rol
-            this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Depth = 0;
-            this.lblDescripcion.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblDescripcion.Location = new System.Drawing.Point(271, 189);
-            this.lblDescripcion.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(183, 14);
-            this.lblDescripcion.TabIndex = 3;
-            this.lblDescripcion.Text = "Descripción detallada del rol";
+            lblDescripcion.AutoSize = true;
+            lblDescripcion.Depth = 0;
+            lblDescripcion.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            lblDescripcion.Location = new Point(325, 192);
+            lblDescripcion.MouseState = MaterialSkin.MouseState.HOVER;
+            lblDescripcion.Name = "lblDescripcion";
+            lblDescripcion.Size = new Size(201, 19);
+            lblDescripcion.TabIndex = 3;
+            lblDescripcion.Text = "Descripción detallada del rol";
             // 
             // txtRolDescripcion
             // 
-            // Campo de descripción editable (multilínea). Se habilita cuando hay un rol cargado.
-            this.txtRolDescripcion.AnimateReadOnly = false;
-            this.txtRolDescripcion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.txtRolDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtRolDescripcion.Depth = 0;
-            this.txtRolDescripcion.HideSelection = true;
-            this.txtRolDescripcion.Location = new System.Drawing.Point(271, 212);
-            this.txtRolDescripcion.MaxLength = 32767;
-            this.txtRolDescripcion.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtRolDescripcion.Name = "txtRolDescripcion";
-            this.txtRolDescripcion.PasswordChar = '\0';
-            this.txtRolDescripcion.ReadOnly = true; // se pondrá en false cuando se cargue un rol
-            this.txtRolDescripcion.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtRolDescripcion.SelectedText = "";
-            this.txtRolDescripcion.SelectionLength = 0;
-            this.txtRolDescripcion.SelectionStart = 0;
-            this.txtRolDescripcion.ShortcutsEnabled = true;
-            this.txtRolDescripcion.Size = new System.Drawing.Size(435, 209);
-            this.txtRolDescripcion.TabIndex = 4;
-            this.txtRolDescripcion.TabStop = false;
-            this.txtRolDescripcion.Text = ""; // sin placeholder como texto real
-            this.txtRolDescripcion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtRolDescripcion.UseSystemPasswordChar = false;
+            txtRolDescripcion.AnimateReadOnly = false;
+            txtRolDescripcion.BackgroundImageLayout = ImageLayout.None;
+            txtRolDescripcion.CharacterCasing = CharacterCasing.Normal;
+            txtRolDescripcion.Depth = 0;
+            txtRolDescripcion.HideSelection = true;
+            txtRolDescripcion.Location = new Point(325, 214);
+            txtRolDescripcion.MaxLength = 32767;
+            txtRolDescripcion.MouseState = MaterialSkin.MouseState.OUT;
+            txtRolDescripcion.Name = "txtRolDescripcion";
+            txtRolDescripcion.PasswordChar = '\0';
+            txtRolDescripcion.ReadOnly = true;
+            txtRolDescripcion.ScrollBars = ScrollBars.None;
+            txtRolDescripcion.SelectedText = "";
+            txtRolDescripcion.SelectionLength = 0;
+            txtRolDescripcion.SelectionStart = 0;
+            txtRolDescripcion.ShortcutsEnabled = true;
+            txtRolDescripcion.Size = new Size(624, 209);
+            txtRolDescripcion.TabIndex = 4;
+            txtRolDescripcion.TabStop = false;
+            txtRolDescripcion.TextAlign = HorizontalAlignment.Left;
+            txtRolDescripcion.UseSystemPasswordChar = false;
             // 
             // btnRolActualizar
             // 
-            // Guarda la descripción editada
-            this.btnRolActualizar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnRolActualizar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnRolActualizar.Depth = 0;
-            this.btnRolActualizar.Enabled = false; // se habilita cuando hay cambios
-            this.btnRolActualizar.HighEmphasis = true;
-            this.btnRolActualizar.Icon = null;
-            this.btnRolActualizar.Location = new System.Drawing.Point(346, 455);
-            this.btnRolActualizar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnRolActualizar.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnRolActualizar.Name = "btnRolActualizar";
-            this.btnRolActualizar.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnRolActualizar.Size = new System.Drawing.Size(109, 36);
-            this.btnRolActualizar.TabIndex = 5;
-            this.btnRolActualizar.Text = "ACTUALIZAR";
-            this.btnRolActualizar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnRolActualizar.UseAccentColor = false;
-            this.btnRolActualizar.UseVisualStyleBackColor = true;
+            btnRolActualizar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnRolActualizar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnRolActualizar.Depth = 0;
+            btnRolActualizar.Enabled = false;
+            btnRolActualizar.HighEmphasis = true;
+            btnRolActualizar.Icon = null;
+            btnRolActualizar.Location = new Point(503, 458);
+            btnRolActualizar.Margin = new Padding(4, 6, 4, 6);
+            btnRolActualizar.MouseState = MaterialSkin.MouseState.HOVER;
+            btnRolActualizar.Name = "btnRolActualizar";
+            btnRolActualizar.NoAccentTextColor = Color.Empty;
+            btnRolActualizar.Size = new Size(109, 36);
+            btnRolActualizar.TabIndex = 5;
+            btnRolActualizar.Text = "ACTUALIZAR";
+            btnRolActualizar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnRolActualizar.UseAccentColor = false;
+            btnRolActualizar.UseVisualStyleBackColor = true;
             // 
             // btnRolCancelar
             // 
-            // Restaura la descripción al último valor guardado
-            this.btnRolCancelar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnRolCancelar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnRolCancelar.Depth = 0;
-            this.btnRolCancelar.Enabled = false; // se habilita cuando hay cambios
-            this.btnRolCancelar.HighEmphasis = true;
-            this.btnRolCancelar.Icon = null;
-            this.btnRolCancelar.Location = new System.Drawing.Point(501, 455);
-            this.btnRolCancelar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnRolCancelar.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnRolCancelar.Name = "btnRolCancelar";
-            this.btnRolCancelar.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnRolCancelar.Size = new System.Drawing.Size(96, 36);
-            this.btnRolCancelar.TabIndex = 6;
-            this.btnRolCancelar.Text = "CANCELAR";
-            this.btnRolCancelar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnRolCancelar.UseAccentColor = false;
-            this.btnRolCancelar.UseVisualStyleBackColor = true;
+            btnRolCancelar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnRolCancelar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnRolCancelar.Depth = 0;
+            btnRolCancelar.Enabled = false;
+            btnRolCancelar.HighEmphasis = true;
+            btnRolCancelar.Icon = null;
+            btnRolCancelar.Location = new Point(658, 458);
+            btnRolCancelar.Margin = new Padding(4, 6, 4, 6);
+            btnRolCancelar.MouseState = MaterialSkin.MouseState.HOVER;
+            btnRolCancelar.Name = "btnRolCancelar";
+            btnRolCancelar.NoAccentTextColor = Color.Empty;
+            btnRolCancelar.Size = new Size(96, 36);
+            btnRolCancelar.TabIndex = 6;
+            btnRolCancelar.Text = "CANCELAR";
+            btnRolCancelar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnRolCancelar.UseAccentColor = false;
+            btnRolCancelar.UseVisualStyleBackColor = true;
+            // 
+            // materialLabel1
+            // 
+            materialLabel1.Depth = 0;
+            materialLabel1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            materialLabel1.Location = new Point(974, 214);
+            materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel1.Name = "materialLabel1";
+            materialLabel1.Size = new Size(161, 110);
+            materialLabel1.TabIndex = 7;
+            materialLabel1.Text = "Roles disponibles:\r\n\r\n* Gerente\r\n* Secretaría\r\n* Operario\r\n* Administrativo";
             // 
             // frmRoles
             // 
-            // Form embebible sin bordes (igual estilo que Empleados)
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(978, 548);
-            this.Controls.Add(this.btnRolCancelar);
-            this.Controls.Add(this.btnRolActualizar);
-            this.Controls.Add(this.txtRolDescripcion);
-            this.Controls.Add(this.lblDescripcion);
-            this.Controls.Add(this.pnlRolNombre);
-            this.Controls.Add(this.lblNombreRol);
-            this.Controls.Add(this.lblTitulo);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmRoles";
-            this.Text = "frmRoles";
-            // Atajos: Enter = Actualizar, Esc = Cancelar (puedes ajustar desde code-behind)
-            this.AcceptButton = this.btnRolActualizar;
-            this.CancelButton = this.btnRolCancelar;
-            this.pnlRolNombre.ResumeLayout(false);
-            this.pnlRolNombre.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AcceptButton = btnRolActualizar;
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = btnRolCancelar;
+            ClientSize = new Size(1300, 548);
+            Controls.Add(materialLabel1);
+            Controls.Add(btnRolCancelar);
+            Controls.Add(btnRolActualizar);
+            Controls.Add(txtRolDescripcion);
+            Controls.Add(lblDescripcion);
+            Controls.Add(pnlRolNombre);
+            Controls.Add(lblNombreRol);
+            Controls.Add(lblTitulo);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "frmRoles";
+            Text = "frmRoles";
+            pnlRolNombre.ResumeLayout(false);
+            pnlRolNombre.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -204,5 +204,6 @@
         private MaterialSkin.Controls.MaterialMultiLineTextBox2 txtRolDescripcion;
         private MaterialSkin.Controls.MaterialButton btnRolActualizar;
         private MaterialSkin.Controls.MaterialButton btnRolCancelar;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -38,9 +39,6 @@ namespace Pantallas_Sistema_facturacion.Seguridad
                     Cargar(txtBuscarEmpleados.Text?.Trim());
                 }
             };
-
-            // Nota: btnNuevoEmpleado.Click y dgvEmpleados.CellContentClick ya están cableados en el diseñador
-            // (si también se cablean aquí, el evento se ejecutará dos veces).
         }
 
         private void frmEmpleados_Load(object sender, EventArgs e)
@@ -51,10 +49,6 @@ namespace Pantallas_Sistema_facturacion.Seguridad
             // Carga inicial: muestra todos los registros
             Cargar(null);
         }
-
-        /// <summary>
-        /// Asigna DataPropertyName de las columnas de datos y garantiza que las columnas de Editar/Borrar sean botones.
-        /// </summary>
         private void AsegurarColumnas()
         {
             // Mapea columnas de datos a las propiedades del modelo Empleado
@@ -69,6 +63,15 @@ namespace Pantallas_Sistema_facturacion.Seguridad
 
             var colTel = dgvEmpleados.Columns["TELEFONO"];
             if (colTel != null) colTel.DataPropertyName = "Telefono";
+
+            var colCorreo = dgvEmpleados.Columns["CORREO"];
+            if (colCorreo != null) colCorreo.DataPropertyName = "Correo";
+
+            var colDir = dgvEmpleados.Columns["DIRECCION"];
+            if (colDir != null) colDir.DataPropertyName = "Direccion";
+
+            var colRol = dgvEmpleados.Columns["ROL"];
+            if (colRol != null) colRol.DataPropertyName = "NombreRol";
 
             // Asegura que colEditar sea un botón con texto "Editar"
             var colEditar = dgvEmpleados.Columns["colEditar"];
@@ -118,10 +121,6 @@ namespace Pantallas_Sistema_facturacion.Seguridad
                 btnB.Width = 90;
             }
         }
-
-        /// <summary>
-        /// Carga la lista completa o aplica filtro por nombre.
-        /// </summary>
         private void Cargar(string? filtro)
         {
             if (string.IsNullOrWhiteSpace(filtro))
@@ -135,23 +134,23 @@ namespace Pantallas_Sistema_facturacion.Seguridad
                 _bs.DataSource = new BindingList<Empleado>(EmpleadoStore.SearchByNombre(filtro));
             }
         }
-
-        /// <summary>
-        /// Abre el modal para crear un nuevo registro y refresca el listado.
-        /// </summary>
         private void NuevoEmpleado()
         {
             using var dlg = new FrmEmpleadoEdit(); // modal en modo creación
             if (dlg.ShowDialog(this) == DialogResult.OK)
             {
-                EmpleadoStore.Add(dlg.Nombre, dlg.Documento, dlg.Telefono);
-                RefrescarConFiltroActual();
+                EmpleadoStore.Add(
+                    nombre: dlg.Nombre,
+                    documento: dlg.Documento,
+                    telefono: dlg.Telefono,
+                    correo: dlg.Correo,
+                    direccion: dlg.Direccion,
+                    idRolEmpleado: null,          
+                    nombreRol: dlg.NombreRol      // texto del combo
+                );
+                _bs.ResetBindings(false);             // refresca el grid
             }
         }
-
-        /// <summary>
-        /// Abre el modal con datos precargados y actualiza la fila editada.
-        /// </summary>
         private void EditarEmpleado(Empleado emp)
         {
             using var dlg = new FrmEmpleadoEdit(emp); // modal en modo edición
@@ -160,16 +159,22 @@ namespace Pantallas_Sistema_facturacion.Seguridad
                 emp.Nombre = dlg.Nombre;
                 emp.Documento = dlg.Documento;
                 emp.Telefono = dlg.Telefono;
+                emp.Correo = dlg.Correo;
+                emp.Direccion = dlg.Direccion;
+                emp.NombreRol = dlg.NombreRol;
+
+                var nombres = RolesStore.GetAllNames();
+                emp.NombreRol = nombres.FirstOrDefault(n =>
+                                    string.Equals(n, dlg.NombreRol, StringComparison.OrdinalIgnoreCase))
+                                ?? dlg.NombreRol?.Trim() ?? "";
+
+                emp.IdRolEmpleado = null;
 
                 // Notifica cambios al grid y respeta el filtro vigente
                 _bs.ResetBindings(false);
                 RefrescarConFiltroActual();
             }
         }
-
-        /// <summary>
-        /// Elimina el registro seleccionado y refresca el listado.
-        /// </summary>
         private void BorrarEmpleado(Empleado emp)
         {
             var r = MessageBox.Show(
@@ -185,10 +190,6 @@ namespace Pantallas_Sistema_facturacion.Seguridad
             else
                 MessageBox.Show("No se pudo eliminar (no encontrado).");
         }
-
-        /// <summary>
-        /// Vuelve a cargar la grilla respetando el filtro actual.
-        /// </summary>
         private void RefrescarConFiltroActual()
         {
             var filtro = string.IsNullOrWhiteSpace(txtBuscarEmpleados.Text)
