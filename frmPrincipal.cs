@@ -3,6 +3,9 @@ using System.Windows.Forms;
 using MaterialSkin.Controls;
 using Pantallas_Sistema_facturacion.Seguridad; // frmEmpleados/frmRoles/frmSeguridad
 using FrmCategoria; // FrmCategorias, etc.
+using System.Threading.Tasks;
+using Microsoft.Data.SqlClient;
+
 
 namespace Pantallas_Sistema_facturacion
 {
@@ -18,10 +21,33 @@ namespace Pantallas_Sistema_facturacion
         }
 
         // Estado inicial: Seguridad oculta, panel general visible
-        private void frmPrincipal_Load(object sender, EventArgs e)
+        private async void frmPrincipal_Load(object sender, EventArgs e)
         {
             if (pnlEmpleados != null) pnlEmpleados.Visible = false;
             if (panelContenedor != null) { panelContenedor.Visible = true; panelContenedor.BringToFront(); }
+            // borrar hacia abajo
+            //try
+            //{
+            //    Cursor.Current = Cursors.WaitCursor;
+
+            //    // Probar conexión (lee la cadena de AppConfig.ConnString)
+            //    var db = await ProbarConexionAsync();
+
+            //    // opcional: muestra confirmación
+            //    MessageBox.Show($"Conectado a: {db}", "BD", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+            //catch (Exception ex)
+            //{
+            //    // Saca la InnerException “real”
+            //    var j = ex;
+            //    while (j.InnerException != null) j = j.InnerException;
+            //    MessageBox.Show(j.ToString(), "Conexión a BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+            //finally
+            //{
+            //    Cursor.Current = Cursors.Default;
+            //}
+            // borrar hacia arriba
         }
 
         // Muestra/oculta el panel de Seguridad y limpia su contenido al ocultar
@@ -157,5 +183,20 @@ namespace Pantallas_Sistema_facturacion
         {
             this.Close();
         }
+        //// borrar hacia abajo
+        //private async Task<string> ProbarConexionAsync()
+        //{
+        //    // Usa tu clase AppConfig que lee appsettings.json
+        //    var cs = AppConfig.ConnString;
+
+        //    using var cn = new SqlConnection(cs);
+        //    await cn.OpenAsync();
+
+        //    using var cmd = new SqlCommand("SELECT DB_NAME()", cn);
+        //    var db = (string)await cmd.ExecuteScalarAsync();
+
+        //    return db ?? "(desconocida)";
+        //}
+        //// borrar hacia arriba
     }
 }
