@@ -66,7 +66,7 @@ namespace Pantallas_Sistema_facturacion
                                  }
                             else
                             {
-                                MessageBox.Show("❌ Usuario o contraseña incorrectos.");
+                                MessageBox.Show("Usuario o contraseña incorrectos.");
                             }
                         }
                     }
