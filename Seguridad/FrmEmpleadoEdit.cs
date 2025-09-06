@@ -6,55 +6,74 @@ namespace Pantallas_Sistema_facturacion.Seguridad
 {
     public partial class FrmEmpleadoEdit : Form
     {
-        // Referencia al empleado cuando se edita (nulo cuando es nuevo)
         private readonly Empleado _original;
-
-        // Componente para mostrar mensajes de validación junto a los campos
         private readonly ErrorProvider errorProvider1;
 
-        // Propiedades de salida que lee el formulario llamador
+        // Salida para el llamador
         public string Nombre => txtNombre.Text.Trim();
         public string Documento => txtDocumento.Text.Trim();
         public string Telefono => txtTelefono.Text.Trim();
+        public string Correo => txtCorreo.Text.Trim();
+        public string Direccion => txtDireccion.Text.Trim();
 
-        // Constructor para creación (nuevo)
+        // ⇩ Nuevo: del ComboBox de rol
+        public int? IdRolEmpleado
+        {
+            get
+            {
+                var v = cboRol.SelectedValue;
+                if (v == null || v == DBNull.Value) return null;
+                return Convert.ToInt32(v);
+            }
+        }
+        public string NombreRol => cboRol.Text?.Trim() ?? "";
+
         public FrmEmpleadoEdit()
         {
             InitializeComponent();
 
-            // Inicializa el ErrorProvider y lo asocia al formulario
             errorProvider1 = new ErrorProvider { ContainerControl = this };
 
-            // Define teclas rápidas: Enter = Guardar, Esc = Cancelar
-            this.AcceptButton = btnGuardar;
-            this.CancelButton = btnCancelar;
+            AcceptButton = btnGuardar;
+            CancelButton = btnCancelar;
 
-            // Asegura la conexión de los eventos de los botones
-            // Si ya están conectados en el diseñador, no es necesario volver a conectarlos.
             btnGuardar.Click += btnGuardar_Click;
             btnCancelar.Click += btnCancelar_Click;
 
-            // Restringe a dígitos en Documento y Teléfono (opcional, mejora UX)
             txtDocumento.KeyPress += SoloNumeros_KeyPress;
             txtTelefono.KeyPress += SoloNumeros_KeyPress;
 
-            // Coloca el foco inicial
-            this.Shown += (_, __) => txtNombre.Focus();
+            cboRol.DropDownStyle = ComboBoxStyle.DropDownList;
+            CargarRoles();
+            Shown += (_, __) => txtNombre.Focus();
         }
 
-        // Constructor para edición (precarga los campos con datos existentes)
+        private void CargarRoles()
+        {
+            cboRol.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboRol.DataSource = RolesStore.GetAllNames(); 
+        }
+
+
         public FrmEmpleadoEdit(Empleado existente) : this()
         {
             _original = existente;
             txtNombre.Text = existente.Nombre;
             txtDocumento.Text = existente.Documento;
             txtTelefono.Text = existente.Telefono;
+            txtCorreo.Text = existente.Correo;
+            txtDireccion.Text = existente.Direccion;
+
+            var nombres = (string[])cboRol.DataSource;
+            var match = nombres.FirstOrDefault(n =>
+                string.Equals(n, existente.NombreRol, StringComparison.OrdinalIgnoreCase));
+            
+            cboRol.SelectedItem = match ?? null;
         }
 
-        // Valida que una cadena tenga solo dígitos y no esté vacía
-        private bool SoloDigitos(string s) => !string.IsNullOrWhiteSpace(s) && s.All(char.IsDigit);
+        private bool SoloDigitos(string s) =>
+            !string.IsNullOrWhiteSpace(s) && s.All(char.IsDigit);
 
-        // Valida los campos y marca errores cuando corresponde
         private bool Validar()
         {
             errorProvider1.Clear();
@@ -78,25 +97,42 @@ namespace Pantallas_Sistema_facturacion.Seguridad
                 ok = false;
             }
 
+            if (string.IsNullOrWhiteSpace(Correo))
+            {
+                errorProvider1.SetError(txtCorreo, "El correo es necesario");
+                ok = false;
+            }
+
+            // ⇩ Dirección: requerida (no uses SoloDigitos aquí)
+            if (string.IsNullOrWhiteSpace(Direccion))
+            {
+                errorProvider1.SetError(txtDireccion, "La dirección es necesaria");
+                ok = false;
+            }
+
+            // ⇩ Rol: exige selección válida (SelectedValue)
+            if (string.IsNullOrWhiteSpace(NombreRol))
+            {
+                errorProvider1.SetError(cboRol, "Selecciona un rol");
+                ok = false;
+            }
+
             return ok;
         }
 
-        // Guardar: valida y cierra devolviendo OK
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (!Validar()) return;
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            DialogResult = DialogResult.OK;
+            Close();
         }
 
-        // Cancelar: cierra devolviendo Cancel
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
+            DialogResult = DialogResult.Cancel;
+            Close();
         }
 
-        // Filtro de teclado: permite solo dígitos y teclas de control (Backspace, etc.)
         private void SoloNumeros_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
