@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
+
 
 namespace Pantallas_Sistema_facturacion
 {
@@ -29,33 +32,54 @@ namespace Pantallas_Sistema_facturacion
 
         private void tbnValidar_Click(object sender, EventArgs e)
         {
-            string Respuesta = string.Empty; //variable para saber si encontro el usuario en la BD 
-            if (txtUsuario.Text != "" && txtContraseña.Text != string.Empty) // verifico que Usuario y Contraseña sean ingresados
+            string usuario = txtUsuario.Text.Trim();
+            string contraseña = txtContraseña.Text.Trim();
+
+            if (string.IsNullOrEmpty(usuario) || string.IsNullOrEmpty(contraseña))
             {
-                if (txtUsuario.Text == "admin" && txtContraseña.Text == "123") // verifico si el usuario y contraseña son correctos
-                {
-                    Respuesta = "OK"; // si es correcto, asigno OK a la variable Respuesta
-                    MessageBox.Show("Bienvenido al sistema de facturación"); // muestro un mensaje de bienvenida al usuario
-                    frmPrincipal frmppal = new frmPrincipal();
-                    this.Hide(); // oculto el formulario de login
-                    frmppal.ShowDialog(); // muestro el formulario principal
-                }
-                else
-                {
-                    Respuesta = "Usuario o Contraseña incorrectos"; // si no es correcto, asigno un mensaje de error a la variable Respuesta
-                }
-                if (Respuesta == "OK") // si la respuesta es OK, cierro el formulario de login y muestro el formulario principal
-                {
-                    this.DialogResult = DialogResult.OK; // Indica que el login fue exitoso
-                    this.Close(); // Cierra el formulario de login
-                }
-                else
-                {
-                    MessageBox.Show(Respuesta); // Si no es OK, muestro el mensaje de error
-                }
-
-
+                MessageBox.Show("Por favor, ingrese usuario y contraseña.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+
+            using (SqlConnection conn = new SqlConnection(AppConfig.ConnString))
+            {
+                {
+                    try
+                    {
+                        conn.Open();
+
+                        string query = "SELECT COUNT(*) FROM TBLSEGURIDAD " +
+                                        "WHERE StrUsuario = @usuario AND StrClave = @clave ";
+
+                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@usuario", usuario);
+                            cmd.Parameters.AddWithValue("@clave", contraseña);
+
+                            int count = (int)cmd.ExecuteScalar();
+
+                            if (count > 0)
+                            {
+                                MessageBox.Show("✅ Login exitoso. Bienvenido " + usuario);
+                                     new frmPrincipal().Show();
+                                     this.Hide();
+                                 }
+                            else
+                            {
+                                MessageBox.Show("❌ Usuario o contraseña incorrectos.");
+                            }
+                        }
+                    }
+
+                    catch (Exception ex) {
+
+                        MessageBox.Show("Error de conexión: " + ex.Message);
+    
+                    }
+
+                }
+            }
+                
         }
     }
 }
