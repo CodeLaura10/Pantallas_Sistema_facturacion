@@ -55,7 +55,7 @@
             DGProductos.Location = new Point(28, 158);
             DGProductos.Margin = new Padding(4, 3, 4, 3);
             DGProductos.Name = "DGProductos";
-            DGProductos.Size = new Size(876, 263);
+            DGProductos.Size = new Size(1028, 431);
             DGProductos.TabIndex = 5;
             DGProductos.CellContentClick += DGProductos_CellContentClick;
             // 
@@ -110,7 +110,7 @@
             labelproductos.AutoSize = true;
             labelproductos.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelproductos.ForeColor = Color.White;
-            labelproductos.Location = new Point(244, 22);
+            labelproductos.Location = new Point(307, 22);
             labelproductos.Margin = new Padding(4, 0, 4, 0);
             labelproductos.Name = "labelproductos";
             labelproductos.Size = new Size(445, 29);
@@ -124,7 +124,7 @@
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(4, 3, 4, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(933, 76);
+            panel1.Size = new Size(1181, 76);
             panel1.TabIndex = 6;
             // 
             // textBoxcliente
@@ -135,7 +135,7 @@
             textBoxcliente.Location = new Point(27, 12);
             textBoxcliente.Margin = new Padding(4, 3, 4, 3);
             textBoxcliente.Name = "textBoxcliente";
-            textBoxcliente.Size = new Size(586, 29);
+            textBoxcliente.Size = new Size(629, 29);
             textBoxcliente.TabIndex = 6;
             // 
             // panel2
@@ -149,7 +149,7 @@
             panel2.Location = new Point(0, 76);
             panel2.Margin = new Padding(4, 3, 4, 3);
             panel2.Name = "panel2";
-            panel2.Size = new Size(933, 55);
+            panel2.Size = new Size(1181, 55);
             panel2.TabIndex = 7;
             panel2.Paint += panel2_Paint;
             // 
@@ -157,11 +157,11 @@
             // 
             BtnNuevoProducto.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnNuevoProducto.ForeColor = SystemColors.Desktop;
-            BtnNuevoProducto.Location = new Point(687, 7);
+            BtnNuevoProducto.Location = new Point(704, 5);
             BtnNuevoProducto.Name = "BtnNuevoProducto";
-            BtnNuevoProducto.Size = new Size(93, 42);
+            BtnNuevoProducto.Size = new Size(192, 42);
             BtnNuevoProducto.TabIndex = 8;
-            BtnNuevoProducto.Text = "Nuevo";
+            BtnNuevoProducto.Text = "Agregar Producto";
             BtnNuevoProducto.UseVisualStyleBackColor = true;
             BtnNuevoProducto.Click += BtnNuevoProducto_Click;
             // 
@@ -169,7 +169,7 @@
             // 
             BtnSalir.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnSalir.ForeColor = SystemColors.Desktop;
-            BtnSalir.Location = new Point(819, 7);
+            BtnSalir.Location = new Point(944, 5);
             BtnSalir.Name = "BtnSalir";
             BtnSalir.Size = new Size(93, 42);
             BtnSalir.TabIndex = 6;
@@ -182,7 +182,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(63, 81, 181);
-            ClientSize = new Size(933, 450);
+            ClientSize = new Size(1181, 617);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(DGProductos);

@@ -59,7 +59,7 @@ namespace FrmCategoria
             DGClientes.Location = new Point(28, 158);
             DGClientes.Margin = new Padding(4, 3, 4, 3);
             DGClientes.Name = "DGClientes";
-            DGClientes.Size = new Size(876, 263);
+            DGClientes.Size = new Size(1028, 431);
             DGClientes.TabIndex = 2;
             DGClientes.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -128,7 +128,7 @@ namespace FrmCategoria
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(4, 3, 4, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(933, 76);
+            panel1.Size = new Size(1181, 76);
             panel1.TabIndex = 3;
             // 
             // labelcliente
@@ -136,7 +136,7 @@ namespace FrmCategoria
             labelcliente.AutoSize = true;
             labelcliente.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelcliente.ForeColor = Color.White;
-            labelcliente.Location = new Point(262, 22);
+            labelcliente.Location = new Point(307, 22);
             labelcliente.Margin = new Padding(4, 0, 4, 0);
             labelcliente.Name = "labelcliente";
             labelcliente.Size = new Size(408, 29);
@@ -154,18 +154,18 @@ namespace FrmCategoria
             panel2.Location = new Point(0, 76);
             panel2.Margin = new Padding(4, 3, 4, 3);
             panel2.Name = "panel2";
-            panel2.Size = new Size(933, 55);
+            panel2.Size = new Size(1181, 55);
             panel2.TabIndex = 4;
             // 
             // BtnNuevoCliente
             // 
             BtnNuevoCliente.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnNuevoCliente.ForeColor = SystemColors.Desktop;
-            BtnNuevoCliente.Location = new Point(687, 7);
+            BtnNuevoCliente.Location = new Point(704, 6);
             BtnNuevoCliente.Name = "BtnNuevoCliente";
-            BtnNuevoCliente.Size = new Size(93, 42);
+            BtnNuevoCliente.Size = new Size(192, 42);
             BtnNuevoCliente.TabIndex = 9;
-            BtnNuevoCliente.Text = "Nuevo";
+            BtnNuevoCliente.Text = "Agregar Cliente";
             BtnNuevoCliente.UseVisualStyleBackColor = true;
             BtnNuevoCliente.Click += BtnNuevoCliente_Click;
             // 
@@ -173,7 +173,7 @@ namespace FrmCategoria
             // 
             BtnSalir.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnSalir.ForeColor = SystemColors.Desktop;
-            BtnSalir.Location = new Point(819, 7);
+            BtnSalir.Location = new Point(944, 6);
             BtnSalir.Name = "BtnSalir";
             BtnSalir.Size = new Size(93, 42);
             BtnSalir.TabIndex = 7;
@@ -186,10 +186,10 @@ namespace FrmCategoria
             textBoxcliente.BackColor = Color.FromArgb(47, 62, 153);
             textBoxcliente.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxcliente.ForeColor = SystemColors.Window;
-            textBoxcliente.Location = new Point(27, 12);
+            textBoxcliente.Location = new Point(27, 13);
             textBoxcliente.Margin = new Padding(4, 3, 4, 3);
             textBoxcliente.Name = "textBoxcliente";
-            textBoxcliente.Size = new Size(643, 29);
+            textBoxcliente.Size = new Size(629, 29);
             textBoxcliente.TabIndex = 5;
             textBoxcliente.TextChanged += textBoxcliente_TextChanged;
             // 
@@ -198,7 +198,7 @@ namespace FrmCategoria
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(63, 81, 181);
-            ClientSize = new Size(933, 450);
+            ClientSize = new Size(1181, 617);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(DGClientes);
