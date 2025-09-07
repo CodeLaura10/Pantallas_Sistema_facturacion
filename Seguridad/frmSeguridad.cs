@@ -54,7 +54,7 @@ namespace Pantallas_Sistema_facturacion.Seguridad
         private void ConfigurarAutoComplete()
         {
             var src = new AutoCompleteStringCollection();
-            var nombres = EmpleadoStore.Empleados
+            var nombres = EmpleadoDAO.ObtenerTodos()
                                        .Select(e => e.Nombre)
                                        .Distinct()
                                        .OrderBy(n => n)
@@ -106,8 +106,8 @@ namespace Pantallas_Sistema_facturacion.Seguridad
                 return;
             }
 
-            var emp = EmpleadoStore.Empleados
-                .FirstOrDefault(e => string.Equals(e.Nombre, nombre, StringComparison.OrdinalIgnoreCase));
+            var emp = EmpleadoDAO.ObtenerTodos()
+            .FirstOrDefault(e => string.Equals(e.Nombre, nombre, StringComparison.OrdinalIgnoreCase));
 
             if (emp == null)
             {
@@ -118,10 +118,10 @@ namespace Pantallas_Sistema_facturacion.Seguridad
 
             _empleadoActual = emp;
 
-            var u = UsuariosStore.GetByEmpleadoId(emp.Id);
+            var u = UsuarioDAO.BuscarPorEmpleadoId(emp.Id);
             _silencioUI = true; // evita parpadeo de botones al asignar textos
-            txtSegUsuario.Text = u?.Username ?? "";
-            txtSegClave.Text = u?.Password ?? ""; // solo práctica
+            txtSegUsuario.Text = u?.StrUsuario ?? "";
+            txtSegClave.Text = u?.StrClave ?? ""; // solo práctica
             _silencioUI = false;
 
             _usernameOriginal = txtSegUsuario.Text;
@@ -204,7 +204,7 @@ namespace Pantallas_Sistema_facturacion.Seguridad
 
             if (!ValidarCampos()) return;
 
-            var ok = UsuariosStore.Upsert(_empleadoActual.Id,
+            var ok = UsuarioDAO.Guardar(_empleadoActual.Id,
                                           txtSegUsuario.Text.Trim(),
                                           txtSegClave.Text.Trim(),
                                           out var error);
