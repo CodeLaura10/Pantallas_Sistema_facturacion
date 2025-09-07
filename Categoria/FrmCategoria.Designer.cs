@@ -59,18 +59,18 @@ namespace FrmCategoria
             panel2.Location = new Point(0, 76);
             panel2.Margin = new Padding(4, 3, 4, 3);
             panel2.Name = "panel2";
-            panel2.Size = new Size(933, 55);
+            panel2.Size = new Size(1181, 55);
             panel2.TabIndex = 10;
             // 
             // BtnNuevaCaegoria
             // 
             BtnNuevaCaegoria.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnNuevaCaegoria.ForeColor = SystemColors.Desktop;
-            BtnNuevaCaegoria.Location = new Point(687, 7);
+            BtnNuevaCaegoria.Location = new Point(704, 5);
             BtnNuevaCaegoria.Name = "BtnNuevaCaegoria";
-            BtnNuevaCaegoria.Size = new Size(93, 42);
+            BtnNuevaCaegoria.Size = new Size(192, 42);
             BtnNuevaCaegoria.TabIndex = 13;
-            BtnNuevaCaegoria.Text = "Nuevo";
+            BtnNuevaCaegoria.Text = "Agregar Categoria";
             BtnNuevaCaegoria.UseVisualStyleBackColor = true;
             BtnNuevaCaegoria.Click += BtnNuevaCaegoria_Click;
             // 
@@ -78,7 +78,7 @@ namespace FrmCategoria
             // 
             BtnSalir.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnSalir.ForeColor = SystemColors.Desktop;
-            BtnSalir.Location = new Point(819, 7);
+            BtnSalir.Location = new Point(944, 5);
             BtnSalir.Name = "BtnSalir";
             BtnSalir.Size = new Size(93, 42);
             BtnSalir.TabIndex = 11;
@@ -104,7 +104,7 @@ namespace FrmCategoria
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(4, 3, 4, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(933, 76);
+            panel1.Size = new Size(1181, 76);
             panel1.TabIndex = 9;
             // 
             // labelcategoria
@@ -112,7 +112,7 @@ namespace FrmCategoria
             labelcategoria.AutoSize = true;
             labelcategoria.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelcategoria.ForeColor = Color.White;
-            labelcategoria.Location = new Point(245, 22);
+            labelcategoria.Location = new Point(307, 22);
             labelcategoria.Margin = new Padding(4, 0, 4, 0);
             labelcategoria.Name = "labelcategoria";
             labelcategoria.Size = new Size(447, 29);
@@ -128,7 +128,7 @@ namespace FrmCategoria
             DGCategoria.Location = new Point(28, 158);
             DGCategoria.Margin = new Padding(4, 3, 4, 3);
             DGCategoria.Name = "DGCategoria";
-            DGCategoria.Size = new Size(876, 263);
+            DGCategoria.Size = new Size(1028, 431);
             DGCategoria.TabIndex = 8;
             DGCategoria.CellContentClick += DGCategoria_CellContentClick;
             // 
@@ -172,7 +172,7 @@ namespace FrmCategoria
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(63, 81, 181);
-            ClientSize = new Size(933, 450);
+            ClientSize = new Size(1181, 617);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(DGCategoria);
