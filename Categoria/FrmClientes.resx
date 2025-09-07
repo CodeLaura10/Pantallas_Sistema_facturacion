@@ -139,30 +139,12 @@
   <data name="dataGridViewImageColumn2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        cAAAAHABznhikwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAENSURBVDhPxdM/
-        SgNBGIbx7ZQUthGSRhBJIeY06dNKQNALmAvoNURNKm0EI57AiJWpkj4G/9bq88y4IrOybucLP5iZzH7f
-        zC7JkmxggFc8Y4g1VEoLC9xhB9u4+VqrVMRuPrwcZjGOxzgNsz/yADun6eExDsvzAo+dxgJeYwVnaMPs
-        YT8OY7yCd06vcItj1DCCJz3EOyzyHb+AnbyzJ7GzD8+xDmORe3zgwIU0TdjtCT54Agvn2YWdJ/Ak+XUq
-        ZRUWtkh+nXOE2LmPI9j1J9d8WQ3UkccivthsC36mKXyRaQHXZnDPJgq5xBWWwuz3+Ns1LsIsyRu6cVga
-        9/gfKcRP0onD0rjHvYX8Z4Es+wQ1qUTjmjO0QwAAAABJRU5ErkJggg==
+        cAAAAHABznhikwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAEJSURBVDhPxdPP
+        KsRhFMbxz44sbCk2apKFuBp7WyllboAb4DaEsWKjkCtAVqzYI3/X6NT5Ta93flOz861fTc857/Oc874N
+        f5lHD594xxHmqp6hLOAFt9jAGq5SG8kk0uLweKHF72scFtpQnjO5Zh2vtdjGR45dEwaxxiSOsZx6F1tl
+        Y6wQO9cr3GAfEzjPSXfxnSZ94gUiKXaOSSI5Dj+hkz1hcocf7JSHG2Yz7S0PHqRxw2Ym3+ckzTojMZ3G
+        YdKsc9IUI3kbe5lafqHFZc1gqjAMk7hYS/lMD3mRtUFoj9mzWBj0OcMFxupCQdQucVoXgi+s1mIL0RP/
+        kQHiSVZqsYXoid4B/tfgFzWpRONVi1mjAAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="Id_Cliente.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Nombre_Cliente.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Documento.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Telefono.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="BtnEditar.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="BtnEliminar.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
 </root>
