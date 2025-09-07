@@ -80,5 +80,10 @@ namespace FrmCategoria
             frminsertarproducto.Id_Producto = 0;
             frminsertarproducto.ShowDialog();
         }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

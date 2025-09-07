@@ -41,7 +41,6 @@
             textBoxcliente = new TextBox();
             panel2 = new Panel();
             BtnNuevoProducto = new Button();
-            BtnBuscar = new Button();
             BtnSalir = new Button();
             ((System.ComponentModel.ISupportInitialize)DGProductos).BeginInit();
             panel1.SuspendLayout();
@@ -136,14 +135,13 @@
             textBoxcliente.Location = new Point(27, 12);
             textBoxcliente.Margin = new Padding(4, 3, 4, 3);
             textBoxcliente.Name = "textBoxcliente";
-            textBoxcliente.Size = new Size(511, 29);
+            textBoxcliente.Size = new Size(586, 29);
             textBoxcliente.TabIndex = 6;
             // 
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(47, 62, 153);
             panel2.Controls.Add(BtnNuevoProducto);
-            panel2.Controls.Add(BtnBuscar);
             panel2.Controls.Add(BtnSalir);
             panel2.Controls.Add(textBoxcliente);
             panel2.Dock = DockStyle.Top;
@@ -153,6 +151,7 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(933, 55);
             panel2.TabIndex = 7;
+            panel2.Paint += panel2_Paint;
             // 
             // BtnNuevoProducto
             // 
@@ -165,17 +164,6 @@
             BtnNuevoProducto.Text = "Nuevo";
             BtnNuevoProducto.UseVisualStyleBackColor = true;
             BtnNuevoProducto.Click += BtnNuevoProducto_Click;
-            // 
-            // BtnBuscar
-            // 
-            BtnBuscar.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            BtnBuscar.ForeColor = SystemColors.Desktop;
-            BtnBuscar.Location = new Point(560, 7);
-            BtnBuscar.Name = "BtnBuscar";
-            BtnBuscar.Size = new Size(93, 42);
-            BtnBuscar.TabIndex = 7;
-            BtnBuscar.Text = "Buscar";
-            BtnBuscar.UseVisualStyleBackColor = true;
             // 
             // BtnSalir
             // 
@@ -223,7 +211,6 @@
         private System.Windows.Forms.TextBox textBoxcliente;
         private System.Windows.Forms.Panel panel2;
         private Button BtnSalir;
-        private Button BtnBuscar;
         private Button BtnNuevoProducto;
         private DataGridViewTextBoxColumn Id_Producto;
         private DataGridViewTextBoxColumn Nombre_Producto;

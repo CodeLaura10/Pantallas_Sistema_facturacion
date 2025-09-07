@@ -32,21 +32,20 @@ namespace FrmCategoria
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmClientes));
             DGClientes = new DataGridView();
+            IdCliente = new DataGridViewTextBoxColumn();
+            StrNombre = new DataGridViewTextBoxColumn();
+            NumDocumento = new DataGridViewTextBoxColumn();
+            StrTelefono = new DataGridViewTextBoxColumn();
+            BtnEditar = new DataGridViewButtonColumn();
+            BtnEliminar = new DataGridViewButtonColumn();
             dataGridViewImageColumn1 = new DataGridViewImageColumn();
             dataGridViewImageColumn2 = new DataGridViewImageColumn();
             panel1 = new Panel();
             labelcliente = new Label();
             panel2 = new Panel();
             BtnNuevoCliente = new Button();
-            BtnBuscar = new Button();
             BtnSalir = new Button();
             textBoxcliente = new TextBox();
-            Id_Cliente = new DataGridViewTextBoxColumn();
-            Nombre_Cliente = new DataGridViewTextBoxColumn();
-            Documento = new DataGridViewTextBoxColumn();
-            Telefono = new DataGridViewTextBoxColumn();
-            BtnEditar = new DataGridViewButtonColumn();
-            BtnEliminar = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)DGClientes).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -56,13 +55,58 @@ namespace FrmCategoria
             // 
             DGClientes.BackgroundColor = SystemColors.ButtonFace;
             DGClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGClientes.Columns.AddRange(new DataGridViewColumn[] { Id_Cliente, Nombre_Cliente, Documento, Telefono, BtnEditar, BtnEliminar });
+            DGClientes.Columns.AddRange(new DataGridViewColumn[] { IdCliente, StrNombre, NumDocumento, StrTelefono, BtnEditar, BtnEliminar });
             DGClientes.Location = new Point(28, 158);
             DGClientes.Margin = new Padding(4, 3, 4, 3);
             DGClientes.Name = "DGClientes";
             DGClientes.Size = new Size(876, 263);
             DGClientes.TabIndex = 2;
             DGClientes.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // IdCliente
+            // 
+            IdCliente.DataPropertyName = "IdCliente";
+            IdCliente.HeaderText = "ID";
+            IdCliente.MaxInputLength = 10000;
+            IdCliente.Name = "IdCliente";
+            IdCliente.Width = 30;
+            // 
+            // StrNombre
+            // 
+            StrNombre.DataPropertyName = "StrNombre";
+            StrNombre.HeaderText = "CLIENTE";
+            StrNombre.Name = "StrNombre";
+            StrNombre.Width = 320;
+            // 
+            // NumDocumento
+            // 
+            NumDocumento.DataPropertyName = "NumDocumento";
+            NumDocumento.HeaderText = "DOCUMENTO";
+            NumDocumento.Name = "NumDocumento";
+            NumDocumento.Width = 200;
+            // 
+            // StrTelefono
+            // 
+            StrTelefono.DataPropertyName = "StrTelefono";
+            StrTelefono.HeaderText = "TELEFONO";
+            StrTelefono.Name = "StrTelefono";
+            StrTelefono.Width = 150;
+            // 
+            // BtnEditar
+            // 
+            BtnEditar.HeaderText = "EDITAR";
+            BtnEditar.Name = "BtnEditar";
+            BtnEditar.Text = "Editar";
+            BtnEditar.UseColumnTextForButtonValue = true;
+            BtnEditar.Width = 65;
+            // 
+            // BtnEliminar
+            // 
+            BtnEliminar.HeaderText = "ELIMINAR";
+            BtnEliminar.Name = "BtnEliminar";
+            BtnEliminar.Text = "Eliminar";
+            BtnEliminar.UseColumnTextForButtonValue = true;
+            BtnEliminar.Width = 65;
             // 
             // dataGridViewImageColumn1
             // 
@@ -98,13 +142,11 @@ namespace FrmCategoria
             labelcliente.Size = new Size(408, 29);
             labelcliente.TabIndex = 1;
             labelcliente.Text = "ADMINISTRACIÓN DE CLIENTES";
-            labelcliente.Click += labelcliente_Click;
             // 
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(47, 62, 153);
             panel2.Controls.Add(BtnNuevoCliente);
-            panel2.Controls.Add(BtnBuscar);
             panel2.Controls.Add(BtnSalir);
             panel2.Controls.Add(textBoxcliente);
             panel2.Dock = DockStyle.Top;
@@ -127,17 +169,6 @@ namespace FrmCategoria
             BtnNuevoCliente.UseVisualStyleBackColor = true;
             BtnNuevoCliente.Click += BtnNuevoCliente_Click;
             // 
-            // BtnBuscar
-            // 
-            BtnBuscar.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            BtnBuscar.ForeColor = SystemColors.Desktop;
-            BtnBuscar.Location = new Point(560, 7);
-            BtnBuscar.Name = "BtnBuscar";
-            BtnBuscar.Size = new Size(93, 42);
-            BtnBuscar.TabIndex = 8;
-            BtnBuscar.Text = "Buscar";
-            BtnBuscar.UseVisualStyleBackColor = true;
-            // 
             // BtnSalir
             // 
             BtnSalir.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -148,7 +179,7 @@ namespace FrmCategoria
             BtnSalir.TabIndex = 7;
             BtnSalir.Text = "Salir";
             BtnSalir.UseVisualStyleBackColor = true;
-            BtnSalir.Click += BtnSalir_Click_1;
+            BtnSalir.Click += BtnSalir_Click;
             // 
             // textBoxcliente
             // 
@@ -158,49 +189,9 @@ namespace FrmCategoria
             textBoxcliente.Location = new Point(27, 12);
             textBoxcliente.Margin = new Padding(4, 3, 4, 3);
             textBoxcliente.Name = "textBoxcliente";
-            textBoxcliente.Size = new Size(511, 29);
+            textBoxcliente.Size = new Size(643, 29);
             textBoxcliente.TabIndex = 5;
-            // 
-            // Id_Cliente
-            // 
-            Id_Cliente.HeaderText = "ID";
-            Id_Cliente.MaxInputLength = 10000;
-            Id_Cliente.Name = "Id_Cliente";
-            Id_Cliente.Width = 30;
-            // 
-            // Nombre_Cliente
-            // 
-            Nombre_Cliente.HeaderText = "CLIENTE";
-            Nombre_Cliente.Name = "Nombre_Cliente";
-            Nombre_Cliente.Width = 320;
-            // 
-            // Documento
-            // 
-            Documento.HeaderText = "DOCUMENTO";
-            Documento.Name = "Documento";
-            Documento.Width = 200;
-            // 
-            // Telefono
-            // 
-            Telefono.HeaderText = "TELEFONO";
-            Telefono.Name = "Telefono";
-            Telefono.Width = 150;
-            // 
-            // BtnEditar
-            // 
-            BtnEditar.HeaderText = "EDITAR";
-            BtnEditar.Name = "BtnEditar";
-            BtnEditar.Text = "Editar";
-            BtnEditar.UseColumnTextForButtonValue = true;
-            BtnEditar.Width = 65;
-            // 
-            // BtnEliminar
-            // 
-            BtnEliminar.HeaderText = "ELIMINAR";
-            BtnEliminar.Name = "BtnEliminar";
-            BtnEliminar.Text = "Eliminar";
-            BtnEliminar.UseColumnTextForButtonValue = true;
-            BtnEliminar.Width = 65;
+            textBoxcliente.TextChanged += textBoxcliente_TextChanged;
             // 
             // FrmClientes
             // 
@@ -238,12 +229,11 @@ namespace FrmCategoria
         private System.Windows.Forms.Label labelcliente;
         private System.Windows.Forms.TextBox textBoxcliente;
         private Button BtnSalir;
-        private Button BtnBuscar;
         private Button BtnNuevoCliente;
-        private DataGridViewTextBoxColumn Id_Cliente;
-        private DataGridViewTextBoxColumn Nombre_Cliente;
-        private DataGridViewTextBoxColumn Documento;
-        private DataGridViewTextBoxColumn Telefono;
+        private DataGridViewTextBoxColumn IdCliente;
+        private DataGridViewTextBoxColumn StrNombre;
+        private DataGridViewTextBoxColumn NumDocumento;
+        private DataGridViewTextBoxColumn StrTelefono;
         private DataGridViewButtonColumn BtnEditar;
         private DataGridViewButtonColumn BtnEliminar;
     }
