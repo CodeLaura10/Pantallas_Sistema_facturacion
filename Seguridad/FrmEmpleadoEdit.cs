@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Pantallas_Sistema_facturacion.Seguridad
@@ -16,7 +17,6 @@ namespace Pantallas_Sistema_facturacion.Seguridad
         public string Correo => txtCorreo.Text.Trim();
         public string Direccion => txtDireccion.Text.Trim();
 
-        // ⇩ Nuevo: del ComboBox de rol
         public int? IdRolEmpleado
         {
             get
@@ -44,20 +44,37 @@ namespace Pantallas_Sistema_facturacion.Seguridad
             txtTelefono.KeyPress += SoloNumeros_KeyPress;
 
             cboRol.DropDownStyle = ComboBoxStyle.DropDownList;
-            CargarRoles();
+            CargarRoles(); // ⇦ ahora desde BD
             Shown += (_, __) => txtNombre.Focus();
         }
 
         private void CargarRoles()
         {
+
             cboRol.DropDownStyle = ComboBoxStyle.DropDownList;
             cboRol.DataSource = RolesStore.GetAllNames();
+            try
+            {
+                // Carga desde BD con ADO.NET
+                var roles = RolesDAO.ObtenerParaCombo(); // ⇦ Cambiado a método existente
+                cboRol.DataSource = roles;     // ⇦ lista de RolItem
+                cboRol.ValueMember = "Id";     // ⇦ Id para SelectedValue
+                cboRol.DisplayMember = "NombreRol";
+                cboRol.SelectedIndex = roles.Count > 0 ? 0 : -1;
+            }
+            catch (Exception ex)
+            {
+                // Comentario corto: muestra error si falla la consulta
+                MessageBox.Show("Error cargando roles: " + ex.Message, "Roles", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cboRol.DataSource = null;
+            }
         }
-
 
         public FrmEmpleadoEdit(Empleado existente) : this()
         {
             _original = existente;
+
+            // Pinta campos
             txtNombre.Text = existente.Nombre;
             txtDocumento.Text = existente.Documento;
             txtTelefono.Text = existente.Telefono;
@@ -69,6 +86,44 @@ namespace Pantallas_Sistema_facturacion.Seguridad
                 string.Equals(n, existente.NombreRol, StringComparison.OrdinalIgnoreCase));
 
             cboRol.SelectedItem = match ?? null;
+
+            // Selección de rol robusta:
+            // 1) Intentar por Id
+            if (existente.IdRolEmpleado.HasValue)
+            {
+                cboRol.SelectedValue = existente.IdRolEmpleado.Value;
+                if (cboRol.SelectedIndex >= 0) return; // ok
+            }
+
+            // 2) Intentar por nombre (si vino sin Id)
+            if (!string.IsNullOrWhiteSpace(existente.NombreRol) && cboRol.Items.Count > 0)
+            {
+                for (int i = 0; i < cboRol.Items.Count; i++)
+                {
+                    var item = (RolItem)cboRol.Items[i];
+                    if (string.Equals(item.NombreRol, existente.NombreRol, StringComparison.OrdinalIgnoreCase))
+                    {
+                        cboRol.SelectedIndex = i;
+                        break;
+                    }
+                }
+            }
+        }
+
+        // Crea un Empleado listo para guardar (lo usa el formulario padre)
+        public Empleado ToEmpleado()
+        {
+            return new Empleado
+            {
+                // Nota: el Id lo asigna el llamador en edición (mantiene el existente)
+                Nombre = this.Nombre,
+                Documento = this.Documento,
+                Telefono = this.Telefono,
+                Correo = this.Correo,
+                Direccion = this.Direccion,
+                IdRolEmpleado = this.IdRolEmpleado,
+                NombreRol = this.NombreRol
+            };
         }
 
         private bool SoloDigitos(string s) =>
@@ -103,18 +158,32 @@ namespace Pantallas_Sistema_facturacion.Seguridad
                 ok = false;
             }
 
-            // ⇩ Dirección: requerida (no uses SoloDigitos aquí)
             if (string.IsNullOrWhiteSpace(Direccion))
             {
                 errorProvider1.SetError(txtDireccion, "La dirección es necesaria");
                 ok = false;
             }
 
-            // ⇩ Rol: exige selección válida (SelectedValue)
-            if (string.IsNullOrWhiteSpace(NombreRol))
+            if (IdRolEmpleado == null)
             {
                 errorProvider1.SetError(cboRol, "Selecciona un rol");
                 ok = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(Correo))
+            {
+                errorProvider1.SetError(txtCorreo, "El correo es necesario");
+                ok = false;
+            }
+            else
+            {
+                // Regex básica para validar formato de email
+                var regexEmail = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]+$");
+                if (!regexEmail.IsMatch(Correo))
+                {
+                    errorProvider1.SetError(txtCorreo, "Formato de correo no válido");
+                    ok = false;
+                }
             }
 
             return ok;
@@ -123,7 +192,7 @@ namespace Pantallas_Sistema_facturacion.Seguridad
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (!Validar()) return;
-            DialogResult = DialogResult.OK;
+            DialogResult = DialogResult.OK; // ⇦ el padre llama ToEmpleado() y guarda
             Close();
         }
 

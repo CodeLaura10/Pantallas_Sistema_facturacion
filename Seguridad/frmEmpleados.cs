@@ -126,52 +126,35 @@ namespace Pantallas_Sistema_facturacion.Seguridad
             if (string.IsNullOrWhiteSpace(filtro))
             {
                 // Enlaza la lista maestra para reflejar altas/ediciones en vivo
-                _bs.DataSource = EmpleadoStore.Empleados;
+                _bs.DataSource = EmpleadoDAO.ObtenerTodos();
             }
             else
             {
                 // Aplica filtro por nombre (ignorando mayúsculas/minúsculas)
-                _bs.DataSource = new BindingList<Empleado>(EmpleadoStore.SearchByNombre(filtro));
+                _bs.DataSource = new BindingList<Empleado>(
+                EmpleadoDAO.ObtenerTodos().Where(e =>
+                e.Nombre.Contains(filtro, StringComparison.OrdinalIgnoreCase)).ToList()
+                );
             }
         }
         private void NuevoEmpleado()
         {
-            using var dlg = new FrmEmpleadoEdit(); // modal en modo creación
+            using var dlg = new FrmEmpleadoEdit();
             if (dlg.ShowDialog(this) == DialogResult.OK)
             {
-                EmpleadoStore.Add(
-                    nombre: dlg.Nombre,
-                    documento: dlg.Documento,
-                    telefono: dlg.Telefono,
-                    correo: dlg.Correo,
-                    direccion: dlg.Direccion,
-                    idRolEmpleado: null,          
-                    nombreRol: dlg.NombreRol      // texto del combo
-                );
-                _bs.ResetBindings(false);             // refresca el grid
+                var emp = dlg.ToEmpleado();   // ahora sí existe
+                EmpleadoDAO.Guardar(emp, Environment.UserName);
+                RefrescarConFiltroActual();
             }
         }
         private void EditarEmpleado(Empleado emp)
         {
-            using var dlg = new FrmEmpleadoEdit(emp); // modal en modo edición
+            using var dlg = new FrmEmpleadoEdit(emp);
             if (dlg.ShowDialog(this) == DialogResult.OK)
             {
-                emp.Nombre = dlg.Nombre;
-                emp.Documento = dlg.Documento;
-                emp.Telefono = dlg.Telefono;
-                emp.Correo = dlg.Correo;
-                emp.Direccion = dlg.Direccion;
-                emp.NombreRol = dlg.NombreRol;
-
-                var nombres = RolesStore.GetAllNames();
-                emp.NombreRol = nombres.FirstOrDefault(n =>
-                                    string.Equals(n, dlg.NombreRol, StringComparison.OrdinalIgnoreCase))
-                                ?? dlg.NombreRol?.Trim() ?? "";
-
-                emp.IdRolEmpleado = null;
-
-                // Notifica cambios al grid y respeta el filtro vigente
-                _bs.ResetBindings(false);
+                var actualizado = dlg.ToEmpleado();
+                actualizado.Id = emp.Id;      // conserva el Id original
+                EmpleadoDAO.Guardar(actualizado, Environment.UserName);
                 RefrescarConFiltroActual();
             }
         }
@@ -185,7 +168,7 @@ namespace Pantallas_Sistema_facturacion.Seguridad
 
             if (r != DialogResult.Yes) return;
 
-            if (EmpleadoStore.RemoveById(emp.Id))
+            if (EmpleadoDAO.Eliminar(emp.Id))
                 RefrescarConFiltroActual();
             else
                 MessageBox.Show("No se pudo eliminar (no encontrado).");
