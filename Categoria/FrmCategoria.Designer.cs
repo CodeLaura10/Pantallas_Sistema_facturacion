@@ -33,13 +33,12 @@ namespace FrmCategoria
         {
             panel2 = new Panel();
             BtnNuevaCaegoria = new Button();
-            BtnBuscar = new Button();
             BtnSalir = new Button();
             textBoxcliente = new TextBox();
             panel1 = new Panel();
             labelcategoria = new Label();
             DGCategoria = new DataGridView();
-            Id_Categoria = new DataGridViewTextBoxColumn();
+            IdCategoria = new DataGridViewTextBoxColumn();
             Nombre_Categoria = new DataGridViewTextBoxColumn();
             Descripción_Categoria = new DataGridViewTextBoxColumn();
             BtnEditar = new DataGridViewButtonColumn();
@@ -53,7 +52,6 @@ namespace FrmCategoria
             // 
             panel2.BackColor = Color.FromArgb(47, 62, 153);
             panel2.Controls.Add(BtnNuevaCaegoria);
-            panel2.Controls.Add(BtnBuscar);
             panel2.Controls.Add(BtnSalir);
             panel2.Controls.Add(textBoxcliente);
             panel2.Dock = DockStyle.Top;
@@ -76,17 +74,6 @@ namespace FrmCategoria
             BtnNuevaCaegoria.UseVisualStyleBackColor = true;
             BtnNuevaCaegoria.Click += BtnNuevaCaegoria_Click;
             // 
-            // BtnBuscar
-            // 
-            BtnBuscar.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            BtnBuscar.ForeColor = SystemColors.Desktop;
-            BtnBuscar.Location = new Point(560, 7);
-            BtnBuscar.Name = "BtnBuscar";
-            BtnBuscar.Size = new Size(93, 42);
-            BtnBuscar.TabIndex = 12;
-            BtnBuscar.Text = "Buscar";
-            BtnBuscar.UseVisualStyleBackColor = true;
-            // 
             // BtnSalir
             // 
             BtnSalir.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -107,7 +94,7 @@ namespace FrmCategoria
             textBoxcliente.Location = new Point(27, 12);
             textBoxcliente.Margin = new Padding(4, 3, 4, 3);
             textBoxcliente.Name = "textBoxcliente";
-            textBoxcliente.Size = new Size(511, 29);
+            textBoxcliente.Size = new Size(629, 29);
             textBoxcliente.TabIndex = 5;
             // 
             // panel1
@@ -137,7 +124,7 @@ namespace FrmCategoria
             // 
             DGCategoria.BackgroundColor = SystemColors.ButtonFace;
             DGCategoria.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGCategoria.Columns.AddRange(new DataGridViewColumn[] { Id_Categoria, Nombre_Categoria, Descripción_Categoria, BtnEditar, BtnEliminar });
+            DGCategoria.Columns.AddRange(new DataGridViewColumn[] { IdCategoria, Nombre_Categoria, Descripción_Categoria, BtnEditar, BtnEliminar });
             DGCategoria.Location = new Point(28, 158);
             DGCategoria.Margin = new Padding(4, 3, 4, 3);
             DGCategoria.Name = "DGCategoria";
@@ -145,11 +132,12 @@ namespace FrmCategoria
             DGCategoria.TabIndex = 8;
             DGCategoria.CellContentClick += DGCategoria_CellContentClick;
             // 
-            // Id_Categoria
+            // IdCategoria
             // 
-            Id_Categoria.HeaderText = "ID";
-            Id_Categoria.Name = "Id_Categoria";
-            Id_Categoria.Width = 30;
+            IdCategoria.DataPropertyName = "IdCategoria";
+            IdCategoria.HeaderText = "ID";
+            IdCategoria.Name = "IdCategoria";
+            IdCategoria.Width = 30;
             // 
             // Nombre_Categoria
             // 
@@ -214,9 +202,8 @@ namespace FrmCategoria
         private System.Windows.Forms.Label labelcategoria;
         private System.Windows.Forms.DataGridView DGCategoria;
         private Button BtnSalir;
-        private Button BtnBuscar;
         private Button BtnNuevaCaegoria;
-        private DataGridViewTextBoxColumn Id_Categoria;
+        private DataGridViewTextBoxColumn IdCategoria;
         private DataGridViewTextBoxColumn Nombre_Categoria;
         private DataGridViewTextBoxColumn Descripción_Categoria;
         private DataGridViewButtonColumn BtnEditar;

@@ -16,18 +16,18 @@ namespace FrmCategoria
         {
             InitializeComponent();
         }
-        public int Id_Cliente { get; set; }
+        public int IdCliente { get; set; }
 
         private void FrmInsertarClientes_Load(object sender, EventArgs e)
         {
-            if (Id_Cliente == 0)
+            if (IdCliente == 0)
             {
                 LblTituloCliente.Text = "Nuevo Cliente";
             }
             else
             {
                 LblTituloCliente.Text = "Editar Cliente";
-                TxTId_Cliente.Text = Id_Cliente.ToString();
+                TxTId_Cliente.Text = IdCliente.ToString();
             }
         }
 
