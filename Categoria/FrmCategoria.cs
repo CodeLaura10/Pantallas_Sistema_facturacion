@@ -150,6 +150,11 @@ namespace FrmCategoria
                 llenar_grid();
             }
         }
+
+        private void TxtBuscar_TextChanged_1(object sender, EventArgs e)
+        {
+            llenar_grid(TxtBuscar.Text.Trim());
+        }
     }
 }
 

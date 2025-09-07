@@ -97,6 +97,7 @@ namespace FrmCategoria
             TxtBuscar.Name = "TxtBuscar";
             TxtBuscar.Size = new Size(718, 34);
             TxtBuscar.TabIndex = 5;
+            TxtBuscar.TextChanged += TxtBuscar_TextChanged_1;
             // 
             // panel1
             // 
