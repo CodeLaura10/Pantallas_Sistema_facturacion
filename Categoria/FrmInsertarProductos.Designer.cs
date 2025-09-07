@@ -91,7 +91,7 @@
             LblTituloProducto.Size = new Size(197, 31);
             LblTituloProducto.TabIndex = 9;
             LblTituloProducto.Text = "Titulo Producto";
-            LblTituloProducto.Click += LblTitulo_Click;
+            
             // 
             // TxtStock
             // 
@@ -194,7 +194,7 @@
             LblPrecioCompra.Size = new Size(123, 19);
             LblPrecioCompra.TabIndex = 23;
             LblPrecioCompra.Text = "💲 Precio Compra";
-            LblPrecioCompra.Click += LblPrecioCompra_Click;
+            
             // 
             // LblNroReferencia
             // 

@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FrmCategoria
@@ -17,22 +12,58 @@ namespace FrmCategoria
             InitializeComponent();
         }
 
-        private void materialLabel1_Click(object sender, EventArgs e)
+        private void FrmProductos_Load(object sender, EventArgs e)
         {
-
+            CargarProductos();
         }
 
-        public void llenar_grid()
+        private void CargarProductos(string filtro = "")
         {
-            for (int i = 1; i < 6; i++)
+            string connStr = AppConfig.ConnString;
+            string query = "SELECT StrCodigo, StrNombre, IdCategoria, NumPrecioVenta, NumStock FROM TBLPRODUCTO";
+
+            if (!string.IsNullOrEmpty(filtro))
             {
-                DGProductos.Rows.Add(i, $"Producto {i} ", $"Categoria {i} ", $"{i * 10000}", $"{i * 5}");
+                query += " WHERE StrNombre LIKE @Filtro";
+            }
+
+            try
+            {
+                using var conn = new SqlConnection(connStr);
+                using var cmd = new SqlCommand(query, conn);
+
+                if (!string.IsNullOrEmpty(filtro))
+                {
+                    cmd.Parameters.AddWithValue("@Filtro", "%" + filtro + "%");
+                }
+
+                using var da = new SqlDataAdapter(cmd);
+                var dt = new DataTable();
+                da.Fill(dt);
+
+                DGProductos.Rows.Clear();
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    DGProductos.Rows.Add(
+                        row["StrCodigo"].ToString(),
+                        row["StrNombre"].ToString(),
+                        row["IdCategoria"].ToString(),
+                        row["NumPrecioVenta"].ToString(),
+                        row["NumStock"].ToString()
+                    );
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar productos: " + ex.Message,
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void FrmProductos_Load(object sender, EventArgs e)
+        private void TxtBuscar_TextChanged(object sender, EventArgs e)
         {
-            llenar_grid();
+            CargarProductos(TxtBuscar.Text.Trim());
         }
 
         private void BtnSalir_Click(object sender, EventArgs e)
@@ -42,48 +73,89 @@ namespace FrmCategoria
 
         private void DGProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            // Editar producto
             if (e.ColumnIndex == DGProductos.Columns["BtnEditar"].Index && e.RowIndex >= 0)
             {
-                int id_producto = Convert.ToInt32(DGProductos.Rows[e.RowIndex].Cells["Id_Producto"].Value);
-                FrmInsertarProductos Producto = new FrmInsertarProductos();
-                Producto.Id_Producto = id_producto;
-                Producto.ShowDialog();
+                string strCodigo = DGProductos.Rows[e.RowIndex].Cells["StrCodigo"].Value?.ToString();
+
+                if (!string.IsNullOrEmpty(strCodigo))
+                {
+                    FrmInsertarProductos Producto = new FrmInsertarProductos();
+                    Producto.Id_Producto = strCodigo;
+
+                    if (Producto.ShowDialog() == DialogResult.OK)
+                    {
+                        CargarProductos();
+                    }
+                }
             }
+
+            // Eliminar producto
             if (e.ColumnIndex == DGProductos.Columns["BtnEliminar"].Index && e.RowIndex >= 0)
             {
-                int id_producto = Convert.ToInt32(DGProductos.Rows[e.RowIndex].Cells["Id_Producto"].Value);
-                var result = MessageBox.Show($"¿Está seguro de eliminar el producto con ID {id_producto}?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result == DialogResult.Yes)
+                string strCodigo = DGProductos.Rows[e.RowIndex].Cells["StrCodigo"].Value?.ToString();
+
+                if (!string.IsNullOrEmpty(strCodigo))
                 {
-                    // Aquí iría el código para eliminar al cliente de la base de datos
-                    MessageBox.Show($"Producto con ID {id_producto} eliminado.");
-                    DGProductos.Rows.RemoveAt(e.RowIndex); // Elimina la fila del DataGridView
+                    var result = MessageBox.Show($"¿Está seguro de eliminar el producto con StrCodigo {strCodigo}?",
+                                                 "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        EliminarProducto(strCodigo);
+                        CargarProductos();
+                    }
                 }
+            }
+        }
+
+        private void EliminarProducto(string strCodigo)
+        {
+            string connStr = AppConfig.ConnString;
+            string query = "DELETE FROM TBLPRODUCTO WHERE StrCodigo = @StrCodigo";
+
+            try
+            {
+                using var conn = new SqlConnection(connStr);
+                using var cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@StrCodigo", strCodigo);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar producto: " + ex.Message,
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
             FrmInsertarProductos Producto = new FrmInsertarProductos();
-            Producto.Id_Producto = 0;
-            Producto.ShowDialog();
-        }
+            Producto.Id_Producto = string.Empty;
 
-        private void BtnSalir_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
+            if (Producto.ShowDialog() == DialogResult.OK)
+            {
+                CargarProductos();
+            }
         }
 
         private void BtnNuevoProducto_Click(object sender, EventArgs e)
         {
             FrmInsertarProductos frminsertarproducto = new FrmInsertarProductos();
-            frminsertarproducto.Id_Producto = 0;
-            frminsertarproducto.ShowDialog();
+            frminsertarproducto.Id_Producto = string.Empty;
+
+            if (frminsertarproducto.ShowDialog() == DialogResult.OK)
+            {
+                CargarProductos();
+            }
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        private void TxtBuscar_TextChanged_1(object sender, EventArgs e)
         {
 
+            CargarProductos(TxtBuscar.Text.Trim());
         }
     }
 }
