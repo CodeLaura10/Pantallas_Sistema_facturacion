@@ -51,7 +51,7 @@ namespace Pantallas_Sistema_facturacion.Seguridad
         private void CargarRoles()
         {
             cboRol.DropDownStyle = ComboBoxStyle.DropDownList;
-            cboRol.DataSource = RolesStore.GetAllNames(); 
+            cboRol.DataSource = RolesStore.GetAllNames();
         }
 
 
@@ -67,7 +67,7 @@ namespace Pantallas_Sistema_facturacion.Seguridad
             var nombres = (string[])cboRol.DataSource;
             var match = nombres.FirstOrDefault(n =>
                 string.Equals(n, existente.NombreRol, StringComparison.OrdinalIgnoreCase));
-            
+
             cboRol.SelectedItem = match ?? null;
         }
 
@@ -137,6 +137,11 @@ namespace Pantallas_Sistema_facturacion.Seguridad
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
                 e.Handled = true;
+        }
+
+        private void FrmEmpleadoEdit_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
