@@ -50,6 +50,9 @@ namespace Pantallas_Sistema_facturacion.Seguridad
 
         private void CargarRoles()
         {
+
+            cboRol.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboRol.DataSource = RolesStore.GetAllNames();
             try
             {
                 // Carga desde BD con ADO.NET
@@ -77,6 +80,12 @@ namespace Pantallas_Sistema_facturacion.Seguridad
             txtTelefono.Text = existente.Telefono;
             txtCorreo.Text = existente.Correo;
             txtDireccion.Text = existente.Direccion;
+
+            var nombres = (string[])cboRol.DataSource;
+            var match = nombres.FirstOrDefault(n =>
+                string.Equals(n, existente.NombreRol, StringComparison.OrdinalIgnoreCase));
+
+            cboRol.SelectedItem = match ?? null;
 
             // Selección de rol robusta:
             // 1) Intentar por Id
@@ -197,6 +206,11 @@ namespace Pantallas_Sistema_facturacion.Seguridad
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
                 e.Handled = true;
+        }
+
+        private void FrmEmpleadoEdit_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

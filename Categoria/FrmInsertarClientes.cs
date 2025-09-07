@@ -8,11 +8,12 @@ namespace FrmCategoria
 {
     public partial class FrmInsertarClientes : Form
     {
+
         public FrmInsertarClientes()
         {
             InitializeComponent();
         }
-        
+
         public int IdCliente { get; set; }
 
         private void FrmInsertarClientes_Load(object sender, EventArgs e)
@@ -63,6 +64,8 @@ namespace FrmCategoria
             this.Close();
         }
 
+
+
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
             // Codigo donde validara que el campo nombre no este vacio, de lo contrario mostrara un mensaje de advertencia
@@ -70,6 +73,13 @@ namespace FrmCategoria
             if (string.IsNullOrEmpty(nombre))
             {
                 MessageBox.Show("El nombre es obligatorio.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var documento = TxtDocumento.Text.Trim();
+            if (string.IsNullOrEmpty(documento))
+            {
+                MessageBox.Show("El documento es obligatorio.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -153,6 +163,11 @@ namespace FrmCategoria
             {
                 MessageBox.Show("Error al guardar cliente: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void TxtDocumento_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -167,6 +167,7 @@
             TxtDocumento.Name = "TxtDocumento";
             TxtDocumento.Size = new Size(310, 23);
             TxtDocumento.TabIndex = 16;
+            TxtDocumento.TextChanged += TxtDocumento_TextChanged;
             // 
             // TxTId_Cliente
             // 
