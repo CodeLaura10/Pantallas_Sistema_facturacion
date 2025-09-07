@@ -49,7 +49,7 @@
             LblCategoria.Size = new Size(75, 19);
             LblCategoria.TabIndex = 0;
             LblCategoria.Text = "Categoria";
-            LblCategoria.Click += NombreCategoria_Click;
+            
             // 
             // LblDescripciónCategoria
             // 
@@ -62,7 +62,7 @@
             LblDescripciónCategoria.Size = new Size(88, 19);
             LblDescripciónCategoria.TabIndex = 1;
             LblDescripciónCategoria.Text = "Descripción";
-            LblDescripciónCategoria.Click += DescripciónCategoria_Click;
+           
             // 
             // TxtCategoria
             // 
@@ -102,7 +102,7 @@
             BtnGuardar.TabIndex = 5;
             BtnGuardar.Text = "Guardar";
             BtnGuardar.UseVisualStyleBackColor = false;
-            BtnGuardar.Click += button1_Click;
+            BtnGuardar.Click += BtnGuardar_Click;
             // 
             // BtnCancelar
             // 
@@ -130,7 +130,7 @@
             LblTituloCategoria.Size = new Size(206, 31);
             LblTituloCategoria.TabIndex = 7;
             LblTituloCategoria.Text = "Titulo Categoria";
-            LblTituloCategoria.Click += label1_Click;
+            
             // 
             // TxTId_Categoria
             // 

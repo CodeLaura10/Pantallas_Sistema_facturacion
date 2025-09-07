@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Windows.Forms;
 
 namespace FrmCategoria
@@ -15,7 +9,6 @@ namespace FrmCategoria
         public FrmInsertarCategoria()
         {
             InitializeComponent();
-
         }
 
         public int Id_Categoria { get; set; }
@@ -29,14 +22,70 @@ namespace FrmCategoria
             else
             {
                 LblTituloCategoria.Text = "Editar Categoria";
-                TxTId_Categoria.Text = Id_Categoria.ToString();
+                CargarCategoria();
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void CargarCategoria()
         {
-            MessageBox.Show("Categoria Actualizada");
-            this.Close();
+            string connStr = AppConfig.ConnString;
+            string query = @"SELECT IdCategoria, StrDescripcion 
+                             FROM TBLCATEGORIA_PROD 
+                             WHERE IdCategoria = @IdCategoria";
+            try
+            {
+                using var conn = new SqlConnection(connStr);
+                using var cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@IdCategoria", Id_Categoria);
+                conn.Open();
+                using var rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    TxTId_Categoria.Text = rdr["IdCategoria"]?.ToString() ?? "";
+                    TxtDescripcion.Text = rdr["StrDescripcion"]?.ToString() ?? "";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar categoría: " + ex.Message,
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void BtnGuardar_Click(object sender, EventArgs e)
+        {
+            string connStr = AppConfig.ConnString;
+            string query;
+
+            if (Id_Categoria == 0)
+            {
+                query = "INSERT INTO TBLCATEGORIA_PROD (StrDescripcion) VALUES (@Descripcion)";
+            }
+            else
+            {
+                query = "UPDATE TBLCATEGORIA_PROD SET StrDescripcion = @Descripcion WHERE IdCategoria = @IdCategoria";
+            }
+
+            try
+            {
+                using var conn = new SqlConnection(connStr);
+                using var cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Descripcion", TxtDescripcion.Text.Trim());
+
+                if (Id_Categoria != 0)
+                    cmd.Parameters.AddWithValue("@IdCategoria", Id_Categoria);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar categoría: " + ex.Message,
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
@@ -44,39 +93,16 @@ namespace FrmCategoria
             this.Close();
         }
 
-        private void materialSingleLineTextField1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void TxtDescripcion_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void TxtCategoria_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void TxTId_Categoria_TextChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void DescripciónCategoria_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void NombreCategoria_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
