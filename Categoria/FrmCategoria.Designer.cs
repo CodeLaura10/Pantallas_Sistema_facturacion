@@ -55,20 +55,19 @@ namespace FrmCategoria
             panel2.Controls.Add(TxtBuscar);
             panel2.Dock = DockStyle.Top;
             panel2.ForeColor = SystemColors.Info;
-            panel2.Location = new Point(0, 101);
-            panel2.Margin = new Padding(5, 4, 5, 4);
+            panel2.Location = new Point(0, 76);
+            panel2.Margin = new Padding(4, 3, 4, 3);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1350, 73);
+            panel2.Size = new Size(1181, 55);
             panel2.TabIndex = 10;
             // 
             // BtnNuevaCaegoria
             // 
             BtnNuevaCaegoria.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnNuevaCaegoria.ForeColor = SystemColors.Desktop;
-            BtnNuevaCaegoria.Location = new Point(805, 7);
-            BtnNuevaCaegoria.Margin = new Padding(3, 4, 3, 4);
+            BtnNuevaCaegoria.Location = new Point(704, 5);
             BtnNuevaCaegoria.Name = "BtnNuevaCaegoria";
-            BtnNuevaCaegoria.Size = new Size(219, 56);
+            BtnNuevaCaegoria.Size = new Size(192, 42);
             BtnNuevaCaegoria.TabIndex = 13;
             BtnNuevaCaegoria.Text = "Agregar Categoria";
             BtnNuevaCaegoria.UseVisualStyleBackColor = true;
@@ -78,10 +77,9 @@ namespace FrmCategoria
             // 
             BtnSalir.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnSalir.ForeColor = SystemColors.Desktop;
-            BtnSalir.Location = new Point(1079, 7);
-            BtnSalir.Margin = new Padding(3, 4, 3, 4);
+            BtnSalir.Location = new Point(944, 5);
             BtnSalir.Name = "BtnSalir";
-            BtnSalir.Size = new Size(106, 56);
+            BtnSalir.Size = new Size(93, 42);
             BtnSalir.TabIndex = 11;
             BtnSalir.Text = "Salir";
             BtnSalir.UseVisualStyleBackColor = true;
@@ -92,10 +90,10 @@ namespace FrmCategoria
             TxtBuscar.BackColor = Color.FromArgb(47, 62, 153);
             TxtBuscar.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
             TxtBuscar.ForeColor = SystemColors.Window;
-            TxtBuscar.Location = new Point(31, 16);
-            TxtBuscar.Margin = new Padding(5, 4, 5, 4);
+            TxtBuscar.Location = new Point(27, 12);
+            TxtBuscar.Margin = new Padding(4, 3, 4, 3);
             TxtBuscar.Name = "TxtBuscar";
-            TxtBuscar.Size = new Size(718, 34);
+            TxtBuscar.Size = new Size(629, 29);
             TxtBuscar.TabIndex = 5;
             TxtBuscar.TextChanged += TxtBuscar_TextChanged_1;
             // 
@@ -104,9 +102,9 @@ namespace FrmCategoria
             panel1.Controls.Add(labelcategoria);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(5, 4, 5, 4);
+            panel1.Margin = new Padding(4, 3, 4, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1350, 101);
+            panel1.Size = new Size(1181, 76);
             panel1.TabIndex = 9;
             // 
             // labelcategoria
@@ -114,12 +112,12 @@ namespace FrmCategoria
             labelcategoria.AutoSize = true;
             labelcategoria.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelcategoria.ForeColor = Color.White;
-            labelcategoria.Location = new Point(351, 29);
-            labelcategoria.Margin = new Padding(5, 0, 5, 0);
+            labelcategoria.Location = new Point(309, 22);
+            labelcategoria.Margin = new Padding(4, 0, 4, 0);
             labelcategoria.Name = "labelcategoria";
-            labelcategoria.Size = new Size(555, 36);
+            labelcategoria.Size = new Size(473, 29);
             labelcategoria.TabIndex = 1;
-            labelcategoria.Text = "ADMINISTRACIÓN DE CATEGORIAS";
+            labelcategoria.Text = "ADMINISTRACIÓN DE CATEGORIASss";
             labelcategoria.Click += labelproductos_Click;
             // 
             // DGCategoria
@@ -127,11 +125,11 @@ namespace FrmCategoria
             DGCategoria.BackgroundColor = SystemColors.ButtonFace;
             DGCategoria.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DGCategoria.Columns.AddRange(new DataGridViewColumn[] { IdCategoria, strDescripcion, BtnEditar, BtnEliminar });
-            DGCategoria.Location = new Point(32, 211);
-            DGCategoria.Margin = new Padding(5, 4, 5, 4);
+            DGCategoria.Location = new Point(28, 158);
+            DGCategoria.Margin = new Padding(4, 3, 4, 3);
             DGCategoria.Name = "DGCategoria";
             DGCategoria.RowHeadersWidth = 51;
-            DGCategoria.Size = new Size(1175, 575);
+            DGCategoria.Size = new Size(1028, 431);
             DGCategoria.TabIndex = 8;
             DGCategoria.CellContentClick += DGCategoria_CellContentClick;
             // 
@@ -171,15 +169,15 @@ namespace FrmCategoria
             // 
             // FrmCategorias
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(63, 81, 181);
-            ClientSize = new Size(1350, 823);
+            ClientSize = new Size(1181, 591);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(DGCategoria);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(5, 4, 5, 4);
+            Margin = new Padding(4, 3, 4, 3);
             Name = "FrmCategorias";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmCategorias";
