@@ -25,29 +25,6 @@ namespace Pantallas_Sistema_facturacion
         {
             if (pnlEmpleados != null) pnlEmpleados.Visible = false;
             if (panelContenedor != null) { panelContenedor.Visible = true; panelContenedor.BringToFront(); }
-            // borrar hacia abajo
-            //try
-            //{
-            //    Cursor.Current = Cursors.WaitCursor;
-
-            //    // Probar conexión (lee la cadena de AppConfig.ConnString)
-            //    var db = await ProbarConexionAsync();
-
-            //    // opcional: muestra confirmación
-            //    MessageBox.Show($"Conectado a: {db}", "BD", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
-            //catch (Exception ex)
-            //{
-            //    // Saca la InnerException “real”
-            //    var j = ex;
-            //    while (j.InnerException != null) j = j.InnerException;
-            //    MessageBox.Show(j.ToString(), "Conexión a BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-            //finally
-            //{
-            //    Cursor.Current = Cursors.Default;
-            //}
-            // borrar hacia arriba
         }
 
         // Muestra/oculta el panel de Seguridad y limpia su contenido al ocultar
@@ -181,22 +158,7 @@ namespace Pantallas_Sistema_facturacion
 
         private void BtnSalir_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
-        //// borrar hacia abajo
-        //private async Task<string> ProbarConexionAsync()
-        //{
-        //    // Usa tu clase AppConfig que lee appsettings.json
-        //    var cs = AppConfig.ConnString;
-
-        //    using var cn = new SqlConnection(cs);
-        //    await cn.OpenAsync();
-
-        //    using var cmd = new SqlCommand("SELECT DB_NAME()", cn);
-        //    var db = (string)await cmd.ExecuteScalarAsync();
-
-        //    return db ?? "(desconocida)";
-        //}
-        //// borrar hacia arriba
     }
 }
