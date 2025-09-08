@@ -161,18 +161,35 @@ namespace Pantallas_Sistema_facturacion.Seguridad
         private void BorrarEmpleado(Empleado emp)
         {
             var r = MessageBox.Show(
-                $"¿Eliminar a {emp.Nombre}?",
-                "Confirmar",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning);
+            $"¿Eliminar a {emp.Nombre}?",
+            "Confirmar",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Warning);
 
             if (r != DialogResult.Yes) return;
 
-            if (EmpleadoDAO.Eliminar(emp.Id))
-                RefrescarConFiltroActual();
-            else
-                MessageBox.Show("No se pudo eliminar (no encontrado).");
+            try
+            {
+                // Intenta eliminar desde BD
+                bool eliminado = EmpleadoDAO.Eliminar(emp.Id);
+
+                if (eliminado)
+                {
+                    MessageBox.Show("No se encontró el registro en la base de datos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    RefrescarConFiltroActual();
+                }
+                else
+                {
+                    MessageBox.Show("Empleado eliminado.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RefrescarConFiltroActual();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error eliminando: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
         private void RefrescarConFiltroActual()
         {
             var filtro = string.IsNullOrWhiteSpace(txtBuscarEmpleados.Text)

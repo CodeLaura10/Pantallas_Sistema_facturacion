@@ -12,10 +12,6 @@ using System.Text;
 using MaterialSkin.Properties;
 using MaterialSkin.Animations;
 
-
-
-
-
 namespace Pantallas_Sistema_facturacion;
 
 internal static class Program
