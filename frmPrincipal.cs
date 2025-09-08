@@ -123,23 +123,20 @@ namespace Pantallas_Sistema_facturacion
         // --- MÓDULOS GENERALES (comportamiento original) ---
         private void btnClientes_Click(object sender, EventArgs e)
         {
-            ToggleSeguridad(false);
-            var frmClientes = new FrmClientes();
-            frmClientes.ShowDialog();
+            ToggleSeguridad(true);
+            AbrirEnPanel(new FrmClientes(), pnlEmpleados);
         }
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
-            ToggleSeguridad(false);
-            var frmProductos = new FrmProductos();
-            frmProductos.ShowDialog();
+            ToggleSeguridad(true);
+            AbrirEnPanel(new FrmProductos(), pnlEmpleados);
         }
 
         private void btnCategorias_Click(object sender, EventArgs e)
         {
-            ToggleSeguridad(false);
-            var frmCategorias = new FrmCategorias();
-            frmCategorias.ShowDialog();
+            ToggleSeguridad(true);
+            AbrirEnPanel(new FrmCategorias(), pnlEmpleados);
         }
 
         private void btnAyuda_Click(object sender, EventArgs e)

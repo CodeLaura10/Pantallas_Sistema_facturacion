@@ -39,9 +39,9 @@
             TxtNombre = new TextBox();
             TxtDocumento = new TextBox();
             TxTId_Cliente = new TextBox();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
+            TxtDireccion = new TextBox();
+            TxtTelefono = new TextBox();
+            TxtEmail = new TextBox();
             SuspendLayout();
             // 
             // BtnCancelar
@@ -167,50 +167,51 @@
             TxtDocumento.Name = "TxtDocumento";
             TxtDocumento.Size = new Size(310, 23);
             TxtDocumento.TabIndex = 16;
+            TxtDocumento.TextChanged += TxtDocumento_TextChanged;
             // 
             // TxTId_Cliente
             // 
-            TxTId_Cliente.BackColor = Color.MintCream;
+            TxTId_Cliente.BackColor = Color.FromArgb(47, 62, 153);
             TxTId_Cliente.BorderStyle = BorderStyle.FixedSingle;
-            TxTId_Cliente.ForeColor = SystemColors.ActiveCaptionText;
+            TxTId_Cliente.ForeColor = Color.FromArgb(47, 62, 153);
             TxTId_Cliente.Location = new Point(351, 65);
             TxTId_Cliente.Margin = new Padding(4, 3, 4, 3);
             TxTId_Cliente.Name = "TxTId_Cliente";
             TxTId_Cliente.Size = new Size(21, 23);
             TxTId_Cliente.TabIndex = 17;
             // 
-            // textBox1
+            // TxtDireccion
             // 
-            textBox1.BackColor = Color.MintCream;
-            textBox1.BorderStyle = BorderStyle.FixedSingle;
-            textBox1.ForeColor = SystemColors.ActiveCaptionText;
-            textBox1.Location = new Point(64, 222);
-            textBox1.Margin = new Padding(4, 3, 4, 3);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(284, 23);
-            textBox1.TabIndex = 18;
+            TxtDireccion.BackColor = Color.MintCream;
+            TxtDireccion.BorderStyle = BorderStyle.FixedSingle;
+            TxtDireccion.ForeColor = SystemColors.ActiveCaptionText;
+            TxtDireccion.Location = new Point(64, 222);
+            TxtDireccion.Margin = new Padding(4, 3, 4, 3);
+            TxtDireccion.Name = "TxtDireccion";
+            TxtDireccion.Size = new Size(284, 23);
+            TxtDireccion.TabIndex = 18;
             // 
-            // textBox2
+            // TxtTelefono
             // 
-            textBox2.BackColor = Color.MintCream;
-            textBox2.BorderStyle = BorderStyle.FixedSingle;
-            textBox2.ForeColor = SystemColors.ActiveCaptionText;
-            textBox2.Location = new Point(64, 282);
-            textBox2.Margin = new Padding(4, 3, 4, 3);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(284, 23);
-            textBox2.TabIndex = 19;
+            TxtTelefono.BackColor = Color.MintCream;
+            TxtTelefono.BorderStyle = BorderStyle.FixedSingle;
+            TxtTelefono.ForeColor = SystemColors.ActiveCaptionText;
+            TxtTelefono.Location = new Point(64, 282);
+            TxtTelefono.Margin = new Padding(4, 3, 4, 3);
+            TxtTelefono.Name = "TxtTelefono";
+            TxtTelefono.Size = new Size(284, 23);
+            TxtTelefono.TabIndex = 19;
             // 
-            // textBox3
+            // TxtEmail
             // 
-            textBox3.BackColor = Color.MintCream;
-            textBox3.BorderStyle = BorderStyle.FixedSingle;
-            textBox3.ForeColor = SystemColors.ActiveCaptionText;
-            textBox3.Location = new Point(64, 342);
-            textBox3.Margin = new Padding(4, 3, 4, 3);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(284, 23);
-            textBox3.TabIndex = 20;
+            TxtEmail.BackColor = Color.MintCream;
+            TxtEmail.BorderStyle = BorderStyle.FixedSingle;
+            TxtEmail.ForeColor = SystemColors.ActiveCaptionText;
+            TxtEmail.Location = new Point(64, 342);
+            TxtEmail.Margin = new Padding(4, 3, 4, 3);
+            TxtEmail.Name = "TxtEmail";
+            TxtEmail.Size = new Size(284, 23);
+            TxtEmail.TabIndex = 20;
             // 
             // FrmInsertarClientes
             // 
@@ -218,9 +219,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(47, 62, 153);
             ClientSize = new Size(385, 438);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(TxtEmail);
+            Controls.Add(TxtTelefono);
+            Controls.Add(TxtDireccion);
             Controls.Add(TxTId_Cliente);
             Controls.Add(TxtDocumento);
             Controls.Add(TxtNombre);
@@ -256,8 +257,8 @@
         private System.Windows.Forms.TextBox TxtNombre;
         private System.Windows.Forms.TextBox TxtDocumento;
         private System.Windows.Forms.TextBox TxTId_Cliente;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox TxtDireccion;
+        private System.Windows.Forms.TextBox TxtTelefono;
+        private System.Windows.Forms.TextBox TxtEmail;
     }
 }

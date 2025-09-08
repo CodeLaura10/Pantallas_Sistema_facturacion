@@ -29,19 +29,18 @@
         private void InitializeComponent()
         {
             DGProductos = new DataGridView();
-            Id_Producto = new DataGridViewTextBoxColumn();
-            Nombre_Producto = new DataGridViewTextBoxColumn();
-            Nombre_Categoria = new DataGridViewTextBoxColumn();
-            Precio = new DataGridViewTextBoxColumn();
-            Stock = new DataGridViewTextBoxColumn();
+            StrCodigo = new DataGridViewTextBoxColumn();
+            StrNombre = new DataGridViewTextBoxColumn();
+            IdCategoria = new DataGridViewTextBoxColumn();
+            NumPrecioVenta = new DataGridViewTextBoxColumn();
+            NumStock = new DataGridViewTextBoxColumn();
             BtnEditar = new DataGridViewButtonColumn();
             BtnEliminar = new DataGridViewButtonColumn();
             labelproductos = new Label();
             panel1 = new Panel();
-            textBoxcliente = new TextBox();
+            TxtBuscar = new TextBox();
             panel2 = new Panel();
             BtnNuevoProducto = new Button();
-            BtnBuscar = new Button();
             BtnSalir = new Button();
             ((System.ComponentModel.ISupportInitialize)DGProductos).BeginInit();
             panel1.SuspendLayout();
@@ -52,47 +51,59 @@
             // 
             DGProductos.BackgroundColor = SystemColors.ButtonFace;
             DGProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGProductos.Columns.AddRange(new DataGridViewColumn[] { Id_Producto, Nombre_Producto, Nombre_Categoria, Precio, Stock, BtnEditar, BtnEliminar });
-            DGProductos.Location = new Point(28, 158);
-            DGProductos.Margin = new Padding(4, 3, 4, 3);
+            DGProductos.Columns.AddRange(new DataGridViewColumn[] { StrCodigo, StrNombre, IdCategoria, NumPrecioVenta, NumStock, BtnEditar, BtnEliminar });
+            DGProductos.Location = new Point(32, 211);
+            DGProductos.Margin = new Padding(5, 4, 5, 4);
             DGProductos.Name = "DGProductos";
-            DGProductos.Size = new Size(876, 263);
+            DGProductos.RowHeadersWidth = 51;
+            DGProductos.Size = new Size(1175, 575);
             DGProductos.TabIndex = 5;
             DGProductos.CellContentClick += DGProductos_CellContentClick;
             // 
-            // Id_Producto
+            // StrCodigo
             // 
-            Id_Producto.HeaderText = "ID";
-            Id_Producto.Name = "Id_Producto";
-            Id_Producto.Width = 30;
+            StrCodigo.DataPropertyName = "StrCodigo";
+            StrCodigo.HeaderText = "ID";
+            StrCodigo.MinimumWidth = 6;
+            StrCodigo.Name = "StrCodigo";
+            StrCodigo.Width = 30;
             // 
-            // Nombre_Producto
+            // StrNombre
             // 
-            Nombre_Producto.HeaderText = "PRODUCTO";
-            Nombre_Producto.Name = "Nombre_Producto";
-            Nombre_Producto.Width = 230;
+            StrNombre.DataPropertyName = "StrNombre";
+            StrNombre.HeaderText = "PRODUCTO";
+            StrNombre.MinimumWidth = 6;
+            StrNombre.Name = "StrNombre";
+            StrNombre.Width = 230;
             // 
-            // Nombre_Categoria
+            // IdCategoria
             // 
-            Nombre_Categoria.HeaderText = "CATEGORIA";
-            Nombre_Categoria.Name = "Nombre_Categoria";
-            Nombre_Categoria.Width = 190;
+            IdCategoria.DataPropertyName = "IdCategoria";
+            IdCategoria.HeaderText = "CATEGORIA";
+            IdCategoria.MinimumWidth = 6;
+            IdCategoria.Name = "IdCategoria";
+            IdCategoria.Width = 190;
             // 
-            // Precio
+            // NumPrecioVenta
             // 
-            Precio.HeaderText = "PRECIO";
-            Precio.Name = "Precio";
-            Precio.Width = 130;
+            NumPrecioVenta.DataPropertyName = "NumPrecioVenta";
+            NumPrecioVenta.HeaderText = "PRECIO";
+            NumPrecioVenta.MinimumWidth = 6;
+            NumPrecioVenta.Name = "NumPrecioVenta";
+            NumPrecioVenta.Width = 130;
             // 
-            // Stock
+            // NumStock
             // 
-            Stock.HeaderText = "STOCK";
-            Stock.Name = "Stock";
-            Stock.Width = 120;
+            NumStock.DataPropertyName = "NumStock";
+            NumStock.HeaderText = "STOCK";
+            NumStock.MinimumWidth = 6;
+            NumStock.Name = "NumStock";
+            NumStock.Width = 120;
             // 
             // BtnEditar
             // 
             BtnEditar.HeaderText = "EDITAR";
+            BtnEditar.MinimumWidth = 6;
             BtnEditar.Name = "BtnEditar";
             BtnEditar.Text = "Editar";
             BtnEditar.UseColumnTextForButtonValue = true;
@@ -101,6 +112,7 @@
             // BtnEliminar
             // 
             BtnEliminar.HeaderText = "ELIMINAR";
+            BtnEliminar.MinimumWidth = 6;
             BtnEliminar.Name = "BtnEliminar";
             BtnEliminar.Text = "Eliminar";
             BtnEliminar.UseColumnTextForButtonValue = true;
@@ -111,10 +123,10 @@
             labelproductos.AutoSize = true;
             labelproductos.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelproductos.ForeColor = Color.White;
-            labelproductos.Location = new Point(244, 22);
-            labelproductos.Margin = new Padding(4, 0, 4, 0);
+            labelproductos.Location = new Point(351, 29);
+            labelproductos.Margin = new Padding(5, 0, 5, 0);
             labelproductos.Name = "labelproductos";
-            labelproductos.Size = new Size(445, 29);
+            labelproductos.Size = new Size(546, 36);
             labelproductos.TabIndex = 1;
             labelproductos.Text = "ADMINISTRACIÓN DE PRODUCTOS";
             // 
@@ -123,83 +135,74 @@
             panel1.Controls.Add(labelproductos);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(4, 3, 4, 3);
+            panel1.Margin = new Padding(5, 4, 5, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(933, 76);
+            panel1.Size = new Size(1350, 101);
             panel1.TabIndex = 6;
             // 
-            // textBoxcliente
+            // TxtBuscar
             // 
-            textBoxcliente.BackColor = Color.FromArgb(47, 62, 153);
-            textBoxcliente.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxcliente.ForeColor = SystemColors.Window;
-            textBoxcliente.Location = new Point(27, 12);
-            textBoxcliente.Margin = new Padding(4, 3, 4, 3);
-            textBoxcliente.Name = "textBoxcliente";
-            textBoxcliente.Size = new Size(511, 29);
-            textBoxcliente.TabIndex = 6;
+            TxtBuscar.BackColor = Color.FromArgb(47, 62, 153);
+            TxtBuscar.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TxtBuscar.ForeColor = SystemColors.Window;
+            TxtBuscar.Location = new Point(31, 16);
+            TxtBuscar.Margin = new Padding(5, 4, 5, 4);
+            TxtBuscar.Name = "TxtBuscar";
+            TxtBuscar.Size = new Size(718, 34);
+            TxtBuscar.TabIndex = 6;
+            TxtBuscar.TextChanged += TxtBuscar_TextChanged_1;
             // 
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(47, 62, 153);
             panel2.Controls.Add(BtnNuevoProducto);
-            panel2.Controls.Add(BtnBuscar);
             panel2.Controls.Add(BtnSalir);
-            panel2.Controls.Add(textBoxcliente);
+            panel2.Controls.Add(TxtBuscar);
             panel2.Dock = DockStyle.Top;
             panel2.ForeColor = SystemColors.Info;
-            panel2.Location = new Point(0, 76);
-            panel2.Margin = new Padding(4, 3, 4, 3);
+            panel2.Location = new Point(0, 101);
+            panel2.Margin = new Padding(5, 4, 5, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(933, 55);
+            panel2.Size = new Size(1350, 73);
             panel2.TabIndex = 7;
             // 
             // BtnNuevoProducto
             // 
             BtnNuevoProducto.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnNuevoProducto.ForeColor = SystemColors.Desktop;
-            BtnNuevoProducto.Location = new Point(687, 7);
+            BtnNuevoProducto.Location = new Point(805, 7);
+            BtnNuevoProducto.Margin = new Padding(3, 4, 3, 4);
             BtnNuevoProducto.Name = "BtnNuevoProducto";
-            BtnNuevoProducto.Size = new Size(93, 42);
+            BtnNuevoProducto.Size = new Size(219, 56);
             BtnNuevoProducto.TabIndex = 8;
-            BtnNuevoProducto.Text = "Nuevo";
+            BtnNuevoProducto.Text = "Agregar Producto";
             BtnNuevoProducto.UseVisualStyleBackColor = true;
             BtnNuevoProducto.Click += BtnNuevoProducto_Click;
-            // 
-            // BtnBuscar
-            // 
-            BtnBuscar.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            BtnBuscar.ForeColor = SystemColors.Desktop;
-            BtnBuscar.Location = new Point(560, 7);
-            BtnBuscar.Name = "BtnBuscar";
-            BtnBuscar.Size = new Size(93, 42);
-            BtnBuscar.TabIndex = 7;
-            BtnBuscar.Text = "Buscar";
-            BtnBuscar.UseVisualStyleBackColor = true;
             // 
             // BtnSalir
             // 
             BtnSalir.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnSalir.ForeColor = SystemColors.Desktop;
-            BtnSalir.Location = new Point(819, 7);
+            BtnSalir.Location = new Point(1079, 7);
+            BtnSalir.Margin = new Padding(3, 4, 3, 4);
             BtnSalir.Name = "BtnSalir";
-            BtnSalir.Size = new Size(93, 42);
+            BtnSalir.Size = new Size(106, 56);
             BtnSalir.TabIndex = 6;
             BtnSalir.Text = "Salir";
             BtnSalir.UseVisualStyleBackColor = true;
-            BtnSalir.Click += BtnSalir_Click_1;
+            BtnSalir.Click += BtnSalir_Click;
             // 
             // FrmProductos
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(63, 81, 181);
-            ClientSize = new Size(933, 450);
+            ClientSize = new Size(1350, 823);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(DGProductos);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(4, 3, 4, 3);
+            Margin = new Padding(5, 4, 5, 4);
             Name = "FrmProductos";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmProductos";
@@ -210,7 +213,6 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ResumeLayout(false);
-
         }
 
         #endregion
@@ -220,16 +222,15 @@
         /* private MaterialSkin.Controls.MaterialRaisedButton BtnBuscar;
         private MaterialSkin.Controls.MaterialRaisedButton BtnNuevo;
         private MaterialSkin.Controls.MaterialRaisedButton BtnSalir; */
-        private System.Windows.Forms.TextBox textBoxcliente;
+        private System.Windows.Forms.TextBox TxtBuscar;
         private System.Windows.Forms.Panel panel2;
         private Button BtnSalir;
-        private Button BtnBuscar;
         private Button BtnNuevoProducto;
-        private DataGridViewTextBoxColumn Id_Producto;
-        private DataGridViewTextBoxColumn Nombre_Producto;
-        private DataGridViewTextBoxColumn Nombre_Categoria;
-        private DataGridViewTextBoxColumn Precio;
-        private DataGridViewTextBoxColumn Stock;
+        private DataGridViewTextBoxColumn StrCodigo;
+        private DataGridViewTextBoxColumn StrNombre;
+        private DataGridViewTextBoxColumn IdCategoria;
+        private DataGridViewTextBoxColumn NumPrecioVenta;
+        private DataGridViewTextBoxColumn NumStock;
         private DataGridViewButtonColumn BtnEditar;
         private DataGridViewButtonColumn BtnEliminar;
     }
