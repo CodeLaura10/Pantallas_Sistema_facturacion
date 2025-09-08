@@ -71,7 +71,7 @@ namespace Pantallas_Sistema_facturacion.Seguridad
         // Eliminar empleado
         public static bool Eliminar(int idEmpleado)
         {
-            using SqlConnection conn = new SqlConnection(connectionString);
+            using SqlConnection conn = new SqlConnection(AppConfig.ConnString);
             using SqlCommand cmd = new SqlCommand("Eliminar_Empleado", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
