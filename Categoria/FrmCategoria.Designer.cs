@@ -115,9 +115,9 @@ namespace FrmCategoria
             labelcategoria.Location = new Point(309, 22);
             labelcategoria.Margin = new Padding(4, 0, 4, 0);
             labelcategoria.Name = "labelcategoria";
-            labelcategoria.Size = new Size(447, 29);
+            labelcategoria.Size = new Size(473, 29);
             labelcategoria.TabIndex = 1;
-            labelcategoria.Text = "ADMINISTRACIÓN DE CATEGORIAS";
+            labelcategoria.Text = "ADMINISTRACIÓN DE CATEGORIASss";
             labelcategoria.Click += labelproductos_Click;
             // 
             // DGCategoria
