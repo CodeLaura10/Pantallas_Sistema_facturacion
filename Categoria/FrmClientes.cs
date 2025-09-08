@@ -43,28 +43,27 @@ namespace FrmCategoria
                     MessageBox.Show("El ID del cliente no es válido.");
                     return;
                 }
-                int idcliente = Convert.ToInt32(DGClientes.Rows[e.RowIndex].Cells["IdCliente"].Value);
-                var result = MessageBox.Show($"¿Está seguro de eliminar al cliente con ID {idcliente}?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                int idcliente = Convert.ToInt32(cellValue);
+                var result = MessageBox.Show($"¿Desea eliminar al cliente con ID {idcliente}?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
-                    // Elimina el cliente de la base de datos
                     string connectionString = AppConfig.ConnString;
-                    string query = "DELETE FROM TBLCLIENTES WHERE IdCliente = @IdCliente";
                     try
                     {
+                        // Baja lógica: marcar como inactivo (sin validar facturas asociadas)
                         using (var conn = new SqlConnection(connectionString))
-                        using (var cmd = new SqlCommand(query, conn))
+                        using (var cmd = new SqlCommand("UPDATE TBLCLIENTES SET Activo = 0 WHERE IdCliente = @IdCliente", conn))
                         {
                             cmd.Parameters.AddWithValue("@IdCliente", idcliente);
                             conn.Open();
                             cmd.ExecuteNonQuery();
                         }
                         MessageBox.Show($"Cliente con ID {idcliente} eliminado.");
-                        DGClientes.Rows.RemoveAt(e.RowIndex); // Elimina la fila del DataGridView
+                        llenar_grid(); // Refresca el grid
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Error al eliminar cliente: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Error al elimiar el cliente: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -98,7 +97,9 @@ namespace FrmCategoria
             // Codigo para llenar el DataGridView con los datos de la tabla TBLCLIENTES
             string connectionString = AppConfig.ConnString;
             string query = @"
-                SELECT IdCliente, StrNombre, NumDocumento, StrDireccion, StrTelefono, StrEmail, DtmFechaModifica, StrUsuarioModifica FROM TBLCLIENTES;";
+                SELECT IdCliente, StrNombre, NumDocumento, StrDireccion, StrTelefono, StrEmail, DtmFechaModifica, StrUsuarioModifica 
+                FROM TBLCLIENTES
+                WHERE Activo = 1;";
 
             DataTable dt = new DataTable();
             try
@@ -161,7 +162,9 @@ namespace FrmCategoria
 
             string connectionString = AppConfig.ConnString;
             string query = @"
-                SELECT IdCliente, StrNombre, NumDocumento, StrDireccion, StrTelefono, StrEmail, DtmFechaModifica, StrUsuarioModifica FROM TBLCLIENTES WHERE StrNombre LIKE @Filtro OR NumDocumento LIKE @Filtro;";
+                SELECT IdCliente, StrNombre, NumDocumento, StrDireccion, StrTelefono, StrEmail, DtmFechaModifica, StrUsuarioModifica 
+                FROM TBLCLIENTES 
+                WHERE Activo = 1 AND (StrNombre LIKE @Filtro OR NumDocumento LIKE @Filtro);";
 
             DataTable dt = new DataTable();
             try

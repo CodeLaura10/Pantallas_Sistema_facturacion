@@ -89,16 +89,14 @@ namespace Pantallas_Sistema_facturacion
 
         private void btnFacturacion_Click(object sender, EventArgs e)
         {
-            ToggleSeguridad(false);
-            var fFacturas = new frmFacturas();
-            fFacturas.ShowDialog();
+            ToggleSeguridad(true);
+            AbrirEnPanel(new frmFacturas(), pnlEmpleados);
         }
 
         private void btnInformes_Click(object sender, EventArgs e)
         {
-            ToggleSeguridad(false);
-            var fInformes = new frmInformes();
-            fInformes.ShowDialog();
+            ToggleSeguridad(true);
+            AbrirEnPanel(new frmInformes(), pnlEmpleados);
         }
 
         // --- SEGURIDAD (embebido en pnlEmpleados) ---
@@ -141,16 +139,14 @@ namespace Pantallas_Sistema_facturacion
 
         private void btnAyuda_Click(object sender, EventArgs e)
         {
-            ToggleSeguridad(false);
-            var frmAyuda = new frmAyuda();
-            frmAyuda.ShowDialog();
+            ToggleSeguridad(true);
+            AbrirEnPanel(new frmAyuda(), pnlEmpleados);
         }
 
         private void btnAcerca_Click(object sender, EventArgs e)
         {
-            ToggleSeguridad(false);
-            var frmAcerca = new frmAcerca();
-            frmAcerca.ShowDialog();
+            ToggleSeguridad(true);
+            AbrirEnPanel(new frmAcerca(), pnlEmpleados);
         }
 
         private void BtnSalir_Click(object sender, EventArgs e)
