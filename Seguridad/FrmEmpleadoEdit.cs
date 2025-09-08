@@ -16,7 +16,7 @@ namespace Pantallas_Sistema_facturacion.Seguridad
         public string Telefono => txtTelefono.Text.Trim();
         public string Correo => txtCorreo.Text.Trim();
         public string Direccion => txtDireccion.Text.Trim();
-
+         
         public int? IdRolEmpleado
         {
             get
