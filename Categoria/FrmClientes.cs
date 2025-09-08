@@ -22,7 +22,7 @@ namespace FrmCategoria
                 var cellValue = DGClientes.Rows[e.RowIndex].Cells["IdCliente"].Value;
                 if (cellValue == null || cellValue == DBNull.Value)
                 {
-                    MessageBox.Show("El ID del cliente no es válido.");
+                    MessageBox.Show("El ID del cliente no es válido. ");
                     return;
                 }
                 int idcliente = Convert.ToInt32(cellValue);
