@@ -114,7 +114,7 @@
             pnlEmpleados.Size = new Size(1181, 617);
             pnlEmpleados.TabIndex = 2;
             pnlEmpleados.Visible = false;
-            pnlEmpleados.Paint += pnlEmpleados_Paint;
+            //pnlEmpleados.Paint += pnlEmpleados_Paint;
             // 
             // panelContenedor
             // 
