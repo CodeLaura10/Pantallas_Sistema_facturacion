@@ -57,7 +57,7 @@ Además, se hace uso de **procedimientos almacenados** para operaciones seguras 
 - Validaciones de campos (email, contraseña, nombre).
 - El formulario de seguridad permite asignar o cambiar credenciales de forma controlada.
 
-> ⚠️ **Recomendación**: Excluir los archivos que contienen cadenas de conexión (`AppConfig.cs`, `appsettings.json`, etc.) con un archivo `.gitignore` para evitar exposición de credenciales.
+> ⚠️ **Obervación**: Excluidos los archivos que contienen cadenas de conexión (`AppConfig.cs`, `appsettings.json`, etc.) con un archivo `.gitignore` para evitar exposición de credenciales.
 
 ## 👨‍💻 Equipo de desarrollo
 
