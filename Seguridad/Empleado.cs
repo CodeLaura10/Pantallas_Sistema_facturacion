@@ -16,5 +16,7 @@ namespace Pantallas_Sistema_facturacion.Seguridad
         public string Direccion { get; set; } = "";
         public int? IdRolEmpleado { get; set; }
         public string NombreRol { get; set; } = "";
+
+        public bool Activo { get; set; } = true;
     }
 }

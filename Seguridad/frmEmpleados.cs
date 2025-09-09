@@ -52,26 +52,28 @@ namespace Pantallas_Sistema_facturacion.Seguridad
         private void AsegurarColumnas()
         {
             // Mapea columnas de datos a las propiedades del modelo Empleado
-            var colId = dgvEmpleados.Columns["ID"];
-            if (colId != null) colId.DataPropertyName = "Id";
+                 
+             
+                var colId = dgvEmpleados.Columns["ID"];
+                if (colId != null) colId.DataPropertyName = "Id";
 
-            var colNombre = dgvEmpleados.Columns["CLIENTE"];
-            if (colNombre != null) colNombre.DataPropertyName = "Nombre";
+                var colNombre = dgvEmpleados.Columns["CLIENTE"];
+                if (colNombre != null) colNombre.DataPropertyName = "Nombre";
 
-            var colDoc = dgvEmpleados.Columns["DOCUMENTO"];
-            if (colDoc != null) colDoc.DataPropertyName = "Documento";
+                var colDoc = dgvEmpleados.Columns["DOCUMENTO"];
+                if (colDoc != null) colDoc.DataPropertyName = "Documento";
 
-            var colTel = dgvEmpleados.Columns["TELEFONO"];
-            if (colTel != null) colTel.DataPropertyName = "Telefono";
+                var colTel = dgvEmpleados.Columns["TELEFONO"];
+                if (colTel != null) colTel.DataPropertyName = "Telefono";
 
-            var colCorreo = dgvEmpleados.Columns["CORREO"];
-            if (colCorreo != null) colCorreo.DataPropertyName = "Correo";
+                var colCorreo = dgvEmpleados.Columns["CORREO"];
+                if (colCorreo != null) colCorreo.DataPropertyName = "Correo";
 
-            var colDir = dgvEmpleados.Columns["DIRECCION"];
-            if (colDir != null) colDir.DataPropertyName = "Direccion";
+                var colDir = dgvEmpleados.Columns["DIRECCION"];
+                if (colDir != null) colDir.DataPropertyName = "Direccion";
 
-            var colRol = dgvEmpleados.Columns["ROL"];
-            if (colRol != null) colRol.DataPropertyName = "NombreRol";
+                var colRol = dgvEmpleados.Columns["ROL"];
+                if (colRol != null) colRol.DataPropertyName = "NombreRol";
 
             // Asegura que colEditar sea un botón con texto "Editar"
             var colEditar = dgvEmpleados.Columns["colEditar"];
@@ -175,12 +177,12 @@ namespace Pantallas_Sistema_facturacion.Seguridad
 
                 if (eliminado)
                 {
-                    MessageBox.Show("No se encontró el registro en la base de datos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Empleado eliminado.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     RefrescarConFiltroActual();
                 }
                 else
                 {
-                    MessageBox.Show("Empleado eliminado.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("No se encontró el registro en la base de datos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     RefrescarConFiltroActual();
                 }
             }
