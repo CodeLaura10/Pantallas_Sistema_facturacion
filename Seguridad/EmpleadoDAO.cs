@@ -15,11 +15,13 @@ namespace Pantallas_Sistema_facturacion.Seguridad
             var lista = new List<Empleado>();
 
             using SqlConnection conn = new SqlConnection(connectionString);
+        
             string query = @"
             SELECT e.IdEmpleado, e.strNombre, e.NumDocumento, e.StrTelefono, e.StrEmail,
-               e.StrDireccion, e.IdRolEmpleado, r.NombreRol
+                   e.StrDireccion, e.IdRolEmpleado, r.NombreRol
             FROM dbo.TBLEMPLEADO e
             LEFT JOIN dbo.TBLROLES r ON e.IdRolEmpleado = r.IdRolEmpleado
+            WHERE e.Activo = 1
             ORDER BY e.strNombre";
 
             using SqlCommand cmd = new SqlCommand(query, conn);
@@ -72,8 +74,11 @@ namespace Pantallas_Sistema_facturacion.Seguridad
         public static bool Eliminar(int idEmpleado)
         {
             using SqlConnection conn = new SqlConnection(AppConfig.ConnString);
-            using SqlCommand cmd = new SqlCommand("Eliminar_Empleado", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
+            using SqlCommand cmd = new SqlCommand(@"
+            UPDATE dbo.TBLEMPLEADO
+            SET Activo = 0
+            WHERE IdEmpleado = @IdEmpleado", conn);
+
 
             cmd.Parameters.AddWithValue("@IdEmpleado", idEmpleado);
             conn.Open();
