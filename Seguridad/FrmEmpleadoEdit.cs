@@ -2,11 +2,13 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using Capa_Negocio;
 
 namespace Pantallas_Sistema_facturacion.Seguridad
 {
     public partial class FrmEmpleadoEdit : Form
     {
+        BLLEmpleados objetoCN = new BLLEmpleados();
         private readonly Empleado _original;
         private readonly ErrorProvider errorProvider1;
 
@@ -16,7 +18,7 @@ namespace Pantallas_Sistema_facturacion.Seguridad
         public string Telefono => txtTelefono.Text.Trim();
         public string Correo => txtCorreo.Text.Trim();
         public string Direccion => txtDireccion.Text.Trim();
-         
+
         public int? IdRolEmpleado
         {
             get
@@ -182,9 +184,47 @@ namespace Pantallas_Sistema_facturacion.Seguridad
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (!Validar()) return;
-            DialogResult = DialogResult.OK; // ⇦ el padre llama ToEmpleado() y guarda
-            Close();
+            try
+            {
+                //Validación de controles
+                if (txtNombre.Text == "")
+                {
+                    MessageBox.Show("Falta Ingresar el Usuario", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtNombre.Focus();
+                    return;
+                }
+                if (txtDocumento.Text == "")
+                {
+                    MessageBox.Show("Falta Ingresar la Contraseña", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtDocumento.Focus();
+                    return;
+                }
+                if (txtTelefono.Text == "")
+                {
+                    MessageBox.Show("Falta Ingresar la Contraseña", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtTelefono.Focus();
+                    return;
+                }
+                if (txtCorreo.Text == "")
+                {
+                    MessageBox.Show("Falta Ingresar el Nro de Intentos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtCorreo.Focus();
+                    return;
+                }
+                if (txtDireccion.Text == "")
+                {
+                    MessageBox.Show("Falta Ingresar el Nivel de Seguridad", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtDireccion.Focus();
+                    return;
+                }
+
+                objetoCN.Create(txtNombre.Text, Convert.ToInt32(txtDocumento.Text), txtDireccion.Text, txtTelefono.Text, txtCorreo.Text, 1, DateTime.Now, DateTime.Now, "prueba", DateTime.Now, "prueba usuario", Convert.ToBoolean(1));
+                MessageBox.Show("Se guardo correctamente");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo insertar los datos, se encontro el siguiente error : " + ex);
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -197,6 +237,16 @@ namespace Pantallas_Sistema_facturacion.Seguridad
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
                 e.Handled = true;
+        }
+
+        private void cboRol_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNombre_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
