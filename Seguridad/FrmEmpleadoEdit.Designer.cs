@@ -45,9 +45,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
-            label1.Location = new Point(249, 31);
+            label1.Location = new Point(218, 23);
             label1.Name = "label1";
-            label1.Size = new Size(192, 25);
+            label1.Size = new Size(157, 20);
             label1.TabIndex = 0;
             label1.Text = "INGRESA LOS DATOS";
             // 
@@ -60,7 +60,8 @@
             txtNombre.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtNombre.HideSelection = true;
             txtNombre.LeadingIcon = null;
-            txtNombre.Location = new Point(184, 112);
+            txtNombre.Location = new Point(161, 84);
+            txtNombre.Margin = new Padding(3, 2, 3, 2);
             txtNombre.MaxLength = 32767;
             txtNombre.MouseState = MaterialSkin.MouseState.OUT;
             txtNombre.Name = "txtNombre";
@@ -72,12 +73,13 @@
             txtNombre.SelectionLength = 0;
             txtNombre.SelectionStart = 0;
             txtNombre.ShortcutsEnabled = true;
-            txtNombre.Size = new Size(312, 48);
+            txtNombre.Size = new Size(273, 48);
             txtNombre.TabIndex = 1;
             txtNombre.TabStop = false;
             txtNombre.TextAlign = HorizontalAlignment.Left;
             txtNombre.TrailingIcon = null;
             txtNombre.UseSystemPasswordChar = false;
+            txtNombre.Click += txtNombre_Click;
             // 
             // txtDocumento
             // 
@@ -88,7 +90,8 @@
             txtDocumento.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtDocumento.HideSelection = true;
             txtDocumento.LeadingIcon = null;
-            txtDocumento.Location = new Point(184, 201);
+            txtDocumento.Location = new Point(161, 151);
+            txtDocumento.Margin = new Padding(3, 2, 3, 2);
             txtDocumento.MaxLength = 32767;
             txtDocumento.MouseState = MaterialSkin.MouseState.OUT;
             txtDocumento.Name = "txtDocumento";
@@ -100,7 +103,7 @@
             txtDocumento.SelectionLength = 0;
             txtDocumento.SelectionStart = 0;
             txtDocumento.ShortcutsEnabled = true;
-            txtDocumento.Size = new Size(312, 48);
+            txtDocumento.Size = new Size(273, 48);
             txtDocumento.TabIndex = 2;
             txtDocumento.TabStop = false;
             txtDocumento.TextAlign = HorizontalAlignment.Left;
@@ -116,7 +119,8 @@
             txtTelefono.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtTelefono.HideSelection = true;
             txtTelefono.LeadingIcon = null;
-            txtTelefono.Location = new Point(184, 293);
+            txtTelefono.Location = new Point(161, 220);
+            txtTelefono.Margin = new Padding(3, 2, 3, 2);
             txtTelefono.MaxLength = 32767;
             txtTelefono.MouseState = MaterialSkin.MouseState.OUT;
             txtTelefono.Name = "txtTelefono";
@@ -128,7 +132,7 @@
             txtTelefono.SelectionLength = 0;
             txtTelefono.SelectionStart = 0;
             txtTelefono.ShortcutsEnabled = true;
-            txtTelefono.Size = new Size(312, 48);
+            txtTelefono.Size = new Size(273, 48);
             txtTelefono.TabIndex = 3;
             txtTelefono.TabStop = false;
             txtTelefono.TextAlign = HorizontalAlignment.Left;
@@ -142,8 +146,8 @@
             btnGuardar.Depth = 0;
             btnGuardar.HighEmphasis = true;
             btnGuardar.Icon = null;
-            btnGuardar.Location = new Point(233, 657);
-            btnGuardar.Margin = new Padding(4, 6, 4, 6);
+            btnGuardar.Location = new Point(204, 493);
+            btnGuardar.Margin = new Padding(4);
             btnGuardar.MouseState = MaterialSkin.MouseState.HOVER;
             btnGuardar.Name = "btnGuardar";
             btnGuardar.NoAccentTextColor = Color.Empty;
@@ -161,8 +165,8 @@
             btnCancelar.Depth = 0;
             btnCancelar.HighEmphasis = true;
             btnCancelar.Icon = null;
-            btnCancelar.Location = new Point(359, 657);
-            btnCancelar.Margin = new Padding(4, 6, 4, 6);
+            btnCancelar.Location = new Point(314, 493);
+            btnCancelar.Margin = new Padding(4);
             btnCancelar.MouseState = MaterialSkin.MouseState.HOVER;
             btnCancelar.Name = "btnCancelar";
             btnCancelar.NoAccentTextColor = Color.Empty;
@@ -178,7 +182,7 @@
             materialLabel1.AutoSize = true;
             materialLabel1.Depth = 0;
             materialLabel1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel1.Location = new Point(184, 90);
+            materialLabel1.Location = new Point(161, 68);
             materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel1.Name = "materialLabel1";
             materialLabel1.Size = new Size(127, 19);
@@ -190,7 +194,7 @@
             materialLabel2.AutoSize = true;
             materialLabel2.Depth = 0;
             materialLabel2.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel2.Location = new Point(184, 179);
+            materialLabel2.Location = new Point(161, 134);
             materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel2.Name = "materialLabel2";
             materialLabel2.Size = new Size(83, 19);
@@ -202,7 +206,7 @@
             materialLabel3.AutoSize = true;
             materialLabel3.Depth = 0;
             materialLabel3.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel3.Location = new Point(184, 271);
+            materialLabel3.Location = new Point(161, 203);
             materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel3.Name = "materialLabel3";
             materialLabel3.Size = new Size(64, 19);
@@ -214,7 +218,7 @@
             materialLabel4.AutoSize = true;
             materialLabel4.Depth = 0;
             materialLabel4.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel4.Location = new Point(184, 363);
+            materialLabel4.Location = new Point(161, 272);
             materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel4.Name = "materialLabel4";
             materialLabel4.Size = new Size(128, 19);
@@ -230,7 +234,8 @@
             txtCorreo.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtCorreo.HideSelection = true;
             txtCorreo.LeadingIcon = null;
-            txtCorreo.Location = new Point(184, 385);
+            txtCorreo.Location = new Point(161, 289);
+            txtCorreo.Margin = new Padding(3, 2, 3, 2);
             txtCorreo.MaxLength = 32767;
             txtCorreo.MouseState = MaterialSkin.MouseState.OUT;
             txtCorreo.Name = "txtCorreo";
@@ -242,7 +247,7 @@
             txtCorreo.SelectionLength = 0;
             txtCorreo.SelectionStart = 0;
             txtCorreo.ShortcutsEnabled = true;
-            txtCorreo.Size = new Size(312, 48);
+            txtCorreo.Size = new Size(273, 48);
             txtCorreo.TabIndex = 10;
             txtCorreo.TabStop = false;
             txtCorreo.TextAlign = HorizontalAlignment.Left;
@@ -254,7 +259,7 @@
             materialLabel5.AutoSize = true;
             materialLabel5.Depth = 0;
             materialLabel5.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel5.Location = new Point(184, 454);
+            materialLabel5.Location = new Point(161, 340);
             materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel5.Name = "materialLabel5";
             materialLabel5.Size = new Size(67, 19);
@@ -270,7 +275,8 @@
             txtDireccion.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtDireccion.HideSelection = true;
             txtDireccion.LeadingIcon = null;
-            txtDireccion.Location = new Point(184, 476);
+            txtDireccion.Location = new Point(161, 357);
+            txtDireccion.Margin = new Padding(3, 2, 3, 2);
             txtDireccion.MaxLength = 32767;
             txtDireccion.MouseState = MaterialSkin.MouseState.OUT;
             txtDireccion.Name = "txtDireccion";
@@ -282,7 +288,7 @@
             txtDireccion.SelectionLength = 0;
             txtDireccion.SelectionStart = 0;
             txtDireccion.ShortcutsEnabled = true;
-            txtDireccion.Size = new Size(312, 48);
+            txtDireccion.Size = new Size(273, 48);
             txtDireccion.TabIndex = 12;
             txtDireccion.TabStop = false;
             txtDireccion.TextAlign = HorizontalAlignment.Left;
@@ -304,20 +310,22 @@
             cboRol.IntegralHeight = false;
             cboRol.ItemHeight = 43;
             cboRol.Items.AddRange(new object[] { "Gerente", "Secretaría", "Operario", "Administrativo" });
-            cboRol.Location = new Point(184, 567);
+            cboRol.Location = new Point(161, 425);
+            cboRol.Margin = new Padding(3, 2, 3, 2);
             cboRol.MaxDropDownItems = 4;
             cboRol.MouseState = MaterialSkin.MouseState.OUT;
             cboRol.Name = "cboRol";
-            cboRol.Size = new Size(151, 49);
+            cboRol.Size = new Size(133, 49);
             cboRol.StartIndex = 0;
             cboRol.TabIndex = 13;
+            cboRol.SelectedIndexChanged += cboRol_SelectedIndexChanged;
             // 
             // materialLabel6
             // 
             materialLabel6.AutoSize = true;
             materialLabel6.Depth = 0;
             materialLabel6.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel6.Location = new Point(184, 545);
+            materialLabel6.Location = new Point(161, 409);
             materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel6.Name = "materialLabel6";
             materialLabel6.Size = new Size(24, 19);
@@ -327,10 +335,10 @@
             // FrmEmpleadoEdit
             // 
             AcceptButton = btnGuardar;
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = btnCancelar;
-            ClientSize = new Size(703, 739);
+            ClientSize = new Size(615, 554);
             Controls.Add(materialLabel6);
             Controls.Add(cboRol);
             Controls.Add(txtDireccion);
@@ -347,6 +355,7 @@
             Controls.Add(txtNombre);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FrmEmpleadoEdit";

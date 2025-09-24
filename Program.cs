@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Text;
 using MaterialSkin.Properties;
 using MaterialSkin.Animations;
+using Pantallas_Sistema_facturacion.Seguridad;
 
 namespace Pantallas_Sistema_facturacion;
 
