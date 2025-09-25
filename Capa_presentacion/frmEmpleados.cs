@@ -1,13 +1,17 @@
-﻿using System;
+﻿using Capa_Negocio;
+using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using System.Data;
 
 namespace Pantallas_Sistema_facturacion.Seguridad
 {
     public partial class frmEmpleados : Form
     {
+        BLLEmpleados objetoCN = new BLLEmpleados();
+        private int idEmpleado = 0;
         // Fuente de datos para enlazar el DataGridView
         private readonly BindingSource _bs = new BindingSource();
 
@@ -45,6 +49,8 @@ namespace Pantallas_Sistema_facturacion.Seguridad
         {
             // Limpia el texto por defecto del campo de búsqueda
             txtBuscarEmpleados.Text = string.Empty;
+            dgvEmpleados.AutoGenerateColumns = true;
+
 
             // Carga inicial: muestra todos los registros
             Cargar(null);
@@ -52,28 +58,28 @@ namespace Pantallas_Sistema_facturacion.Seguridad
         private void AsegurarColumnas()
         {
             // Mapea columnas de datos a las propiedades del modelo Empleado
-                 
-             
-                var colId = dgvEmpleados.Columns["ID"];
-                if (colId != null) colId.DataPropertyName = "Id";
 
-                var colNombre = dgvEmpleados.Columns["CLIENTE"];
-                if (colNombre != null) colNombre.DataPropertyName = "Nombre";
 
-                var colDoc = dgvEmpleados.Columns["DOCUMENTO"];
-                if (colDoc != null) colDoc.DataPropertyName = "Documento";
+            var colId = dgvEmpleados.Columns["IdEmpleado"];
+            if (colId != null) colId.DataPropertyName = "IdEmpleado";
 
-                var colTel = dgvEmpleados.Columns["TELEFONO"];
-                if (colTel != null) colTel.DataPropertyName = "Telefono";
+            var colNombre = dgvEmpleados.Columns["strNombre"];
+            if (colNombre != null) colNombre.DataPropertyName = "strNombre";
 
-                var colCorreo = dgvEmpleados.Columns["CORREO"];
-                if (colCorreo != null) colCorreo.DataPropertyName = "Correo";
+            var colDoc = dgvEmpleados.Columns["NumDocumento"];
+            if (colDoc != null) colDoc.DataPropertyName = "NumDocumento";
 
-                var colDir = dgvEmpleados.Columns["DIRECCION"];
-                if (colDir != null) colDir.DataPropertyName = "Direccion";
+            var colTel = dgvEmpleados.Columns["StrTelefono"];
+            if (colTel != null) colTel.DataPropertyName = "StrTelefono";
 
-                var colRol = dgvEmpleados.Columns["ROL"];
-                if (colRol != null) colRol.DataPropertyName = "NombreRol";
+            var colCorreo = dgvEmpleados.Columns["StrEmail"];
+            if (colCorreo != null) colCorreo.DataPropertyName = "StrEmail";
+
+            var colDir = dgvEmpleados.Columns["StrDireccion"];
+            if (colDir != null) colDir.DataPropertyName = "StrDireccion";
+
+            var colRol = dgvEmpleados.Columns["IdRolEmpleado"];
+            if (colRol != null) colRol.DataPropertyName = "IdRolEmpleado";
 
             // Asegura que colEditar sea un botón con texto "Editar"
             var colEditar = dgvEmpleados.Columns["colEditar"];
@@ -125,18 +131,19 @@ namespace Pantallas_Sistema_facturacion.Seguridad
         }
         private void Cargar(string? filtro)
         {
-            if (string.IsNullOrWhiteSpace(filtro))
+            DataTable dt = objetoCN.View();
+
+            if (!string.IsNullOrWhiteSpace(filtro))
             {
-                // Enlaza la lista maestra para reflejar altas/ediciones en vivo
-                _bs.DataSource = EmpleadoDAO.ObtenerTodos();
+                // Filtrado en memoria usando DataTable
+                var dv = dt.DefaultView;
+                // Ajusta el nombre de la columna según tu base de datos (ejemplo: "strNombre")
+                dv.RowFilter = $"strNombre LIKE '%{filtro.Replace("'", "''")}%'";
+                dgvEmpleados.DataSource = dv;
             }
             else
             {
-                // Aplica filtro por nombre (ignorando mayúsculas/minúsculas)
-                _bs.DataSource = new BindingList<Empleado>(
-                EmpleadoDAO.ObtenerTodos().Where(e =>
-                e.Nombre.Contains(filtro, StringComparison.OrdinalIgnoreCase)).ToList()
-                );
+                dgvEmpleados.DataSource = dt;
             }
         }
         private void NuevoEmpleado()
@@ -160,37 +167,32 @@ namespace Pantallas_Sistema_facturacion.Seguridad
                 RefrescarConFiltroActual();
             }
         }
-        private void BorrarEmpleado(Empleado emp)
+        
+
+        void BorrarEmpleado(int idEmpleado)
         {
             var r = MessageBox.Show(
-            $"¿Eliminar a {emp.Nombre}?",
-            "Confirmar",
-            MessageBoxButtons.YesNo,
-            MessageBoxIcon.Warning);
+                $"¿Eliminar el empleado con Id {idEmpleado}?",
+                "Confirmar",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
 
             if (r != DialogResult.Yes) return;
 
             try
             {
-                // Intenta eliminar desde BD
-                bool eliminado = EmpleadoDAO.Eliminar(emp.Id);
-
-                if (eliminado)
-                {
-                    MessageBox.Show("Empleado eliminado.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    RefrescarConFiltroActual();
-                }
-                else
-                {
-                    MessageBox.Show("No se encontró el registro en la base de datos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    RefrescarConFiltroActual();
-                }
+                objetoCN.Delete(idEmpleado);
+                MessageBox.Show("Empleado eliminado.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Cargar(null);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error eliminando: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
+
 
         private void RefrescarConFiltroActual()
         {
@@ -207,23 +209,27 @@ namespace Pantallas_Sistema_facturacion.Seguridad
         // Handler del grid para botones Editar/Borrar (cableado en el diseñador)
         private void dgvEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Ignora encabezados o clics en columnas que no son de botón
             if (e.RowIndex < 0) return;
             var col = dgvEmpleados.Columns[e.ColumnIndex] as DataGridViewButtonColumn;
             if (col == null) return;
 
-            // Obtiene el objeto enlazado a la fila
-            var emp = dgvEmpleados.Rows[e.RowIndex].DataBoundItem as Empleado;
-            if (emp == null) return;
+            // Obtén el IdEmpleado de la fila seleccionada
+            var row = dgvEmpleados.Rows[e.RowIndex];
+            int idEmpleado = Convert.ToInt32(row.Cells["IdEmpleado"].Value);
 
-            // Decide la acción según la columna
             if (col.Name == "colEditar")
-                EditarEmpleado(emp);
+            {
+                // Aquí deberías cargar el empleado por Id si necesitas editar
+                // Ejemplo: EditarEmpleado(idEmpleado);
+            }
             else if (col.Name == "colBorrar")
-                BorrarEmpleado(emp);
+            {
+                BorrarEmpleado(idEmpleado);
+            }
         }
 
         // Evento del label generado por el diseñador (sin lógica)
         private void materialLabel1_Click(object sender, EventArgs e) { }
+      
     }
 }

@@ -48,8 +48,4 @@
     <Folder Include="ConfigDB\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Capa_Negocio\Capa_Negocio.csproj" />
-  </ItemGroup>
-
 </Project>
