@@ -29,7 +29,7 @@
             btnBuscarEmpleados = new MaterialSkin.Controls.MaterialButton();
             dgvEmpleados = new DataGridView();
             btnNuevoEmpleado = new MaterialSkin.Controls.MaterialButton();
-            ID = new DataGridViewTextBoxColumn();
+            IdEmpleado = new DataGridViewTextBoxColumn();
             CLIENTE = new DataGridViewTextBoxColumn();
             DOCUMENTO = new DataGridViewTextBoxColumn();
             TELEFONO = new DataGridViewTextBoxColumn();
@@ -107,7 +107,7 @@
             dgvEmpleados.BackgroundColor = SystemColors.Control;
             dgvEmpleados.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dgvEmpleados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvEmpleados.Columns.AddRange(new DataGridViewColumn[] { ID, CLIENTE, DOCUMENTO, TELEFONO, CORREO, DIRECCIÓN, ROL, colEditar, colBorrar });
+            dgvEmpleados.Columns.AddRange(new DataGridViewColumn[] { IdEmpleado, CLIENTE, DOCUMENTO, TELEFONO, CORREO, DIRECCIÓN, ROL, colEditar, colBorrar });
             dgvEmpleados.Location = new Point(55, 209);
             dgvEmpleados.Name = "dgvEmpleados";
             dgvEmpleados.RowHeadersWidth = 51;
@@ -135,17 +135,17 @@
             btnNuevoEmpleado.UseVisualStyleBackColor = true;
             btnNuevoEmpleado.Click += btnNuevoEmpleado_Click;
             // 
-            // ID
+            // IdEmpleado
             // 
-            ID.DataPropertyName = "Id";
-            ID.HeaderText = "ID";
-            ID.MinimumWidth = 6;
-            ID.Name = "ID";
-            ID.Width = 80;
+            IdEmpleado.DataPropertyName = "IdEmpleado";
+            IdEmpleado.HeaderText = "ID";
+            IdEmpleado.MinimumWidth = 6;
+            IdEmpleado.Name = "IdEmpleado";
+            IdEmpleado.Width = 80;
             // 
             // CLIENTE
             // 
-            CLIENTE.DataPropertyName = "Nombre";
+            CLIENTE.DataPropertyName = "strNombre";
             CLIENTE.HeaderText = "NOMBRE";
             CLIENTE.MinimumWidth = 6;
             CLIENTE.Name = "CLIENTE";
@@ -153,7 +153,7 @@
             // 
             // DOCUMENTO
             // 
-            DOCUMENTO.DataPropertyName = "Documento";
+            DOCUMENTO.DataPropertyName = "NumDocumento";
             DOCUMENTO.HeaderText = "DOCUMENTO";
             DOCUMENTO.MinimumWidth = 6;
             DOCUMENTO.Name = "DOCUMENTO";
@@ -161,7 +161,7 @@
             // 
             // TELEFONO
             // 
-            TELEFONO.DataPropertyName = "Telefono";
+            TELEFONO.DataPropertyName = "StrTelefono";
             TELEFONO.HeaderText = "TELÉFONO";
             TELEFONO.MinimumWidth = 6;
             TELEFONO.Name = "TELEFONO";
@@ -169,7 +169,7 @@
             // 
             // CORREO
             // 
-            CORREO.DataPropertyName = "Correo";
+            CORREO.DataPropertyName = "StrEmail";
             CORREO.HeaderText = "CORREO";
             CORREO.MinimumWidth = 6;
             CORREO.Name = "CORREO";
@@ -177,7 +177,7 @@
             // 
             // DIRECCIÓN
             // 
-            DIRECCIÓN.DataPropertyName = "Direccion";
+            DIRECCIÓN.DataPropertyName = "StrDireccion";
             DIRECCIÓN.HeaderText = "DIRECCIÓN";
             DIRECCIÓN.MinimumWidth = 6;
             DIRECCIÓN.Name = "DIRECCIÓN";
@@ -185,7 +185,7 @@
             // 
             // ROL
             // 
-            ROL.DataPropertyName = "Rol";
+            ROL.DataPropertyName = "IdRolEmpleado";
             ROL.HeaderText = "ROL";
             ROL.MinimumWidth = 6;
             ROL.Name = "ROL";
@@ -235,7 +235,7 @@
         private MaterialSkin.Controls.MaterialButton btnBuscarEmpleados;
         private System.Windows.Forms.DataGridView dgvEmpleados;
         private MaterialSkin.Controls.MaterialButton btnNuevoEmpleado;
-        private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn IdEmpleado;
         private DataGridViewTextBoxColumn CLIENTE;
         private DataGridViewTextBoxColumn DOCUMENTO;
         private DataGridViewTextBoxColumn TELEFONO;
