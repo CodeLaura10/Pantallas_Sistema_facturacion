@@ -111,7 +111,7 @@ namespace FrmCategoria
             // dataGridViewImageColumn1
             // 
             dataGridViewImageColumn1.HeaderText = "EDITAR";
-            dataGridViewImageColumn1.Image = Resources.a37f4ed0_67cf_472a_9bb5_b12abbedaaed;
+            //dataGridViewImageColumn1.Image = Resources.a37f4ed0_67cf_472a_9bb5_b12abbedaaed;
             dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             // 
             // dataGridViewImageColumn2
