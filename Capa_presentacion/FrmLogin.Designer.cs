@@ -1,4 +1,6 @@
-﻿namespace Pantallas_Sistema_facturacion
+﻿using System.IO;
+
+namespace Pantallas_Sistema_facturacion
 {
     partial class FrmLogin
     {
@@ -53,7 +55,7 @@
             // pictureBox1
             // 
             pictureBox1.Dock = DockStyle.Fill;
-            pictureBox1.Image = Properties.Resources.login;
+            pictureBox1.Image = Image.FromFile(@"..\..\..\Capa_presentacion\Resources\login.png");
             pictureBox1.Location = new Point(0, 0);
             pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
